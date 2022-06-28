@@ -42,6 +42,7 @@ Adopción:
 //QUESTION: El expediente médico cómo se genera? Va un médico a revisar qué onda y les da el diagnóstico? O es cuando llegan?
 //QUESTION: La cartilla de vacunación es la misma para todos los perros y gatos?
 //QUESTION: Cómo funciona lo de tratamiento? Cada cuánto les dan citas? Cómo guardan las citas? Necesitan guardar las citas? O el doctor va a la veterinaria?
-//QUESTION: Para qué necesitan el calendario? Cómo debería funcionar? Es realmente necesario?
+//QUESTION: Para qué necesitan el calendario? Cómo debería funcionar? 
 //QUESTION: En el calendario, se le agenda a cada perro individualmente su cita? O no sería mejor programar la visita general del veterinario, y después manualmente ir añadiendo a los perros afectados?
+//QUESTION: Lo del calendario y agendar citas es muy necesario? XD estoy viendo que se complica bastante añadir eso.
  */
