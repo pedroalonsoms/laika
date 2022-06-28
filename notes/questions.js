@@ -24,7 +24,7 @@ Adopción:
 --DATOS DE ANIMALES
 //QUESTION: Cuáles son los tipos de animales que maneja? Gatos y perros solamente?
 //QUESTION: Cómo se asigna el nombre del perro? Por qué hay dos nombres? Cuál es la diferencia entre nombre rescatado y nombre adoptado?
-//QUESTION: Cuál es la diferencia entre PETCO ID y ID? Cómo realmente identifican ustedes a un perro? Recuerdan el nombre de cada perro?
+//QUESTION: Cuál es la diferencia entre PETCO ID y ID? Cómo realmente identifican ustedes a un perro? Recuerdan el nombre de cada perro? Tienen un collar para cada perro?
 //QUESTION: Pueden recoger perros fallecidos?
 //QUESTION: Para qué es la dirección al registrar un perro? La utilizan realmente? Solamente veo Culiacán en ese campo.
 //QUESTION: En la edad tiene que ir la edad que tiene el perro actualmente o la edad en la que fue adoptado?
@@ -43,8 +43,17 @@ Adopción:
 -- DATOS MÉDICOS
 //QUESTION: El expediente médico cómo se genera? Va un médico a revisar qué onda y les da el diagnóstico? O es cuando llegan?
 //QUESTION: La cartilla de vacunación es la misma para todos los perros y gatos?
+Perros: Puppy, Refuerzo Puppy, Multiple, Refuerzo Multiple, Rabia
+Gatos: Triple Viral Felina, Refuerzo TV Felina, Leucemia, Desparasitación, Rabia
+
+//QUESTION: La desparasitación es vacuna?
+//QUESTION: Los rasgos siguientes son comunes para perros y gatos?
+Atropellamiento, TVT, Sarna/Piel, Viral, Embarazo, Cachorros, Hemoparásitos, Otro
+
 //QUESTION: Cómo funciona lo de tratamiento? Cada cuánto les dan citas? Cómo guardan las citas? Necesitan guardar las citas? O el doctor va a la veterinaria?
 //QUESTION: Para qué necesitan el calendario? Cómo debería funcionar? 
 //QUESTION: En el calendario, se le agenda a cada perro individualmente su cita? O no sería mejor programar la visita general del veterinario, y después manualmente ir añadiendo a los perros afectados?
 //QUESTION: Lo del calendario y agendar citas es muy necesario? XD estoy viendo que se complica bastante añadir eso.
+
+
  */

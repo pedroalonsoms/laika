@@ -3,53 +3,60 @@ CREATE DATABASE app;
 USE app;
 
 -- BASE TABLES
-CREATE TABLE entities (
+CREATE TABLE users (
     id INT AUTO_INCREMENT NOT NULL,
-    name VARCHAR(100) UNIQUE NOT NULL,
+    fullname VARCHAR(100) NOT NULL,
     phone VARCHAR(20) NOT NULL,
-    --Can be a vet or a person
-    type VARCHAR(100) NOT NULL,
     address TEXT NOT NULL,
 
-    PRIMARY_KEY(id)
+    PRIMARY_KEY(fullname)
 );
 
 CREATE TABLE animals (
+    id INT AUTO_INCREMENT NOT NULL,
     birth_date TIMESTAMP NOT NULL,
     type VARCHAR(100) NOT NULL,
     color VARCHAR(100) NOT NULL,
     sex VARCHAR(100) NOT NULL,
     status VARCHAR(100) NOT NULL,
-    particular_signs TEXT NOT NULL,
-    found_at TEXT NOT NULL
+    particular_signs TEXT,
+    found_at TEXT,
+
+    PRIMARY_KEY(id)
 );
 
 --TABLES FOR LOOKUPS
 CREATE TABLE photos (
+    animal_id INT NOT NULL,
     url TEXT NOT NULL,
-    ANIMAL,
+
+    FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE
 )
 
-CREATE TABLE traits {
-    ANIMAL,
-    --Can be a vaccine, a disease, or a medical procedure
-    trait VARCHAR(100) NOT NULL,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
-}
-
 CREATE TABLE adoptions (
-    ANIMAL,
+    animal_id INT NOT NULL,
     adopted_by INT NOT NULL,
-    start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    end_date TIMESTAMP DEFAULT NULL,
+    start_date TIMESTAMP NOT NULL,
+    end_date TIMESTAMP,
 
-    FOREIGN KEY(adopted_by) REFERENCES entities(id) ON DELETE CASCADE
+    FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE,
+    FOREIGN KEY(adopted_by) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE rescues {
-    ANIMAL,
+    animal_id INT NOT NULL,
     rescued_by INT NOT NULL,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    date TIMESTAMP NOT NULL,
 
-    FOREIGN KEY(rescued_by) REFERENCES entities(id) ON DELETE CASCADE
+    FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE,
+    FOREIGN KEY(rescued_by) REFERENCES users(id) ON DELETE CASCADE
+}
+
+CREATE TABLE traits {
+    animal_id INT NOT NULL,
+    --Can be a vaccine, a disease, or a medical procedure
+    trait VARCHAR(100) NOT NULL,
+    date TIMESTAMP NOT NULL,
+
+    FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE,
 }

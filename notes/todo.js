@@ -6,3 +6,6 @@
 // TODO: Una página para filtrar. Por ejemplo: Filter by HAS/HAS NOT (dropdown 1) Rabia Vaccine (dropdown 2)
 // TODO: Añadir un botón de reseteo en el filtrado
 // TODO: Exportar PNG de animales sin adoptar para publicarlas en redes (con aspect ratio de 1:1)
+// TODO: Cuando añadamos un animal, poner el nombre del rescatista como primer campo
+// TODO: Añadir espacio de OTROS a traits
+// TODO: En vez de "cachorros" poner "crías" para que aplique también a gatos
