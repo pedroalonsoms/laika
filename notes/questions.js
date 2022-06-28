@@ -30,11 +30,12 @@ Adopción:
 //QUESTION: En la edad tiene que ir la edad que tiene el perro actualmente o la edad en la que fue adoptado?
 //QUESTION: En la adopción es necesario conservar el medio de adopción?
 //QUESTION: Una veterinaria se puede quedar para siempre con el perro?
+//QUESTION: Una veterinaria puede donar un perro a Laika?
 
 --DATOS DE PERSONAS
 //QUESTION: En las personas cuál es la diferencia entre nombre adoptante y nombre responsable?
 //QUESTION: Cómo funciona lo de rescatistas? Tienen registrados rescatistas? O puede ser cualquier persona?
-//QUESTION: Le toman foto al rescatista?
+//QUESTION: Le toman foto al rescatista? Necesitan la dirección y el teléfono del rescatista? Se puede devolver el perro al rescatista? Le marcan de nuevo y le dicen si es posible que se lo lleve él a su casa?
 //QUESTION: Cómo funciona lo de hogar temporal? Osea una persona o veterinaria se la puede llevar? Ahí también usan la dirección?
 
 -- DATOS MÉDICOS
