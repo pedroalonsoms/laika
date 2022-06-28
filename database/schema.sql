@@ -21,6 +21,7 @@ CREATE TABLE animals (
     sex VARCHAR(100) NOT NULL,
     status VARCHAR(100) NOT NULL,
     particular_signs TEXT NOT NULL,
+    found_at TEXT NOT NULL
 );
 
 --TABLES FOR LOOKUPS

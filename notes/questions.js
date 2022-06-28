@@ -24,13 +24,15 @@ Adopción:
 --DATOS DE ANIMALES
 //QUESTION: Cuáles son los tipos de animales que maneja? Gatos y perros solamente?
 //QUESTION: Cómo se asigna el nombre del perro? Por qué hay dos nombres? Cuál es la diferencia entre nombre rescatado y nombre adoptado?
-//QUESTION: Cuál es la diferencia entre PETCO ID y ID? Cómo realmente identifican ustedes a un perro?
+//QUESTION: Cuál es la diferencia entre PETCO ID y ID? Cómo realmente identifican ustedes a un perro? Recuerdan el nombre de cada perro?
 //QUESTION: Pueden recoger perros fallecidos?
 //QUESTION: Para qué es la dirección al registrar un perro? La utilizan realmente? Solamente veo Culiacán en ese campo.
 //QUESTION: En la edad tiene que ir la edad que tiene el perro actualmente o la edad en la que fue adoptado?
 //QUESTION: En la adopción es necesario conservar el medio de adopción?
 //QUESTION: Una veterinaria se puede quedar para siempre con el perro?
 //QUESTION: Una veterinaria puede donar un perro a Laika?
+//QUESTION: Qué pasa cuando nacen varios cachorros? Son registrados en la plataforma?
+
 
 --DATOS DE PERSONAS
 //QUESTION: En las personas cuál es la diferencia entre nombre adoptante y nombre responsable?
