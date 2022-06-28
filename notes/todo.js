@@ -3,3 +3,4 @@
 // TODO: La foto es lo principal del feed (1:1 aspect ratio)
 // TODO: Opción de agregar más fotos
 // TODO: Añadir inspired by en el readme de GitHub
+// TODO: Una página para filtrar. Por ejemplo: Filter by HAS/HAS NOT (dropdown 1) Rabia Vaccine (dropdown 2)

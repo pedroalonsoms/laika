@@ -17,17 +17,25 @@ CREATE TABLE entities (
 CREATE TABLE animals (
     birth_date TIMESTAMP NOT NULL,
     type VARCHAR(100) NOT NULL,
+    color VARCHAR(100) NOT NULL,
     sex VARCHAR(100) NOT NULL,
     status VARCHAR(100) NOT NULL,
     particular_signs TEXT NOT NULL,
 );
 
+--TABLES FOR LOOKUPS
 CREATE TABLE photos (
     url TEXT NOT NULL,
     ANIMAL,
 )
 
---TABLES FOR LOOKUPS
+CREATE TABLE traits {
+    ANIMAL,
+    --Can be a vaccine, a disease, or a medical procedure
+    trait VARCHAR(100) NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+}
+
 CREATE TABLE adoptions (
     ANIMAL,
     adopted_by INT NOT NULL,
