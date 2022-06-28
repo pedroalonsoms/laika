@@ -1,0 +1,29 @@
+{
+  "name": "laika",
+  "version": "1.0.0",
+  "description": "Administration system for homeless animal adoptions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -q app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben10pedrin/laika.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben10pedrin/laika/issues"
+  },
+  "homepage": "https://github.com/ben10pedrin/laika#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "hbs": "^4.2.0",
+    "mysql2": "^2.3.3"
+  }
+}

@@ -9,6 +9,7 @@
 
 --USO
 //QUESTION: Cómo le hace cuando le llega un perrito?
+//QUESTION: Al registrar un perrito le toma foto, o la foto la agrega después?
 //QUESTION: Cómo utiliza la app normalmente en el día a día?
 //QUESTION: Haciendo un Refactor, qué funciones deberíamos mantener?
 
@@ -47,8 +48,9 @@ Perros: Puppy, Refuerzo Puppy, Multiple, Refuerzo Multiple, Rabia
 Gatos: Triple Viral Felina, Refuerzo TV Felina, Leucemia, Desparasitación, Rabia
 
 //QUESTION: La desparasitación es vacuna?
+//QUESTION: Las vacunas son una sola vez o son periódicas?
 //QUESTION: Los rasgos siguientes son comunes para perros y gatos?
-Atropellamiento, TVT, Sarna/Piel, Viral, Embarazo, Cachorros, Hemoparásitos, Otro
+Ambos: Atropellamiento, TVT, Sarna/Piel, Viral, Embarazo, Cachorros/Crías, Hemoparásitos, Otro
 
 //QUESTION: Cómo funciona lo de tratamiento? Cada cuánto les dan citas? Cómo guardan las citas? Necesitan guardar las citas? O el doctor va a la veterinaria?
 //QUESTION: Para qué necesitan el calendario? Cómo debería funcionar? 

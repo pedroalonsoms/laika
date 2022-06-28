@@ -1,0 +1,40 @@
+/* General */
+body {
+  font-family: sans-serif;
+}
+
+/* Navigation */
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+}
+
+/* Links */
+a,
+a:visited {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+/* Table */
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+}
+
+th,
+td {
+  padding: 5px;
+}

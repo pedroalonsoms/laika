@@ -31,11 +31,12 @@ CREATE TABLE photos (
     url TEXT NOT NULL,
 
     FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE adoptions (
     animal_id INT NOT NULL,
     adopted_by INT NOT NULL,
+    source VARCHAR(100) NOT NULL,
     start_date TIMESTAMP NOT NULL,
     end_date TIMESTAMP,
 
@@ -43,20 +44,20 @@ CREATE TABLE adoptions (
     FOREIGN KEY(adopted_by) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE rescues {
+CREATE TABLE rescues (
     animal_id INT NOT NULL,
     rescued_by INT NOT NULL,
     date TIMESTAMP NOT NULL,
 
     FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE,
     FOREIGN KEY(rescued_by) REFERENCES users(id) ON DELETE CASCADE
-}
+);
 
-CREATE TABLE traits {
+CREATE TABLE traits (
     animal_id INT NOT NULL,
-    --Can be a vaccine, a disease, or a medical procedure
     trait VARCHAR(100) NOT NULL,
     date TIMESTAMP NOT NULL,
 
     FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE,
-}
+    FOREIGN KEY(known_trait_id) REFERENCES known_traits(id) ON DELETE CASCADE
+);
