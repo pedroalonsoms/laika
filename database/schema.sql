@@ -41,7 +41,7 @@ CREATE TABLE traits (
     trait VARCHAR(100) NOT NULL,
     date TIMESTAMP NOT NULL,
 
-    FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE,
+    FOREIGN KEY(animal_id) REFERENCES animal(id) ON DELETE CASCADE
 );
 
 CREATE TABLE appointments (
@@ -58,7 +58,7 @@ CREATE TABLE adoptions (
     start_date TIMESTAMP NOT NULL,
     end_date TIMESTAMP,
 
-    PRIMARY KEY(id),
+    PRIMARY KEY(id)
 );
 
 --TABLES FOR LOOKUPS
