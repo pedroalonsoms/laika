@@ -1,14 +1,13 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const router = express.Router();
 
-const main = async () => {
-  await mongoose.connect("mongodb://127.0.0.1:27017/app");
+const user_controller = require("../controllers/userController");
+router.get("/users", user_controller.user_list);
+router.get("/users/add", user_controller.user_create_get);
+router.post("/users/add", user_controller.user_create_post);
 
-  const animal_controller = require("../controllers/animalController");
-  router.get("/animals/add", animal_controller.animal_create_get);
-  router.post("/animals/add", animal_controller.animal_create_post);
-};
+const animal_controller = require("../controllers/animalController");
+router.get("/animals/add", animal_controller.animal_create_get);
+router.post("/animals/add", animal_controller.animal_create_post);
 
-main();
 module.exports = router;

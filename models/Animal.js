@@ -1,25 +1,29 @@
-import mongoose from "mongoose";
-import { addressSchema } from "./Address";
+const mongoose = require("mongoose");
 
-export const animalSchema = new mongoose.Schema({
+const animalSchema = new mongoose.Schema({
   names: [String],
   photos: [String],
-  birthDate: Date,
-  rescuedDate: Date,
-  rescuedAddress: addressSchema,
-  type: String,
-  colors: [String],
   sex: String,
+  type: String,
+  race: String,
+  color: String,
   status: String,
   particularSigns: String,
-  rescuedBy: [userSchema],
-  adoptions: [
+  rescued: {
+    ageInMonths: Number,
+    date: Date,
+    address: String,
+    by: [userSchema],
+  },
+  adopted: [
     {
       startDate: Date,
       endDate: Date,
-      adoptedBy: [userSchema],
+      by: [userSchema],
     },
   ],
 });
 
-export const Animal = mongoose.model("Animal", animalSchema);
+const Animal = mongoose.model("Animal", animalSchema);
+
+module.exports = { animalSchema, Animal };

@@ -1,0 +1,19 @@
+Age
+<select name="years">
+  {{#if includes_all_field}}
+    <option value="">All</option>
+  {{/if}}
+  {{#times 12}}
+    <option value="{{this}}">{{this}}</option>
+  {{/times}}
+</select>
+years
+<select name="months">
+  {{#if includes_all_field}}
+    <option value="">All</option>
+  {{/if}}
+  {{#times 12}}
+    <option value="{{this}}">{{this}}</option>
+  {{/times}}
+</select>
+months

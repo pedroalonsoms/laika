@@ -14,3 +14,4 @@
 // TODO: Cambiar a SQLite para portabilidad
 // TODO: El address es opcional cuando es rescatista, pero cuando se va a adoptar, se necesita que el adress esté definido
 // TODO: El address es opcional*****
+// TODO: disabled fieldset to viewonly

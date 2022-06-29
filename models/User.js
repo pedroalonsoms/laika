@@ -1,11 +1,12 @@
-import mongoose from "mongoose";
-import { addressSchema } from "./Address";
+const mongoose = require("mongoose");
 
-export const userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   fullname: { type: String, unique: true },
   phone: String,
-  address: addressSchema,
+  address: String,
   organization: String,
 });
 
-export const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+
+module.exports = { userSchema, User };
