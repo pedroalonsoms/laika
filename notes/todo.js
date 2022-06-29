@@ -9,3 +9,5 @@
 // TODO: Cuando añadamos un animal, poner el nombre del rescatista como primer campo
 // TODO: Añadir espacio de OTROS a traits
 // TODO: En vez de "cachorros" poner "crías" para que aplique también a gatos
+// TODO: Adopción por fecha
+// TODO: Es muy lenta

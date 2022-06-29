@@ -8,6 +8,7 @@ CREATE TABLE users (
     fullname VARCHAR(100) NOT NULL,
     phone VARCHAR(20) NOT NULL,
     address TEXT NOT NULL,
+    type VARCHAR(100) NOT NULL,
 
     PRIMARY_KEY(fullname)
 );
