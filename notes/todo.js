@@ -11,3 +11,4 @@
 // TODO: En vez de "cachorros" poner "crías" para que aplique también a gatos
 // TODO: Adopción por fecha
 // TODO: Es muy lenta
+// TODO: Cambiar a SQLite para portabilidad

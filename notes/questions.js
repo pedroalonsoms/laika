@@ -155,4 +155,7 @@ Sí es necesario
 
 /* Día 2
 
+    Rescatistas puede haber varios verdad? Osea entre 2 personas encuentran un perro
+    Pero, adoptores puede haber varios? O solamente es uno?
+
  */
