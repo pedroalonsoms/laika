@@ -1,5 +1,5 @@
 {
-  "80000": ["Centro"],
+  "80000": ["Centro Culiacán"],
   "80007": ["Universidad Autónoma de Sinaloa"],
   "80010": [
     "Arboledas",
@@ -1656,7 +1656,7 @@
   "80965": ["San Jorge", "Melchor Ocampo"],
   "80966": ["Tierritas Blancas"],
   "80967": ["Tobora"],
-  "81000": ["Centro"],
+  "81000": ["Centro Guasave"],
   "81010": ["Ocoro"],
   "81014": ["2 de Octubre", "Fresno"],
   "81015": ["La Florida", "Once Ríos"],
@@ -2031,7 +2031,7 @@
   ],
   "81190": ["La Brecha", "San José de la Brecha"],
   "81197": ["Boca del Río", "Las Glorias"],
-  "81200": ["Primer Cuadro (Centro)"],
+  "81200": ["Primer Cuadro (Centro) Ahome"],
   "81210": ["Miguel Hidalgo"],
   "81215": ["ISSSTESIN", "Las Fuentes 2000"],
   "81216": [
@@ -2479,7 +2479,7 @@
   "81386": ["El Estero"],
   "81390": ["Lázaro Cárdenas (Muellecito)"],
   "81393": ["Carrizo Grande"],
-  "81400": ["Zona Centro"],
+  "81400": ["Zona Centro Salvador Alvarado"],
   "81401": ["Empleados de FFCC Nacionales de México Secc 26"],
   "81410": ["Santa Rosa", "Lomas del Valle", "Lomas del Valle"],
   "81413": ["Los Mautos", "CANACO"],
@@ -3127,7 +3127,7 @@
   "81995": ["Tezcalama (Tescalama de Arriba)"],
   "81996": ["San Pedro"],
   "81997": ["El Coyote"],
-  "82000": ["Los Pinos", "Centro", "Balcones de Loma Linda"],
+  "82000": ["Los Pinos", "Centro Mazatlán", "Balcones de Loma Linda"],
   "82007": ["Loma Linda"],
   "82010": [
     "Libertad",

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const addressSchema = new mongoose.Schema({
+  municipality: String,
   zipCode: String,
   neighborhood: String,
 });

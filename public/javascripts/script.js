@@ -1,33 +1,30 @@
-const fetchNeighborhoods = async (includes_all_field) => {
-  const form = document.querySelector("form");
-  const isValid = form.reportValidity();
-  if (!isValid) return;
-
-  // Remove ok button
-  document.getElementById("ok").remove();
-
-  // Disable zipCode input
+const fetchNeighborhoods = async () => {
   const zipCodeInput = document.getElementsByName("zipCode")[0];
-  zipCodeInput.setAttribute("disabled", "");
+  const dropdown = document.querySelector("select[name='neighborhood']");
 
-  // Fetch data
   try {
+    // Fetch data
     const response = await fetch(`/neighborhoods/${zipCodeInput.value}`);
     const data = await response.json();
 
-    let tmp = document.createElement("div");
-    tmp.innerHTML = `
-    Colonia
-    <select name="neighborhood">
-        ${includes_all_field && `<option value="">Todas</option>`}
-        ${data.map(
-          (neighborhood) =>
-            `<option value="${neighborhood}">${neighborhood}</option>`
-        )}
-    </select>`;
+    // Remove already fetched options if any
+    const existingOptions = dropdown.querySelectorAll("option");
+    for (option of existingOptions) {
+      const value = option.getAttribute("value");
+      if (value) option.remove();
+    }
 
-    document.getElementById("address").append(tmp);
+    for (neighborhood of data) {
+      // Create new option for each neighborhood
+      const option = document.createElement("option");
+      option.setAttribute("value", neighborhood);
+      option.innerHTML = neighborhood;
+
+      // Append option to the dropdown menu
+      dropdown.append(option);
+    }
   } catch (e) {
-    console.log(e.message);
+    zipCodeInput.setCustomValidity("CP Inválido");
+    zipCodeInput.reportValidity();
   }
 };

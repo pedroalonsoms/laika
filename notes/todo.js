@@ -16,3 +16,6 @@
 // TODO: El address es opcional*****
 // TODO: disabled fieldset to viewonly
 // TODO: Referencia https://github.com/saraileon/mexico-zipcodes
+// TODO: Añadir imagenes
+// TODO: Cambiar las constantes a un module.exports para mas velocidad y no leer archivos
+// TODO: Referencia: https://cuentame.inegi.org.mx/monografias/informacion/sin/territorio/div_municipal.aspx?tema=me&e=25

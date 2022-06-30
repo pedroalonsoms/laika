@@ -1,11 +1,28 @@
-<div id="address">
-  Código Postal
-  <input type="text" name="zipCode" minlength="5" maxlength="5" required />
-  <button type="button" id="ok" onclick="fetchNeighborhoods(
+Municipio
+<select name="municipality" required>
   {{#if includes_all_field}}
-    true
-  {{else}}
-    false
+    <option value="">Todas</option>
   {{/if}}
-  )">Ok</button>
-</div>
+  {{#constant_array "sinaloa_municipalities.json"}}
+    <option value={{this}}>{{this}}</option>
+  {{/constant_array}}
+</select>
+<br />
+
+Código Postal
+<input
+  type="text"
+  name="zipCode"
+  oninput="this.setCustomValidity('')"
+  autocomplete="off"
+  required
+/>
+<button type="button" id="ok" onclick="fetchNeighborhoods()">Ok</button>
+<br />
+
+Colonia
+<select name="neighborhood" required>
+  {{#if includes_all_field}}
+    <option value="">Todas</option>
+  {{/if}}
+</select>
