@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { addressSchema } = require("./Address");
 
 const animalSchema = new mongoose.Schema({
   names: [String],
@@ -10,8 +11,7 @@ const animalSchema = new mongoose.Schema({
   rescued: {
     ageInMonths: Number,
     date: Date,
-    neighborhood: String,
-    zipCode: String,
+    address: addressSchema,
     by: String,
     organization: String,
     notes: String,
@@ -21,10 +21,11 @@ const animalSchema = new mongoose.Schema({
       startDate: Date,
       endDate: Date,
       by: String,
-      address: String,
+      address: addressSchema,
     },
   ],
-  events: [{ date: Date, description: String }],
+  medicalAppointments: [Date],
+  history: [{ date: Date, description: String }],
 });
 
 const Animal = mongoose.model("Animal", animalSchema);

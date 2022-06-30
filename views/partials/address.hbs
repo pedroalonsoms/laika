@@ -1,0 +1,11 @@
+<div id="address">
+  Código Postal
+  <input type="text" name="zipCode" minlength="5" maxlength="5" required />
+  <button type="button" id="ok" onclick="fetchNeighborhoods(
+  {{#if includes_all_field}}
+    true
+  {{else}}
+    false
+  {{/if}}
+  )">Ok</button>
+</div>

@@ -1,10 +1,10 @@
 <form method="post">
-  <h2>General Info</h2>
-  Names
+  <h2>Información General</h2>
+  Nombres
   <input type="text" name="names[]" required>
   <input type="text" name="names[]" >
   <br>
-  Add Multiple Photos
+  Añadir múltiples fotos
   <input type="file" multiple>
   <br>
   {{> sex}}
@@ -13,32 +13,28 @@
   <br>
   {{> status}}
   <br>
-  Particular Signs
+  Señas Particulares
   <br>
   <textarea name="particularSigns"></textarea>
   <br>
 
-  <h2>Rescue Info</h2>
-  Rescued
+  <h2>Información de Rescate</h2>
   {{> age}}
   <br>
-  Rescue Date
+  Fecha
   <input type="date" name="rescued[date]" required>
   <br>
-  Rescue Address
-  <input type="text" name="rescued[address]" required>
-  <br>
-  Rescuers
+  Rescatistas
   <input type="text" name="rescued[by]" required>
   <br>
   {{> organization}}
   <br>
-  Notes
+  {{> address }}
+  Notas
   <br>
   <textarea name="rescued[notes]"></textarea>
+  
   <br>
-
   <br>
-  <br>
-  <input type="submit" />
+  <input type="submit" value="Enviar">
 </form>
