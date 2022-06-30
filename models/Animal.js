@@ -1,27 +1,30 @@
 const mongoose = require("mongoose");
-const { userSchema } = require("./User");
 
 const animalSchema = new mongoose.Schema({
   names: [String],
   photos: [String],
   sex: String,
   type: String,
-  color: String,
   status: String,
   particularSigns: String,
   rescued: {
     ageInMonths: Number,
     date: Date,
-    address: String,
-    by: [userSchema],
+    neighborhood: String,
+    zipCode: String,
+    by: String,
+    organization: String,
+    notes: String,
   },
   adopted: [
     {
       startDate: Date,
       endDate: Date,
-      by: [userSchema],
+      by: String,
+      address: String,
     },
   ],
+  events: [{ date: Date, description: String }],
 });
 
 const Animal = mongoose.model("Animal", animalSchema);

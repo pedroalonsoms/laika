@@ -11,8 +11,6 @@
   <br>
   {{> type}}
   <br>
-  {{> color}}
-  <br>
   {{> status}}
   <br>
   Particular Signs
@@ -21,14 +19,25 @@
   <br>
 
   <h2>Rescue Info</h2>
+  Rescued
   {{> age}}
   <br>
-  Date
+  Rescue Date
   <input type="date" name="rescued[date]" required>
   <br>
-  Address
+  Rescue Address
   <input type="text" name="rescued[address]" required>
-  Rescatists
+  <br>
+  Rescuers
+  <input type="text" name="rescued[by]" required>
+  <br>
+  {{> organization}}
+  <br>
+  Notes
+  <br>
+  <textarea name="rescued[notes]"></textarea>
+  <br>
+
   <br>
   <br>
   <input type="submit" />
