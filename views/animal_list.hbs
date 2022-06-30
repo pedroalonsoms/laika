@@ -1,0 +1,31 @@
+<a href="/animals/add">Add Animal</a>
+<br />
+{{#if animals}}
+  <table>
+    <tr>
+      <th>Names</th>
+      <th>Photo</th>
+      <th>Sex</th>
+      <th>Type</th>
+      <th>Race</th>
+      <th>Color</th>
+      <th>Status</th>
+      <th>Particular Signs</th>
+    </tr>
+    {{#each animal}}
+      <tr>
+        <td>{{name}}</td>
+        <td>google.com</td>
+        <td>{{sex}}</td>
+        <td>{{type}}</td>
+        <td>{{race}}</td>
+        <td>{{color}}</td>
+        <td>{{status}}</td>
+        <td>{{particularSigns}}</td>
+        <td><a href="/animals/{{id}}/delete">delete</a></td>
+      </tr>
+    {{/each}}
+  </table>
+{{else}}
+  There are no animals!
+{{/if}}

@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
+const { userSchema } = require("./User");
 
 const animalSchema = new mongoose.Schema({
   names: [String],
   photos: [String],
   sex: String,
   type: String,
-  race: String,
   color: String,
   status: String,
   particularSigns: String,

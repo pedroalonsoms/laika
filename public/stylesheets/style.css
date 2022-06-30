@@ -1,6 +1,10 @@
-/* General */
+/* Text */
 body {
   font-family: sans-serif;
+}
+
+.danger {
+  color: rgb(255, 69, 58);
 }
 
 /* Navigation */
