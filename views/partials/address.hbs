@@ -1,5 +1,5 @@
 Municipio
-<select name="municipality" required>
+<select name="rescued[address][municipality]" required>
   {{#if includes_all_field}}
     <option value="">Todas</option>
   {{/if}}
@@ -12,7 +12,8 @@ Municipio
 Código Postal
 <input
   type="text"
-  name="zipCode"
+  name="rescued[address][zipCode]"
+  id="zipCode"
   oninput="this.setCustomValidity('')"
   autocomplete="off"
   required
@@ -21,7 +22,7 @@ Código Postal
 <br />
 
 Colonia
-<select name="neighborhood" required>
+<select name="rescued[address][neighborhood]" id="neighborhood" required>
   {{#if includes_all_field}}
     <option value="">Todas</option>
   {{/if}}

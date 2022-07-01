@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
-const { addressSchema } = require("./Address");
+
+const addressSchema = new mongoose.Schema({
+  municipality: String,
+  zipCode: String,
+  neighborhood: String,
+});
 
 const animalSchema = new mongoose.Schema({
   names: [String],

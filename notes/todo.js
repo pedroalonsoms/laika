@@ -15,7 +15,10 @@
 // TODO: El address es opcional cuando es rescatista, pero cuando se va a adoptar, se necesita que el adress esté definido
 // TODO: El address es opcional*****
 // TODO: disabled fieldset to viewonly
-// TODO: Referencia https://github.com/saraileon/mexico-zipcodes
 // TODO: Añadir imagenes
 // TODO: Cambiar las constantes a un module.exports para mas velocidad y no leer archivos
-// TODO: Referencia: https://cuentame.inegi.org.mx/monografias/informacion/sin/territorio/div_municipal.aspx?tema=me&e=25
+// TODO: Referencia: https://www.correosdemexico.gob.mx/SSLServicios/ConsultaCP/CodigoPostal_Exportar.aspx
+/* { 
+"dropdown_type": "Sexo",
+"json_name": "sex", 
+"includes_all_field": true } */

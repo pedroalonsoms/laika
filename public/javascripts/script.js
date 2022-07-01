@@ -1,6 +1,6 @@
 const fetchNeighborhoods = async () => {
-  const zipCodeInput = document.getElementsByName("zipCode")[0];
-  const dropdown = document.querySelector("select[name='neighborhood']");
+  const zipCodeInput = document.getElementById("zipCode");
+  const dropdown = document.getElementById("neighborhood");
 
   try {
     // Fetch data
@@ -24,6 +24,7 @@ const fetchNeighborhoods = async () => {
       dropdown.append(option);
     }
   } catch (e) {
+    console.log(e);
     zipCodeInput.setCustomValidity("CP Inválido");
     zipCodeInput.reportValidity();
   }
