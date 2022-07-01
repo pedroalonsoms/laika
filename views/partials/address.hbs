@@ -1,3 +1,6 @@
+Calle
+<input type="text" name="rescued[address][street]" required>
+<br>
 
 Código Postal
 <input
@@ -8,11 +11,17 @@ Código Postal
   autocomplete="off"
   required
 />
-<button type="button" id="ok" onclick="fetchNeighborhoods()">Ok</button>
+<button type="button" id="ok" onclick="fetchZipCodeInfo()">Ok</button>
 <br>
 
-{{#dropdown "Municipio" false}}<select name="rescued[address][municipality]" required>{{/dropdown}}
+{{#dropdown "Colonia" false}}<select name="rescued[address][neighborhood]" id="neighborhoods" required>{{/dropdown}}
 <br>
 
-{{#dropdown "Colonia" false}}<select name="rescued[address][neighborhood]" id="neighborhood" required>
-{{/dropdown}}
+{{#dropdown "Municipio" false}}<select name="rescued[address][municipality]" id="municipality" required>{{/dropdown}}
+<br>
+
+{{#dropdown "Estado" false}}<select name="rescued[address][state]" id="state" required>{{/dropdown}}
+<br>
+
+{{#dropdown "País" false}}<select name="rescued[address][country]" id="country" required>{{/dropdown}}
+<br>

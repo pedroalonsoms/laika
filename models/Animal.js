@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
 
 const addressSchema = new mongoose.Schema({
-  municipality: String,
+  street: String,
   zipCode: String,
   neighborhood: String,
+  municipality: String,
+  state: String,
+  country: String,
 });
 
 const animalSchema = new mongoose.Schema({
