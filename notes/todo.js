@@ -18,7 +18,3 @@
 // TODO: Añadir imagenes
 // TODO: Cambiar las constantes a un module.exports para mas velocidad y no leer archivos
 // TODO: Referencia: https://www.correosdemexico.gob.mx/SSLServicios/ConsultaCP/CodigoPostal_Exportar.aspx
-/* { 
-"dropdown_type": "Sexo",
-"json_name": "sex", 
-"includes_all_field": true } */

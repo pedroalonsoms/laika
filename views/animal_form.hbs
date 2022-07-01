@@ -4,38 +4,40 @@
   <input type="text" name="names[]" required>
   <input type="text" name="names[]" >
   <br>
-  Añadir múltiples fotos
-  <input type="file" multiple>
-  <br>
-  {{> sex}}
-  <br>
-  {{> type}}
-  <br>
-  {{> status}}
-  <br>
-  Señas Particulares
-  <br>
-  <textarea name="particularSigns"></textarea>
+
+  Añadir Múltiples fotos
+  <input type="file" >
   <br>
 
-  <h2>Información de Rescate</h2>
-  {{> age}}
+  {{#dropdown "Sexo" false}}<select name="sex" required>{{/dropdown}}
+  {{#dropdown "Tipo" false}}<select name="type" required>{{/dropdown}}
+  {{#dropdown "Estatus" false}}<select name="status" required>{{/dropdown}}
   <br>
+
+  Señas Particulares
+  <br>
+  <textarea name="particularSigns" id="" cols="30" rows="3"></textarea>
+
+  <h2>Información de Rescate</h2>
+  {{#dropdown "Años" false}}<select name="rescued[ageInMonths][years]" required>{{/dropdown}}
+  {{#dropdown "Meses" false}}<select name="rescued[ageInMonths][months]" required>{{/dropdown}}
+  <br>
+
   Fecha
   <input type="date" name="rescued[date]" required>
   <br>
+
   Rescatistas
   <input type="text" name="rescued[by]" required>
+  {{#dropdown "Organización" false}}<select name="rescued[organization]" required>{{/dropdown}}
   <br>
-  {{> organization}}
+
+  {{> address}}
   <br>
-  {{> address }}
-  <br>
+
   Notas
   <br>
-  <textarea name="rescued[notes]"></textarea>
-  
-  <br>
-  <br>
+  <textarea name="particularSigns" id="" cols="30" rows="3"></textarea>
+
   <input type="submit" value="Enviar">
 </form>

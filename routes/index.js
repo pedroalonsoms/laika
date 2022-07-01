@@ -7,10 +7,7 @@ router.get("/animals/add", animal_controller.animal_create_get);
 router.post("/animals/add", animal_controller.animal_create_post);
 router.get("/animals/:id/delete", animal_controller.animal_delete);
 
-const neighborhoods_controller = require("../controllers/neighborhoodController");
-router.get(
-  "/neighborhoods/:zipCode",
-  neighborhoods_controller.neighborhoods_from_zipcode
-);
+const zipcode_controller = require("../controllers/zipCodeController");
+router.get("/zipcode/:zipCode", zipcode_controller.zipcode_details);
 
 module.exports = router;

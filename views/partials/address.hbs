@@ -1,13 +1,3 @@
-Municipio
-<select name="rescued[address][municipality]" required>
-  {{#if includes_all_field}}
-    <option value="">Todas</option>
-  {{/if}}
-  {{#constant_array "sinaloa_municipalities.json"}}
-    <option value={{this}}>{{this}}</option>
-  {{/constant_array}}
-</select>
-<br />
 
 Código Postal
 <input
@@ -19,11 +9,10 @@ Código Postal
   required
 />
 <button type="button" id="ok" onclick="fetchNeighborhoods()">Ok</button>
-<br />
+<br>
 
-Colonia
-<select name="rescued[address][neighborhood]" id="neighborhood" required>
-  {{#if includes_all_field}}
-    <option value="">Todas</option>
-  {{/if}}
-</select>
+{{#dropdown "Municipio" false}}<select name="rescued[address][municipality]" required>{{/dropdown}}
+<br>
+
+{{#dropdown "Colonia" false}}<select name="rescued[address][neighborhood]" id="neighborhood" required>
+{{/dropdown}}

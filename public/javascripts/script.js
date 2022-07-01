@@ -4,8 +4,9 @@ const fetchNeighborhoods = async () => {
 
   try {
     // Fetch data
-    const response = await fetch(`/neighborhoods/${zipCodeInput.value}`);
+    const response = await fetch(`/zipcode/${zipCodeInput.value}`);
     const data = await response.json();
+    if (!response.ok) throw new Error();
 
     // Remove already fetched options if any
     const existingOptions = dropdown.querySelectorAll("option");
@@ -24,7 +25,6 @@ const fetchNeighborhoods = async () => {
       dropdown.append(option);
     }
   } catch (e) {
-    console.log(e);
     zipCodeInput.setCustomValidity("CP Inválido");
     zipCodeInput.reportValidity();
   }
