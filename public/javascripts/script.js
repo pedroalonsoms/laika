@@ -1,4 +1,7 @@
-const ids = ["neighborhoods", "municipality", "state", "country"];
+const ids = ["neighborhood", "municipality", "state", "country"];
+const zipCodeInput = document.getElementById("zipCode");
+
+if (zipCodeInput) zipCodeInput.oninput = (e) => e.target.setCustomValidity("");
 
 const removeOptionsFrom = (dropdown) => {
   // Remove already fetched options if any
@@ -32,14 +35,12 @@ const updateAllDropdowns = (data) => {
 };
 
 const fetchZipCodeInfo = async () => {
-  const zipCodeInput = document.getElementById("zipCode");
-
   let data = null;
   try {
     // Fetch data
     const response = await fetch(`/zipcode/${zipCodeInput.value}`);
-    data = await response.json();
     if (!response.ok) throw new Error();
+    data = await response.json();
   } catch (e) {
     console.log(e);
     zipCodeInput.setCustomValidity("CP Inválido");

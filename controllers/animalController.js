@@ -1,4 +1,5 @@
 const { Animal } = require("../models/Animal");
+const { saveImages } = require("../lib/utils");
 
 exports.animal_create_get = async (req, res) => {
   res.render("animal_form", { title: "Crear Animal" });
@@ -6,7 +7,12 @@ exports.animal_create_get = async (req, res) => {
 
 exports.animal_create_post = async (req, res) => {
   try {
-    const animal = new Animal(req.body);
+    const { years, months } = req.body.rescued.ageInMonths;
+    req.body.rescued.ageInMonths = parseInt(years) * 12 + parseInt(months);
+
+    const urls = await saveImages(req.files);
+
+    const animal = new Animal({ ...req.body, photos: urls });
     await animal.save();
     res.redirect("/animals");
   } catch (e) {

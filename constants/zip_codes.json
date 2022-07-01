@@ -1,12 +1,12 @@
 {
   "80200": {
-    "neighborhoods": ["Jorge Almada", "Miguel Alemán"],
+    "neighborhood": ["Jorge Almada", "Miguel Alemán"],
     "municipality": "Culiacán",
     "state": "Sinaloa",
     "country": "México"
   },
   "80000": {
-    "neighborhoods": ["Centro"],
+    "neighborhood": ["Centro"],
     "municipality": "Culiacán",
     "state": "Sinaloa",
     "country": "México"

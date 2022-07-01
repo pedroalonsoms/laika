@@ -1,0 +1,25 @@
+Calle
+<input type="text" name="<%= jsonPrefix %>[street]" required>
+<br>
+
+Código Postal
+<input
+  type="text"
+  name="<%= jsonPrefix %>[zipCode]"
+  id="zipCode"
+  autocomplete="off"
+  required
+/>
+<button type="button" onclick="fetchZipCodeInfo()">Buscar</button>
+<br>
+
+<%- include('dropdown', {title: "Colonia", name: `${jsonPrefix}[neighborhood]`, id: "neighborhood"}) -%>
+<br>
+
+<%- include('dropdown', {title: "Municipio", name: `${jsonPrefix}[municipality]`, id: "municipality"}) -%>
+<br>
+
+<%- include('dropdown', {title: "Estado", name: `${jsonPrefix}[state]`, id: "state"}) -%>
+<br>
+
+<%- include('dropdown', {title: "País", name: `${jsonPrefix}[country]`, id: "country"}) -%>

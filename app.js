@@ -7,10 +7,8 @@ const main = async () => {
   // Database
   await mongoose.connect("mongodb://127.0.0.1:27017/app");
 
-  // Handlebars
-  require("./lib/handlebars");
-  app.set("view engine", "hbs");
-  app.set("views", "./views");
+  // Templates
+  app.set("view engine", "ejs");
 
   // Middlewares
   app.use(express.json());
@@ -22,6 +20,8 @@ const main = async () => {
   app.use("/", router);
 
   app.listen(PORT, () => console.log(`Example app listening on PORT ${PORT}`));
+
+  app.locals.utils = require("./lib/utils");
 };
 
 main();

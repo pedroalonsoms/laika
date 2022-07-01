@@ -1,0 +1,26 @@
+<%= title %>
+<select 
+  name="<%= name %>" 
+
+  <% if (locals.id) { %> 
+  id="<%= locals.id %>"
+  <% } %> 
+  
+  <% if (!locals.isNotRequired) { %> 
+    required
+  <% } %> 
+>
+
+  <% if (locals.includeAllOption) { %>
+  <option value="">Todo</option>
+  <% } %> 
+  
+  <% 
+  const data = utils.readConstant("dropdown_data");
+  const optionNames = data[title] ? data[title] : [];
+  %>
+  <% for  (name of optionNames) { %>
+  <option value="<%= name %>"><%= name %></option>
+  <% } %>
+
+</select>
