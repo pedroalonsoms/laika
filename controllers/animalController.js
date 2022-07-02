@@ -23,6 +23,7 @@ exports.animal_create_post = async (req, res) => {
 exports.animal_list = async (req, res) => {
   try {
     const animals = await Animal.find();
+
     res.render("animal_list", { title: "Lista de Animales", animals });
   } catch (e) {
     res.render("error", { title: "Error", error: "Unknown error" });

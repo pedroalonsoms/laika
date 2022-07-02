@@ -2,11 +2,106 @@
 <html lang="es">
 <%- include('partials/header') -%>
 <body>
-    <%- include('partials/navbar') -%>
     <h1><%= title %></h1>
-    <a href="/animals/add">Añadir Animal</a>
-    <pre>
-    <%= JSON.stringify(animals, null, 2) %>
-    </pre>
+    <a href="/animals/add"><button>Añadir Animal</button></a>
+    <br>
+
+    <% if (locals.animals && locals.animals.length > 0) { %> 
+        <table>
+            <tr>
+                <th>Foto</th>
+                <th>Nombres</th>
+                <th>Sexo</th>
+                <th>Tipo</th>
+                <th>Señas Particulares</th>
+                <th>Rescate</th>
+                <th>Estatus</th>
+                <th>Acción</th>
+            </tr>
+            <% for  (animal of animals) { %>
+            <tr>
+                <td>
+                <% if (animal.photos.length > 0) { %> 
+                <img src="<%= animal.photos[0] %>" style="width: 250px; aspect-ratio: 1; object-fit: cover;"/>
+                <% } else { %> 
+                    No hay foto!
+                <% } %> 
+                </td>
+                <td>
+                    <% for  (name of animal.names) { %>
+                        <%= name %> <br>
+                    <% } %> 
+                </td>
+                <td>
+                    <%= animal.sex %>
+                </td>
+                <td>
+                    <%= animal.type %>
+                </td>
+                <td>
+                <% if (animal.particularSigns) { %> 
+                    <%= animal.particularSigns %>
+                <% } else { %> 
+                    N/A
+                <% } %> 
+
+
+                </td>
+                <td style="max-width: 300px;">
+                    <strong>Edad:</strong>
+                    <%=  parseInt(animal.rescued.ageInMonths/12) %> años
+                    <%=  animal.rescued.ageInMonths%12 %> meses
+                    <br>
+                    <br>
+
+                    <strong>Fecha:</strong>
+                    <%=  locals.utils.formatDate(animal.rescued.date) %>
+                    <br>
+                    <br>
+
+                    <strong>Domicilio:</strong>
+                    <%=  animal.rescued.address.street %>,
+                    <%=  animal.rescued.address.zipCode %>,
+                    <%=  animal.rescued.address.neighborhood %>,
+                    <%=  animal.rescued.address.municipality %>,
+                    <%=  animal.rescued.address.state %>,
+                    <%=  animal.rescued.address.country %>
+                    <br>
+                    <br>
+
+                    <strong>Rescatistas:</strong>
+                    <%=  animal.rescued.by %>
+                    <br>
+                    <br>
+
+                    <strong>Organización:</strong>
+                    <%=  animal.rescued.organization %>
+                    <br>
+                    <br>
+
+                    <strong>Notas:</strong>
+                    <% if (animal.rescued.notes) { %> 
+                        <%= animal.rescued.notes %>
+                    <% } else { %> 
+                        N/A
+                    <% } %> 
+                    <br>
+                    <br>
+                </td>
+                <td>
+                    <%= animal.status %>
+                </td>
+                <td>
+                    <a href="/animals/<%= animal.id %>">Detalles</a>
+                    <br>
+                    <br>
+                    <a href="/animals/<%= animal.id %>/delete" class="danger">Borrar</a>
+                </td>
+            </tr>
+            <% } %> 
+        </table>
+    <% } else {  %> 
+        No hay animales!
+    <% } %> 
   </body>
 </html>
