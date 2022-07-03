@@ -23,6 +23,12 @@
 
     <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal.particular_signs}) %>
 
+    <% animal.photos?.map(url => { %>
+        <main>
+            <img src="<%= url %>" style="width: 100%">
+        </main>
+    <% }); %>
+
     <% const {req} = locals %>
     <div>
         <a href="/animals/<%= req.params.id %>/edit/"><button>Editar</button></a>

@@ -35,6 +35,7 @@ class AnimalsController {
     console.log(req.body);
     const id = req.params.id;
     await Animal.updateById(id, req.body);
+    await Animal.addPhotos(id, req.files);
     res.redirect(`/animals/${id}`);
   };
 
