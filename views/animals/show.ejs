@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../_header.ejs", {title: "Animal"}) %>
+<body>
+    <h1>Animal</h1>
+
+    <nav>
+        <a href="./rescue">Rescate</a>
+        <a href="#">Eventos</a>
+        <a href="#">Citas</a>
+        <a href="#">Adopciones</a>
+    </nav>
+
+    <%- include("../_text_label.ejs", {title: "Nombre", value: animal.name}) %>
+
+    <%- include("../_text_label.ejs", {title: "Apodo", value: animal.alias}) %>
+
+    <%- include("../_text_label.ejs", {title: "Tipo", value: animal.type}) %>
+
+    <%- include("../_text_label.ejs", {title: "Sexo", value: animal.sex}) %>
+
+    <%- include("../_text_label.ejs", {title: "Estatus", value: animal.status}) %>
+
+    <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal.particular_signs}) %>
+
+    <% const {req} = locals %>
+    <div>
+        <a href="/animals/<%= req.params.id %>/edit/"><button>Editar</button></a>
+        <a href="/animals/<%= req.params.id %>/delete/"><button>Borrar</button></a>
+    </div>
+
+</body>
+</html>

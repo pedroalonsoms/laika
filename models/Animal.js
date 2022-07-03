@@ -1,41 +1,43 @@
-const mongoose = require("mongoose");
+const connect = require("../db/connect");
+const { saveImages } = require("../lib/utils");
 
-const addressSchema = new mongoose.Schema({
-  street: String,
-  zipCode: String,
-  neighborhood: String,
-  municipality: String,
-  state: String,
-  country: String,
-});
+class Animal {
+  types = ["Perro", "Gato", "Otro"];
+  sexes = ["Macho", "Hembra"];
+  statuses = ["Activo", "Adoptado", "Fallecido"];
 
-const animalSchema = new mongoose.Schema({
-  names: [String],
-  photos: [String],
-  sex: String,
-  type: String,
-  status: String,
-  particularSigns: String,
-  rescued: {
-    ageInMonths: Number,
-    date: Date,
-    address: addressSchema,
-    by: String,
-    organization: String,
-    notes: String,
-  },
-  adopted: [
-    {
-      startDate: Date,
-      endDate: Date,
-      by: String,
-      address: addressSchema,
-    },
-  ],
-  medicalAppointments: [Date],
-  history: [{ date: Date, description: String }],
-});
+  create = async (animal) => {
+    const db = await connect();
+    await db.query("INSERT INTO animals SET ?", animal);
+    const [[{ id }]] = await db.query("SELECT LAST_INSERT_ID() AS id");
+    return id;
+  };
 
-const Animal = mongoose.model("Animal", animalSchema);
+  addPhotos = async (id, files) => {
+    const urls = await saveImages(files);
+  };
 
-module.exports = { animalSchema, Animal };
+  findById = async (id) => {
+    const db = await connect();
+    const [[animal]] = await db.query("SELECT * FROM animals WHERE id = ?", id);
+    return animal;
+  };
+
+  findAll = async () => {
+    const db = await connect();
+    const [animals] = await db.query("SELECT * FROM animals");
+    return animals;
+  };
+
+  deleteById = async (id) => {
+    const db = await connect();
+    await db.query("DELETE FROM animals WHERE id = ?", id);
+  };
+
+  updateById = async (id, animal) => {
+    const db = await connect();
+    await db.query("UPDATE animals SET ? WHERE id = ?", [animal, id]);
+  };
+}
+
+module.exports = Animal;

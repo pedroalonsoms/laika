@@ -1,0 +1,22 @@
+<form action="<%= action %>" method="post" enctype="multipart/form-data">
+    
+    <% const {Animal, animal={}} = locals %>
+
+    <%- include("../_text_input.ejs", {title: "Nombre", name: "name", value: animal.name}) %>
+
+    <%- include("../_text_input.ejs", {title: "Alias", name: "alias", value: animal.alias}) %>
+
+    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal.types, value: animal.type}) %>
+
+    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal.sexes, value: animal.sex}) %>
+
+    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal.statuses, value: animal.status}) %>
+
+    <%- include("../_text_area.ejs", {title: "Señas Particulares", name: "particular_signs", value: animal.particular_signs}) %>
+
+    <label for="photos">Añadir Fotos</label>
+    <input type="file" name="photos" id="photos" multiple>
+
+    <input type="submit" value="Enviar">
+
+</form>

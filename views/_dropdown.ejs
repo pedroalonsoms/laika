@@ -1,0 +1,16 @@
+<% const {title, name, options=[], include_any=false} = locals %>
+
+<p>
+    <label for="<%= name %>"><%= title %></label><br>
+    <select name="<%= name %>" id="<%= name %>">
+
+        <% if (include_any) { %>
+            <option value="Any">Cualquiera</option>
+        <% } %>
+
+        <% for (option of options) { %>
+            <option value="<%= option %>"><%= option %></option>
+        <% } %>
+        
+    </select>
+</p>

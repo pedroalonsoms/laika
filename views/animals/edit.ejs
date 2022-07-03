@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../_header.ejs", {title: "Animal"}) %>
+<body>
+    <h1>Editar animal</h1>
+
+    <% const {req} = locals %>
+    <%- include("./_form.ejs", {action: `/animals/${req.params.id}/update`}) %>
+</body>
+</html>
