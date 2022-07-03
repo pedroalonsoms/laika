@@ -32,6 +32,7 @@ class AnimalsController {
   };
 
   update = async (req, res) => {
+    console.log(req.body);
     const id = req.params.id;
     await Animal.updateById(id, req.body);
     res.redirect(`/animals/${id}`);

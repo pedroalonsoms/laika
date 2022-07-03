@@ -18,5 +18,11 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.18"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,ejs",
+    "events": {
+      "start": "clear"
+    }
   }
 }

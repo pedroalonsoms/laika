@@ -10,7 +10,11 @@ router.post("/animals", upload.array("photos"), AnimalsController.create);
 router.get("/animals/new", AnimalsController.new);
 router.get("/animals/:id", AnimalsController.show);
 router.get("/animals/:id/edit", AnimalsController.edit);
-router.post("/animals/:id/update", AnimalsController.update);
+router.post(
+  "/animals/:id/update",
+  upload.array("photos"),
+  AnimalsController.update
+);
 router.get("/animals/:id/delete", AnimalsController.delete);
 
 module.exports = router;
