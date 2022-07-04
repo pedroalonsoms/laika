@@ -6,11 +6,11 @@
 
     <%- include("../_text_input.ejs", {title: "Alias", name: "alias", value: animal.alias}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal.types, value: animal.type}) %>
+    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal.schema.path('type').enumValues, value: animal.type}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal.sexes, value: animal.sex}) %>
+    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal.schema.path('sex').enumValues, value: animal.sex}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal.statuses, value: animal.status}) %>
+    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal.schema.path('status').enumValues, value: animal.status}) %>
 
     <%- include("../_text_area.ejs", {title: "Señas Particulares", name: "particular_signs", value: animal.particular_signs}) %>
 

@@ -1,69 +1,95 @@
-const connect = require("../db/connect");
-const { saveImages } = require("../lib/utils");
+const mongoose = require("mongoose");
+const { addressSchema } = require("./address");
 
-class Animal {
-  types = ["Perro", "Gato", "Otro"];
-  sexes = ["Macho", "Hembra"];
-  statuses = ["Activo", "Adoptado", "Fallecido"];
+const animalSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  alias: String,
+  photos: [String],
+  sex: {
+    type: String,
+    required: true,
+    enum: {
+      values: ["Macho", "Hembra"],
+    },
+  },
+  type: {
+    type: String,
+    required: true,
+    enum: {
+      values: ["Perro", "Gato", "Otro"],
+    },
+  },
+  status: {
+    type: String,
+    required: true,
+    enum: {
+      values: ["Activo", "Adoptado", "Fallecido"],
+    },
+  },
+  particular_signs: String,
+  rescue: {
+    type: {
+      date: {
+        type: Date,
+        required: true,
+      },
+      address: {
+        type: addressSchema,
+        required: true,
+      },
+      rescuers: {
+        type: String,
+        required: true,
+      },
+      organization: {
+        type: String,
+        enum: {
+          values: ["Laika", "Otra"],
+        },
+      },
+      notes: String,
+    },
+    required: false,
+  },
+  adopted: [
+    {
+      startDate: {
+        type: Date,
+        required: true,
+      },
+      endDate: Date,
+      by: {
+        type: String,
+        required: true,
+      },
+      address: {
+        type: addressSchema,
+        required: true,
+      },
+    },
+  ],
+  medicalAppointments: [
+    {
+      type: Date,
+      required: true,
+    },
+  ],
+  history: [
+    {
+      date: {
+        type: Date,
+        required: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+});
 
-  create = async (animal) => {
-    const db = await connect();
-    await db.query("INSERT INTO animals SET ?", animal);
-    const [[{ id }]] = await db.query("SELECT LAST_INSERT_ID() AS id");
-    return id;
-  };
-
-  addPhotos = async (id, files) => {
-    const urls = await saveImages(files);
-
-    const db = await connect();
-    const values = urls.map((url) => [id, url]);
-    if (values.length == 0) return;
-    await db.query("INSERT INTO photos (animal_id, url) VALUES ?", [values]);
-  };
-
-  findById = async (id) => {
-    const db = await connect();
-    const [[animal]] = await db.query("SELECT * FROM animals WHERE id = ?", id);
-    const [photos] = await db.query(
-      "SELECT url FROM photos WHERE animal_id = ?",
-      id
-    );
-    const urls = photos.map((photo) => `/uploads/${photo.url}`);
-
-    return { ...animal, photos: urls };
-  };
-
-  findAll = async () => {
-    const db = await connect();
-    const [animals] = await db.query("SELECT * FROM animals");
-
-    for (let i = 0; i < animals.length; i++) {
-      const [photos] = await db.query(
-        "SELECT * FROM photos WHERE animal_id = ? LIMIT 1",
-        animals[i].id
-      );
-
-      if (photos.length == 0) {
-        animals[i].photos = [`/images/default.webp`];
-      } else {
-        const urls = photos.map((photo) => `/uploads/${photo.url}`);
-        animals[i].photos = urls;
-      }
-    }
-
-    return animals;
-  };
-
-  deleteById = async (id) => {
-    const db = await connect();
-    await db.query("DELETE FROM animals WHERE id = ?", id);
-  };
-
-  updateById = async (id, animal) => {
-    const db = await connect();
-    await db.query("UPDATE animals SET ? WHERE id = ?", [animal, id]);
-  };
-}
-
-module.exports = Animal;
+const Animal = mongoose.model("Animal", animalSchema);
+module.exports = { Animal };

@@ -1,5 +1,5 @@
-const _Animal = require("../models/Animal");
-const Animal = new _Animal();
+const { saveImages } = require("../lib/utils");
+const { Animal } = require("../models/animal");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
@@ -7,7 +7,7 @@ class AnimalsController {
   };
 
   index = async (req, res) => {
-    const animals = await Animal.findAll();
+    const animals = await Animal.find();
     this.render(req, res, "index", { animals });
   };
 
@@ -21,8 +21,9 @@ class AnimalsController {
   };
 
   create = async (req, res) => {
-    const id = await Animal.create(req.body);
-    await Animal.addPhotos(id, req.files);
+    const urls = await saveImages(req.files);
+    const animal = new Animal({ ...req.body, photos: urls });
+    const { id } = await animal.save();
     res.redirect(`/animals/${id}`);
   };
 
@@ -33,13 +34,16 @@ class AnimalsController {
 
   update = async (req, res) => {
     const id = req.params.id;
-    await Animal.updateById(id, req.body);
-    await Animal.addPhotos(id, req.files);
+    const urls = await saveImages(req.files);
+    await Animal.findByIdAndUpdate(id, {
+      ...req.body,
+      $push: { photos: urls },
+    });
     res.redirect(`/animals/${id}`);
   };
 
   delete = async (req, res) => {
-    await Animal.deleteById(req.params.id);
+    await Animal.findByIdAndDelete(req.params.id);
     res.redirect("/animals");
   };
 }
