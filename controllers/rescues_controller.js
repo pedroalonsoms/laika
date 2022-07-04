@@ -8,7 +8,7 @@ class RescuesController {
 
   show = async (req, res) => {
     const { rescue } = await Animal.findById(req.params.animal_id);
-    this.render(req, res, "show", rescue);
+    this.render(req, res, "show", { rescue });
   };
 
   new = async (req, res) => {
@@ -16,6 +16,19 @@ class RescuesController {
   };
 
   create = async (req, res) => {
+    const animal = await Animal.findById(req.params.animal_id);
+    animal.rescue = req.body;
+    await animal.save();
+    res.redirect("../");
+  };
+
+  edit = async (req, res) => {
+    const { rescue } = await Animal.findById(req.params.animal_id);
+    this.render(req, res, "edit", { rescue });
+  };
+
+  update = async (req, res) => {
+    console.log(req.body);
     res.redirect("../");
   };
 }

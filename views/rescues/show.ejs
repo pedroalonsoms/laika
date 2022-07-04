@@ -4,9 +4,18 @@
 <body>
     <h1>Rescate</h1>
 
-    <% const {rescue} = locals %>
+    <% const {rescue} = locals; %>
     <% if(rescue) { %>
-        <%- include("../_text_label.ejs", {title: "Rescatistas", value: rescue.rescuers}) %>
+
+        <%- include("../_text_label.ejs", {title: "Fecha", value: rescue?.date.toText()}) %>
+        
+        <%- include("../_show_address.ejs", {address: rescue?.address}) %>
+        
+        <%- include("../_text_label.ejs", {title: "Rescatistas", value: rescue?.rescuers}) %>
+
+        <%- include("../_text_label.ejs", {title: "Organización", value: rescue?.organization}) %>
+        
+        <%- include("../_text_label.ejs", {title: "Notas", value: rescue?.notes}) %>
 
         <% const {req} = locals %>
         <div>

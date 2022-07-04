@@ -22,6 +22,8 @@ const RescuesController = new _RescuesController();
 router.get("/animals/:animal_id/rescue", RescuesController.show);
 router.post("/animals/:animal_id/rescue", RescuesController.create);
 router.get("/animals/:animal_id/rescue/new", RescuesController.new);
+router.get("/animals/:animal_id/rescue/edit", RescuesController.edit);
+router.post("/animals/:animal_id/rescue/update", RescuesController.update);
 
 const _NeighborhoodsController = require("./controllers/neighborhoods_controller");
 const NeighborhoodsController = new _NeighborhoodsController();
