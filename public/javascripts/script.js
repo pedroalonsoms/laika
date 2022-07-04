@@ -1,5 +1,4 @@
-const ids = ["neighborhood", "municipality", "state", "country"];
-const zipCodeInput = document.getElementById("zipCode");
+const zipCodeInput = document.getElementById("zip_code");
 
 if (zipCodeInput) zipCodeInput.oninput = (e) => e.target.setCustomValidity("");
 
@@ -24,21 +23,11 @@ const addOptionsTo = (dropdown, optionNames) => {
   }
 };
 
-const updateAllDropdowns = (data) => {
-  // Iterate through every dropdown
-  for (id of ids) {
-    const dropdown = document.getElementById(id);
-    removeOptionsFrom(dropdown);
-    if (!data) continue;
-    addOptionsTo(dropdown, data[id] instanceof Array ? data[id] : [data[id]]);
-  }
-};
-
-const fetchZipCodeInfo = async () => {
+const fetchNeighborhoods = async () => {
   let data = null;
   try {
     // Fetch data
-    const response = await fetch(`/zipcode/${zipCodeInput.value}`);
+    const response = await fetch(`/neighborhoods/${zipCodeInput.value}`);
     if (!response.ok) throw new Error();
     data = await response.json();
   } catch (e) {
@@ -46,5 +35,9 @@ const fetchZipCodeInfo = async () => {
     zipCodeInput.setCustomValidity("CP Inválido");
     zipCodeInput.reportValidity();
   }
-  updateAllDropdowns(data);
+
+  // Update dropdown
+  const dropdown = document.getElementById("neighborhood");
+  removeOptionsFrom(dropdown);
+  if (data) addOptionsTo(dropdown, data);
 };

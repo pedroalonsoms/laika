@@ -23,4 +23,8 @@ router.get("/animals/:animal_id/rescue", RescuesController.show);
 router.post("/animals/:animal_id/rescue", RescuesController.create);
 router.get("/animals/:animal_id/rescue/new", RescuesController.new);
 
+const _NeighborhoodsController = require("./controllers/neighborhoods_controller");
+const NeighborhoodsController = new _NeighborhoodsController();
+router.get("/neighborhoods/:zip_code", NeighborhoodsController.details);
+
 module.exports = router;
