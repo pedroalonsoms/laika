@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../_header.ejs", {title: "Rescate"}) %>
+<body>
+    <h1>Rescate</h1>
+
+    <% const {rescue} = locals %>
+    <% if(rescue) { %>
+        <%- include("../_text_label.ejs", {title: "Rescatistas", value: rescue.rescuers}) %>
+
+        <% const {req} = locals %>
+        <div>
+            <a href="edit/"><button>Editar</button></a>
+        </div>
+    <% } else { %>
+        <a href="new/">Añadir Rescate</a>
+    <% } %>
+
+</body>
+</html>

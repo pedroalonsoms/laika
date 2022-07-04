@@ -1,15 +1,21 @@
-<% const {title, name, options=[], include_any=false} = locals %>
+<% const {title, name, options=[], include_any=false, value} = locals %>
 
 <p>
     <label for="<%= name %>"><%= title %></label><br>
-    <select name="<%= name %>" id="<%= name %>">
+    <select name="<%= name %>" id="<%= name %>" >
 
         <% if (include_any) { %>
             <option value="Any">Cualquiera</option>
         <% } %>
 
         <% for (option of options) { %>
-            <option value="<%= option %>"><%= option %></option>
+            <option value="<%= option %>" 
+                <% if (value == option) { %>
+                    selected
+                <% } %> 
+            >
+                <%= option %>
+            </option>
         <% } %>
         
     </select>

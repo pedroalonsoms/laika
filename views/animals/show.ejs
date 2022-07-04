@@ -2,13 +2,16 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Animal"}) %>
 <body>
+<% const {req} = locals %>
+<base href="/animals/<%= req.params.id %>/">
+    
     <h1>Animal</h1>
 
     <nav>
-        <a href="./rescue">Rescate</a>
-        <a href="#">Eventos</a>
-        <a href="#">Citas</a>
-        <a href="#">Adopciones</a>
+        <a href="rescue/">Rescate</a>
+        <a href="events/">Eventos</a>
+        <a href="appointments/">Citas</a>
+        <a href="adoptions/">Adopciones</a>
     </nav>
 
     <%- include("../_text_label.ejs", {title: "Nombre", value: animal.name}) %>
@@ -29,11 +32,10 @@
         </main>
     <% }); %>
 
-    <% const {req} = locals %>
     <div>
-        <a href="/animals/<%= req.params.id %>/edit/"><button>Editar</button></a>
-        <a href="/animals/<%= req.params.id %>/delete/"><button>Borrar</button></a>
+        <a href="edit/"><button>Editar</button></a>
+        <a href="delete/"><button>Borrar</button></a>
     </div>
-
+</base>
 </body>
 </html>

@@ -17,4 +17,10 @@ router.post(
 );
 router.get("/animals/:id/delete", AnimalsController.delete);
 
+const _RescuesController = require("./controllers/rescues_controller");
+const RescuesController = new _RescuesController();
+router.get("/animals/:animal_id/rescue", RescuesController.show);
+router.post("/animals/:animal_id/rescue", RescuesController.create);
+router.get("/animals/:animal_id/rescue/new", RescuesController.new);
+
 module.exports = router;

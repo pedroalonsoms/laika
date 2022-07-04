@@ -1,6 +1,10 @@
-<% const {title, name, value} = locals %>
+<% const {title, name, value, hasOkButton=false} = locals %>
 
 <p>
     <label for="<%= name %>"><%= title %></label><br>
     <input type="text" id="<%= name %>" name="<%= name %>" value="<%= value %>" autocomplete="off"/>
+
+    <% if(hasOkButton) { %>
+        <button>Ok</button>
+    <% } %>
 </p>

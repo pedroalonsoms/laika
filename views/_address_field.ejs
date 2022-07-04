@@ -1,0 +1,9 @@
+<% const {Address, address={}} = locals %>
+
+<%- include("_dropdown.ejs", {title: "Municipio", name: "municipality", options: Address.schema.path('municipality').enumValues, value: address?.municipality}) %>
+
+<%- include("_text_input.ejs", {title: "Código Postal", name: "zip_code", value: address?.zip_code, hasOkButton: true}) %>
+
+<%- include("_dropdown.ejs", {title: "Colonia", name: "neighborhood", value: address?.neighborhood}) %>
+
+<%- include("_text_input.ejs", {title: "Calle", name: "street", value: address?.street}) %>
