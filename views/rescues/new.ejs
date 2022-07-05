@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../_header.ejs", {title: "Rescate"}) %>
+    <%- include("../_header.ejs", {title: "Nuevo Rescate"}) %>
 <body>
-    <h1>Nuevo rescate</h1>
-
-    <%- include("./_form.ejs", {action: "../"}) %>
+    <% const {req} = locals %> 
+    
+    <%- include("./_form.ejs", {action: `/animals/${req.params.animal_id}/rescue`}) %>
     <script src="/javascripts/script.js"></script>
 </body>
 </html>

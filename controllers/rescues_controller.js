@@ -16,10 +16,11 @@ class RescuesController {
   };
 
   create = async (req, res) => {
-    const animal = await Animal.findById(req.params.animal_id);
+    const { animal_id } = req.params;
+    const animal = await Animal.findById(animal_id);
     animal.rescue = req.body;
     await animal.save();
-    res.redirect("../");
+    res.redirect(`/animals/${animal_id}/rescue`);
   };
 
   edit = async (req, res) => {
@@ -28,8 +29,19 @@ class RescuesController {
   };
 
   update = async (req, res) => {
-    console.log(req.body);
-    res.redirect("../");
+    const { animal_id } = req.params;
+    const animal = await Animal.findById(animal_id);
+    animal.rescue = req.body;
+    await animal.save();
+    res.redirect(`/animals/${animal_id}/rescue`);
+  };
+
+  delete = async (req, res) => {
+    const { animal_id } = req.params;
+    const animal = await Animal.findById(animal_id);
+    animal.rescue = undefined;
+    await animal.save();
+    res.redirect(`/animals/${animal_id}/rescue`);
   };
 }
 

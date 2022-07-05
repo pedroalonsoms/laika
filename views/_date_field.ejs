@@ -1,7 +1,6 @@
 <% const {title, name, value} = locals %>
-<% console.log(value) %>
 
 <p>
     <label for="<%= name %>"><%= title %></label><br>
-    <input type="date" id="<%= name %>" name="<%= name %>" value="<%= value.toDateInputValue(); %>"/>
+    <input type="date" id="<%= name %>" name="<%= name %>" value="<%= value?.toDateInputValue(); %>"/>
 </p>
