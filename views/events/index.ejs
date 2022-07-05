@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../_header.ejs", {title: "Eventos"}) %>
+<body>
+    <% const {events} = locals; %>
+    <% const {animal_id, id} = req?.params; %>
+
+    <a href="/animals/<%= animal_id %>/events/new">Nuevo evento</a>
+
+    <% if(events) { %>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Acción</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for(event of events) { %>
+                <tr>
+                    <td><%= event.description %></td>
+                    <td><%= event.date?.toText() %></td>
+                    <td>
+                        <a href="/animals/<%= animal_id %>/events/<%= event.id %>/delete">Borrar</a>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+
+        </table>
+
+    <% } else { %>
+
+        <p>No hay eventos!</p>
+
+    <% } %>
+
+</body>
+</html>

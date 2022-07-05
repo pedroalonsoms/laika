@@ -8,15 +8,15 @@
             <option value="Any">Cualquiera</option>
         <% } %>
 
-        <% for (option of options) { %>
-            <option value="<%= option %>" 
-                <% if (value == option) { %>
-                    selected
-                <% } %> 
-            >
-                <%= option %>
-            </option>
-        <% } %>
+            <% options?.map(option => { %>
+                <option value="<%= option %>" 
+                    <% if (value == option) { %>
+                        selected
+                    <% } %> 
+                >
+                    <%= option %>
+                </option>
+            <% }) %>
         
     </select>
 </p>

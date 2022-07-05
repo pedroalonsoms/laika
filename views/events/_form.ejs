@@ -1,0 +1,11 @@
+<form action="<%= action %>" method="post">
+    
+    <% const {Animal, event} = locals %>
+
+    <%- include("../_dropdown.ejs", {title: "Descripción", name: "description", options: Animal?.schema.path('events.description').enumValues, value: event?.description}) %>
+    
+    <%- include("../_date_field.ejs", {title: "Fecha", name: "date", value: event?.date}) %>
+
+    <input type="submit" value="Enviar">
+
+</form>

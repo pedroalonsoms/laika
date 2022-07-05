@@ -3,7 +3,6 @@
     <%- include("../_header.ejs", {title: "Editar Animal"}) %>
 <body>
 
-    <% const {req} = locals %>
     <%- include("./_form.ejs", {action: `/animals/${req.params.id}/update`}) %>
 </body>
 </html>

@@ -46,6 +46,7 @@ const animalSchema = new mongoose.Schema({
       },
       organization: {
         type: String,
+        required: true,
         enum: {
           values: ["Laika", "Otra"],
         },
@@ -77,7 +78,7 @@ const animalSchema = new mongoose.Schema({
       required: true,
     },
   ],
-  history: [
+  events: [
     {
       date: {
         type: Date,
@@ -86,6 +87,31 @@ const animalSchema = new mongoose.Schema({
       description: {
         type: String,
         required: true,
+        enum: {
+          values: [
+            "Se detectó Atropellamiento",
+            "Se detectó TVT",
+            "Se detectó Sarna/Piel",
+            "Se detectó Viral",
+            "Se detectó Embarazo",
+            "Se detectó Cachorros",
+            "Se detectó Homeoparásitos",
+            "Se detectó Sarna",
+            "Se detectó Viral",
+            "Se detectó Anemia",
+            "Se realizó Esterilización",
+            "Se realizó Desparasitación",
+            "Se realizó Biometría Hemática",
+            "Se aplicó Pastilla Simpárica",
+            "Se aplicó Vacuna Puppy",
+            "Se aplicó Vacuna Refuerzo Puppy",
+            "Se aplicó Vacuna Múltiple",
+            "Se aplicó Vacuna Refuerzo Múltiple",
+            "Se aplicó Vacuna Rabia",
+            "Se aplicó Vacuna Triple Viral Felina",
+            "Se aplicó Vacuna Leucemia",
+          ],
+        },
       },
     },
   ],

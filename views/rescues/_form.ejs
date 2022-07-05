@@ -1,6 +1,6 @@
 <form action="<%= action %>" method="post">
     
-    <% const {Animal, rescue={}} = locals %>
+    <% const {Animal, rescue} = locals %>
 
     <%- include("../_date_field.ejs", {title: "Fecha", name: "date", value: rescue?.date}) %>
 
@@ -8,7 +8,7 @@
     
     <%- include("../_text_input.ejs", {title: "Rescatistas", name: "rescuers", value: rescue?.rescuers}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Organización", name: "organization", options: Animal.schema.path('rescue.organization').enumValues}) %>
+    <%- include("../_dropdown.ejs", {title: "Organización", name: "organization", options: Animal?.schema.path('rescue.organization').enumValues}) %>
 
     <%- include("../_text_area.ejs", {title: "Notas", name: "notes", value: rescue?.notes}) %>
     

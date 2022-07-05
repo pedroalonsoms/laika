@@ -35,10 +35,9 @@ class AnimalsController {
   update = async (req, res) => {
     const id = req.params.id;
     const urls = await saveImages(req.files);
-    await Animal.findByIdAndUpdate(id, {
-      ...req.body,
-      $push: { photos: urls },
-    });
+    const animal = await Animal.findById(id);
+    animal.photos.push(...urls);
+    await animal.save();
     res.redirect(`/animals/${id}`);
   };
 

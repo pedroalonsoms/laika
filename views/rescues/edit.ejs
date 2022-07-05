@@ -2,7 +2,6 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Editar Rescate"}) %>
 <body>
-    <% const {req} = locals %> 
     <%- include("./_form.ejs", {action: `/animals/${req.params.animal_id}/rescue/update`}) %>
     <script src="/javascripts/script.js"></script>
 </body>

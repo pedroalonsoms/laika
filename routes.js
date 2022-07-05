@@ -26,6 +26,13 @@ router.get("/animals/:animal_id/rescue/edit", RescuesController.edit);
 router.post("/animals/:animal_id/rescue/update", RescuesController.update);
 router.get("/animals/:animal_id/rescue/delete", RescuesController.delete);
 
+const _EventsController = require("./controllers/events_controller");
+const EventsController = new _EventsController();
+router.get("/animals/:animal_id/events", EventsController.index);
+router.get("/animals/:animal_id/events/new", EventsController.new);
+router.post("/animals/:animal_id/events", EventsController.create);
+router.get("/animals/:animal_id/events/:id/delete", EventsController.delete);
+
 const _NeighborhoodsController = require("./controllers/neighborhoods_controller");
 const NeighborhoodsController = new _NeighborhoodsController();
 router.get("/neighborhoods/:zip_code", NeighborhoodsController.details);
