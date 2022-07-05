@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../_header.ejs", {title: "Nueva Cita"}) %>
+<body>
+    <% const { animal_id } = req?.params; %>
+    <%- include("./_form.ejs", {action: `/animals/${animal_id}/appointments`}) %>
+</body>
+</html>

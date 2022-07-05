@@ -33,6 +33,16 @@ router.get("/animals/:animal_id/events/new", EventsController.new);
 router.post("/animals/:animal_id/events", EventsController.create);
 router.get("/animals/:animal_id/events/:id/delete", EventsController.delete);
 
+const _AppointmentsController = require("./controllers/appointments_controller");
+const AppointmentsController = new _AppointmentsController();
+router.get("/animals/:animal_id/appointments", AppointmentsController.index);
+router.get("/animals/:animal_id/appointments/new", AppointmentsController.new);
+router.post("/animals/:animal_id/appointments", AppointmentsController.create);
+router.get(
+  "/animals/:animal_id/appointments/:id/delete",
+  AppointmentsController.delete
+);
+
 const _NeighborhoodsController = require("./controllers/neighborhoods_controller");
 const NeighborhoodsController = new _NeighborhoodsController();
 router.get("/neighborhoods/:zip_code", NeighborhoodsController.details);

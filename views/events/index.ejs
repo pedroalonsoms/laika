@@ -3,11 +3,11 @@
     <%- include("../_header.ejs", {title: "Eventos"}) %>
 <body>
     <% const {events} = locals; %>
-    <% const {animal_id, id} = req?.params; %>
+    <% const {animal_id} = req?.params; %>
 
     <a href="/animals/<%= animal_id %>/events/new">Nuevo evento</a>
 
-    <% if(events) { %>
+    <% if(events?.length > 0) { %>
 
         <table>
 
@@ -33,13 +33,26 @@
 
         </table>
         
-        <%# TODO: Accordion with dog and cat vacciones %> 
 
     <% } else { %>
 
         <p>No hay eventos!</p>
 
     <% } %>
+
+        <%# TODO: Accordion with dog and cat vacciones %> 
+
+    <details>
+        <summary>Vacunas que debería tener un gato</summary>
+        <p>Rabia</p>
+        <p>Leucemia</p>
+      </details>
+
+      <details>
+        <summary>Vacunas que debería tener un perro</summary>
+        <p>Ref multiple</p>
+        <p>Ref puppy</p>
+      </details>
 
 </body>
 </html>

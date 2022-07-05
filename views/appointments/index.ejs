@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../_header.ejs", {title: "Citas"}) %>
+<body>
+    <% const {appointments} = locals; %>
+    <% const {animal_id} = req?.params; %>
+
+    <a href="/animals/<%= animal_id %>/appointments/new">Nueva cita</a>
+
+    <% if(appointments?.length > 0) { %>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Acción</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for(appointment of appointments) { %>
+                <tr>
+                    <td><%= appointment.date?.toText() %></td>
+                    <td>
+                        <a href="/animals/<%= animal_id %>/appointments/<%= appointment?.id %>/delete">Borrar</a>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+
+        </table>
+        
+
+    <% } else { %>
+
+        <p>No hay citas!</p>
+
+    <% } %>
+
+</body>
+</html>

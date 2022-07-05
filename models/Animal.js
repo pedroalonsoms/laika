@@ -72,10 +72,12 @@ const animalSchema = new mongoose.Schema({
       },
     },
   ],
-  medicalAppointments: [
+  appointments: [
     {
-      type: Date,
-      required: true,
+      date: {
+        type: Date,
+        required: true,
+      },
     },
   ],
   events: [
