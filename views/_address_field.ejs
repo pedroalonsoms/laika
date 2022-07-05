@@ -4,6 +4,6 @@
 
 <%- include("_text_input.ejs", {title: "Código Postal", name: "address[zip_code]", value: address?.zip_code, hasOkButton: true}) %>
 
-<%- include("_dropdown.ejs", {title: "Colonia", options: address?.neighborhood, name: "address[neighborhood]", value: address?.neighborhood}) %>
+<%- include("_dropdown.ejs", {title: "Colonia", options: [address?.neighborhood], name: "address[neighborhood]", value: address?.neighborhood}) %>
 
 <%- include("_text_input.ejs", {title: "Calle", name: "address[street]", value: address?.street}) %>

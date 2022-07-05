@@ -11,7 +11,7 @@
 
             <h3><%= animal.name %> (<%= animal.alias %>)</h3>
             
-            <img src=<%= animal.photos[0] %> style="aspect-ratio:1; object-fit:cover; width: 100%;" />
+            <img src=<%= animal.photos[0] %> style="aspect-ratio: 16/9; object-fit:cover; width:100%;" />
             
             <%- include("../_text_label.ejs", {title: "Estatus", value: animal.status}) %>
 
