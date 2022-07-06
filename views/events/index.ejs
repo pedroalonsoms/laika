@@ -22,8 +22,8 @@
             <tbody>
             <% for(event of events) { %>
                 <tr>
-                    <td><%= event.description %></td>
-                    <td><%= event.date?.toText() %></td>
+                    <td><%= event?.description %></td>
+                    <td><%= event?.date?.toText() %></td>
                     <td>
                         <a href="/animals/<%= animal_id %>/events/<%= event.id %>/delete">Borrar</a>
                     </td>

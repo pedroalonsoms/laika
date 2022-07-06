@@ -53,6 +53,10 @@ router.get(
   AdoptionsController.delete
 );
 
+const _CalendarController = require("./controllers/calendar_controller");
+const CalendarController = new _CalendarController();
+router.get("/calendar", CalendarController.show);
+
 const _NeighborhoodsController = require("./controllers/neighborhoods_controller");
 const NeighborhoodsController = new _NeighborhoodsController();
 router.get("/neighborhoods/:zip_code", NeighborhoodsController.details);
