@@ -16,8 +16,19 @@ npm run dev
 # ToDo
 
 - [ ] Search Filters
+- [ ] Asterisco para los forms opcionales
+- [ ] Arreglar editar animal
+- [ ] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
+- [ ] Crear rescate: (opcionales) Codigo Postal, Colonia y Calle, Rescatista. (quitar) Notas
+- [ ] Tablas headers centrados
+- [ ] Juntar eventos con citas
+- [ ] En la cita agregar campo para descripción (obligatoria)
+- [ ] Adopciones (opcionales) Regreso, Calle
+- [ ] Agregar en adopciones domicilio completo
+- [ ] Adopción quitar calle y solo imprimir en la tabla municipio y colonia
 - [ ] Pagination/Infinite Scroll
-- [ ] Calendar View
+- [ ] Calendar View (el de Rey)
+- [ ] Calendar View (como Reminders)
 - [ ] Add Color Field to Animal
 - [ ] Protected Routes to Edit and Delete
 - [ ] Print Animal Details
