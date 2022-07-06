@@ -16,10 +16,9 @@ npm run dev
 # ToDo
 
 - [ ] Search Filters
-- [ ] Pagination/Scroll Filters
+- [ ] Pagination/Infinite Scroll
 - [ ] Calendar View
 - [ ] Add Color Field to Animal
-- [ ] BUSQUEDA: ME PUEDE DAR POR MES Y AÑO DE ADOPCION Y MES Y AÑO DE REGISTRO?
 - [ ] Protected Routes to Edit and Delete
 - [ ] Print Animal Details
 - [ ] Dropdowns for knowing which vaccines the animal has
@@ -30,3 +29,4 @@ npm run dev
 - [ ] Add references
 - [ ] Betatesting
 - [ ] Deployment
+- [ ] BUSQUEDA: ME PUEDE DAR POR MES Y AÑO DE ADOPCION Y MES Y AÑO DE REGISTRO?
