@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { addressSchema } = require("./address");
+const { adoptionSchema } = require("./adoption");
 
 const animalSchema = new mongoose.Schema({
   name: {
@@ -55,23 +56,7 @@ const animalSchema = new mongoose.Schema({
     },
     required: false,
   },
-  adopted: [
-    {
-      startDate: {
-        type: Date,
-        required: true,
-      },
-      endDate: Date,
-      by: {
-        type: String,
-        required: true,
-      },
-      address: {
-        type: addressSchema,
-        required: true,
-      },
-    },
-  ],
+  adoptions: [adoptionSchema],
   appointments: [
     {
       date: {
@@ -117,6 +102,40 @@ const animalSchema = new mongoose.Schema({
       },
     },
   ],
+});
+
+animalSchema.virtual("calendarList").get(function () {
+  const calendarList = [];
+
+  //Adding Medical Appointments
+  this.appointments?.forEach((appointment) => {
+    calendarList.push({
+      description: "Cita médica",
+      from: this,
+      date: appointment?.date,
+    });
+  });
+
+  //Adding Adoptions
+  this.adoptions?.forEach((adoption) => {
+    const _type = `${adoption?.type?.toLowerCase()}`;
+
+    calendarList.push({
+      description: `Inicia adopción ${_type}`,
+      from: this,
+      date: adoption?.start_date,
+    });
+
+    if (_type === "temporal") {
+      calendarList.push({
+        description: `Termina adopción ${_type}`,
+        from: this,
+        date: adoption?.end_date,
+      });
+    }
+  });
+
+  return calendarList;
 });
 
 const Animal = mongoose.model("Animal", animalSchema);

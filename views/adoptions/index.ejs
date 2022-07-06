@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../_header.ejs", {title: "Adopciones"}) %>
+<body>
+    <% const {adoptions} = locals; %>
+    <% const {animal_id} = req?.params; %>
+
+    <a href="/animals/<%= animal_id %>/adoptions/new">Nueva adopción</a>
+
+    <% if(adoptions?.length > 0) { %>
+
+        <table>
+
+            <thead>
+            <tr>
+                <th>Tipo</th>
+                <th>Inicio</th>
+                <th>Regreso</th>
+                <th>Adoptado por</th>
+                <th>Domicilio</th>
+                <th>Acción</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for(adoption of adoptions) { %>
+                <tr>
+                    <td><%= adoption?.type %></td>
+                    <td><%= adoption?.start_date?.toText() %></td>
+                    <td><%= adoption?.end_date?.toText() %></td>
+                    <td><%= adoption?.by %></td>
+                    <td><%= adoption?.address?.neighborhood %></td>
+                    <td>
+                        <a href="/animals/<%= animal_id %>/adoptions/<%= adoption?.id %>/delete">Borrar</a>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+
+        </table>
+        
+
+    <% } else { %>
+
+        <p>No hay adopciones!</p>
+
+    <% } %>
+
+</body>
+</html>

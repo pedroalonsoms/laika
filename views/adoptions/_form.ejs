@@ -1,0 +1,13 @@
+<form action="<%= action %>" method="post">
+    
+    <%- include("../_date_field.ejs", {title: "Inicio", name: "start_date"}) %>
+
+    <%- include("../_date_field.ejs", {title: "Regreso", name: "end_date"}) %>
+
+    <%- include("../_text_input.ejs", {title: "Adoptado por", name: "by"}) %>
+
+    <%- include("../_address_field.ejs") %>
+
+    <input type="submit" value="Enviar">
+
+</form>

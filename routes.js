@@ -43,6 +43,16 @@ router.get(
   AppointmentsController.delete
 );
 
+const _AdoptionsController = require("./controllers/adoptions_controller");
+const AdoptionsController = new _AdoptionsController();
+router.get("/animals/:animal_id/adoptions", AdoptionsController.index);
+router.get("/animals/:animal_id/adoptions/new", AdoptionsController.new);
+router.post("/animals/:animal_id/adoptions", AdoptionsController.create);
+router.get(
+  "/animals/:animal_id/adoptions/:id/delete",
+  AdoptionsController.delete
+);
+
 const _NeighborhoodsController = require("./controllers/neighborhoods_controller");
 const NeighborhoodsController = new _NeighborhoodsController();
 router.get("/neighborhoods/:zip_code", NeighborhoodsController.details);
