@@ -17,7 +17,15 @@ npm run dev
 
 ## Pedro
 
+### Complicado
+
 - [ ] Search Filters
+- [ ] Pagination/Infinite Scroll
+- [ ] Calendar View (como Reminders)
+- [ ] Protected Routes to Edit and Delete (Prompt)
+
+### Sencillo
+
 - [ ] Asterisco para los forms opcionales
 - [ ] Arreglar editar animal
 - [ ] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
@@ -25,24 +33,20 @@ npm run dev
 - [ ] Crear animal: meses y años, guardar la fecha de nacimiento estimada (obligatorio)
 - [ ] Crear campo para PetcoID (opcional) (numero entero)
 - [ ] Crear rescate: (opcionales) Codigo Postal, Colonia y Calle, Rescatista. (quitar) Notas
-- [ ] Tablas headers centrados
 - [ ] En la cita agregar campo para descripción (obligatoria)
 - [ ] Adopciones (opcionales) Regreso, Calle
 - [ ] Adopción quitar calle y solo imprimir en la tabla municipio y colonia
-- [ ] Pagination/Infinite Scroll
-- [ ] Calendar View (como Reminders)
 - [ ] Add Color Field to Animal (Blanco, Negro, Café y Otro)
-- [ ] Protected Routes to Edit and Delete (Prompt)
 - [ ] Dropdowns for knowing which vaccines the animal has
 - [ ] Add references
 - [ ] Deployment
 
 ## (Juan, Rogelio, Ozner y JC)
 
-- [ ] Validation for empty forms
+- [ ] Error handling (try/catch) y mensajes de error
+- [ ] Tablas headers centrados
 - [ ] Calendar View (el de Rey)
 - [ ] Zip Codes JSON data using Js
-- [ ] Error handling (try/catch)
 - [ ] Betatesting
 - [ ] Pasar los datos de la base antigua a la nueva manualmente
 - [ ] Print Paper Animal Details (Ctrl + P)
