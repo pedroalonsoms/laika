@@ -15,29 +15,34 @@ npm run dev
 
 # ToDo
 
+## Pedro
+
 - [ ] Search Filters
 - [ ] Asterisco para los forms opcionales
 - [ ] Arreglar editar animal
 - [ ] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
+- [ ] Crear animal: añadir color de animal (obligatorio)
+- [ ] Crear animal: meses y años, guardar la fecha de nacimiento estimada (obligatorio)
+- [ ] Crear campo para PetcoID (opcional) (numero entero)
 - [ ] Crear rescate: (opcionales) Codigo Postal, Colonia y Calle, Rescatista. (quitar) Notas
 - [ ] Tablas headers centrados
-- [ ] Juntar eventos con citas
 - [ ] En la cita agregar campo para descripción (obligatoria)
 - [ ] Adopciones (opcionales) Regreso, Calle
-- [ ] Agregar en adopciones domicilio completo
 - [ ] Adopción quitar calle y solo imprimir en la tabla municipio y colonia
 - [ ] Pagination/Infinite Scroll
-- [ ] Calendar View (el de Rey)
 - [ ] Calendar View (como Reminders)
-- [ ] Add Color Field to Animal
-- [ ] Protected Routes to Edit and Delete
-- [ ] Print Animal Details
+- [ ] Add Color Field to Animal (Blanco, Negro, Café y Otro)
+- [ ] Protected Routes to Edit and Delete (Prompt)
 - [ ] Dropdowns for knowing which vaccines the animal has
-- [ ] Animal age in years and months vs estimated birth date
-- [ ] Validation for empty forms
-- [ ] Zip Codes JSON data using Python
-- [ ] Error handling (try/catch)
 - [ ] Add references
-- [ ] Betatesting
 - [ ] Deployment
-- [ ] BUSQUEDA: ME PUEDE DAR POR MES Y AÑO DE ADOPCION Y MES Y AÑO DE REGISTRO?
+
+## (Juan, Rogelio, Ozner y JC)
+
+- [ ] Validation for empty forms
+- [ ] Calendar View (el de Rey)
+- [ ] Zip Codes JSON data using Js
+- [ ] Error handling (try/catch)
+- [ ] Betatesting
+- [ ] Pasar los datos de la base antigua a la nueva manualmente
+- [ ] Print Paper Animal Details (Ctrl + P)
