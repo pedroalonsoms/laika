@@ -8,7 +8,6 @@ class AnimalsController {
 
   index = async (req, res) => {
     const animals = await Animal.find();
-    console.log(animals);
     this.render(req, res, "index", { animals });
   };
 

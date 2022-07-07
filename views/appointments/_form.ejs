@@ -1,6 +1,10 @@
 <form action="<%= action %>" method="post">
+
+    <% const {Animal} = locals %>
     
-    <%- include("../_date_field.ejs", {title: "Fecha", name: "date"}) %>
+    <%- include("../_date_field.ejs", {title: "Fecha", name: "date", asterisk: Animal?.schema.path('appointments.date')?.hasOwnProperty('isRequired')}) %>
+
+    <%- include("../_text_area.ejs", {title: "Descripción", name: "description", asterisk: Animal?.schema.path('appointments.description')?.hasOwnProperty('isRequired')}) %>
 
     <input type="submit" value="Enviar">
 

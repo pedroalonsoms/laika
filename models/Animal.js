@@ -58,13 +58,16 @@ const animalSchema = new mongoose.Schema({
         },
       },
     },
-    required: false,
   },
   adoptions: [adoptionSchema],
   appointments: [
     {
       date: {
         type: Date,
+        required: true,
+      },
+      description: {
+        type: String,
         required: true,
       },
     },

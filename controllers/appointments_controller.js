@@ -2,7 +2,7 @@ const { Animal } = require("../models/animal");
 
 class AppointmentsController {
   render = (req, res, filename, other) => {
-    res.render(`./appointments/${filename}`, { req, ...other });
+    res.render(`./appointments/${filename}`, { req, Animal, ...other });
   };
 
   index = async (req, res) => {
