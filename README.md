@@ -29,7 +29,7 @@ npm run dev
 - [ ] Search Filters
 - [ ] Pagination/Infinite Scroll
 - [ ] Calendar View (como Reminders)
-- [ ] Protected Routes to Edit and Delete (Prompt)
+- [x] Protected Routes to Edit and Delete (Prompt)
 
 ### Sencillo
 
@@ -37,7 +37,7 @@ npm run dev
 - [x] Arreglar editar animal
 - [x] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
 - [x] Crear animal: añadir color de animal (Blanco, Negro, Café y Otro) (obligatorio)
-- [ ] Crear animal: meses y años, guardar la fecha de nacimiento estimada (obligatorio)
+- [x] Crear animal: meses y años, guardar la fecha de nacimiento estimada (obligatorio)
 - [x] Crear campo para PetcoID (opcional) (numero entero)
 - [x] Crear rescate: (opcionales) Codigo Postal, Colonia y Calle, Rescatista. (quitar) Notas
 - [x] En la cita agregar campo para descripción (obligatoria)
