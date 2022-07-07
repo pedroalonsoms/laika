@@ -26,7 +26,7 @@ npm run dev
 
 ### Sencillo
 
-- [ ] Asterisco para los forms opcionales
+- [x] Asterisco para los forms opcionales
 - [x] Arreglar editar animal
 - [x] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
 - [ ] Crear animal: añadir color de animal (obligatorio)
