@@ -45,7 +45,7 @@ npm run dev
 - [x] Adopción quitar calle y solo imprimir en la tabla municipio y colonia
 - [x] Dropdowns for knowing which vaccines the animal has
 - [x] Add references
-- [ ] Deployment
+- [ ] Deployment (set server hour to gmt-6)
 
 ## (Juan, Rogelio, Ozner y JC)
 

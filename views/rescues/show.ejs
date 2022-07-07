@@ -6,6 +6,8 @@
     <% if(rescue) { %>
 
         <%- include("../_text_label.ejs", {title: "Fecha", value: rescue?.date.toText()}) %>
+
+        <%- include("../_text_label.ejs", {title: "Edad de Rescate", value: rescue?.age}) %>
         
         <%- include("../_show_address.ejs", {address: rescue?.address}) %>
         

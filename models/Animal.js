@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+const { milisecondsToAge } = require("../lib/utils");
 const { addressSchema } = require("./address");
 const { adoptionSchema } = require("./adoption");
+const { rescueSchema } = require("./rescue");
 
 const catVaccines = [
   "Se aplicó Vacuna Triple Viral Felina",
@@ -26,6 +28,10 @@ const animalSchema = new mongoose.Schema({
     required: true,
   },
   alias: String,
+  birth_date: {
+    type: Date,
+    required: true,
+  },
   type: {
     type: String,
     required: true,
@@ -56,26 +62,7 @@ const animalSchema = new mongoose.Schema({
   },
   particular_signs: String,
   photos: [String],
-  rescue: {
-    type: {
-      date: {
-        type: Date,
-        required: true,
-      },
-      address: {
-        type: addressSchema,
-        required: true,
-      },
-      rescuers: String,
-      organization: {
-        type: String,
-        required: true,
-        enum: {
-          values: ["Laika", "Otra"],
-        },
-      },
-    },
-  },
+  rescue: rescueSchema,
   adoptions: [adoptionSchema],
   appointments: [
     {
@@ -154,6 +141,14 @@ animalSchema.virtual("calendarList").get(function () {
   });
 
   return calendarList;
+});
+
+animalSchema.virtual("age").get(function () {
+  const today = new Date();
+  const { birth_date } = this;
+
+  if (birth_date === undefined) return "";
+  return milisecondsToAge(today - birth_date);
 });
 
 const Animal = mongoose.model("Animal", animalSchema);

@@ -1,9 +1,10 @@
 const { Animal } = require("../models/animal");
 const { Address } = require("../models/address");
+const { Rescue } = require("../models/rescue");
 
 class RescuesController {
   render = (req, res, filename, other) => {
-    res.render(`./rescues/${filename}`, { Animal, Address, req, ...other });
+    res.render(`./rescues/${filename}`, { Rescue, Address, req, ...other });
   };
 
   show = async (req, res) => {
