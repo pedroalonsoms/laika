@@ -1,6 +1,12 @@
-<% const {title, name, value} = locals %>
+<% const {title, name, value, asterisk=true} = locals %>
 
 <p>
-    <label for="<%= name %>"><%= title %></label><br>
+    <label for="<%= name %>"><%= title %>
+    
+        <% if(asterisk) { %>
+            *
+        <% } %>
+    
+    </label><br>
     <textarea name="<%= name %>" id="<%= name %>" cols="30" rows="4"><%- value %></textarea>
 </p>

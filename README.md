@@ -28,7 +28,7 @@ npm run dev
 
 - [ ] Asterisco para los forms opcionales
 - [x] Arreglar editar animal
-- [ ] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
+- [x] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
 - [ ] Crear animal: añadir color de animal (obligatorio)
 - [ ] Crear animal: meses y años, guardar la fecha de nacimiento estimada (obligatorio)
 - [ ] Crear campo para PetcoID (opcional) (numero entero)

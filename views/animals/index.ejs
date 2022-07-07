@@ -11,7 +11,13 @@
         <% for(animal of animals) {%>
 
 
-            <h3><%= animal?.name %> (<%= animal?.alias %>)</h3>
+            <h3><%= animal?.name %> 
+                
+                <% if(animal?.alias) {%>
+                    (<%= animal?.alias %>)
+                <% } %>
+                
+            </h3>
             
             <% 
                 let src;

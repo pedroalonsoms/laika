@@ -4,7 +4,7 @@
 
     <%- include("../_text_input.ejs", {title: "Nombre", name: "name", value: animal?.name}) %>
 
-    <%- include("../_text_input.ejs", {title: "Alias", name: "alias", value: animal?.alias}) %>
+    <%- include("../_text_input.ejs", {title: "Alias", name: "alias", value: animal?.alias, asterisk: false}) %>
 
     <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal?.schema.path('type').enumValues, value: animal?.type}) %>
 
@@ -12,7 +12,7 @@
 
     <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal?.schema.path('status').enumValues, value: animal?.status}) %>
 
-    <%- include("../_text_area.ejs", {title: "Señas Particulares", name: "particular_signs", value: animal?.particular_signs}) %>
+    <%- include("../_text_area.ejs", {title: "Señas Particulares", name: "particular_signs", value: animal?.particular_signs, asterisk: false}) %>
 
     <label for="photos">Añadir Fotos</label>
     <input type="file" name="photos" id="photos" multiple>
