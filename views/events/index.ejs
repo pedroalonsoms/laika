@@ -20,7 +20,7 @@
             </thead>
 
             <tbody>
-            <% for(event of events) { %>
+            <% for(const event of events) { %>
                 <tr>
                     <td><%= event?.description %></td>
                     <td><%= event?.date?.toText() %></td>
@@ -42,14 +42,14 @@
     <details>
         <summary>Vacunas que debería tener un gato</summary>
         <% const {catVaccines} = locals; %>
-        <% for(vaccine of catVaccines) { %>
+        <% for(const vaccine of catVaccines) { %>
             <p><%= vaccine %></p>
         <% } %>
       </details>
 
       <details>
         <summary>Vacunas que debería tener un perro</summary>
-        <% for(vaccine of dogVaccines) { %>
+        <% for(const vaccine of dogVaccines) { %>
             <p><%= vaccine %></p>
         <% } %>
       </details>

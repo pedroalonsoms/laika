@@ -2,35 +2,20 @@
 <html lang="en">
     <%- include("../_header.ejs", {title: "Calendario"}) %>
 <body>
-    <% const {calendarList} = locals; %>
+    <% const {calendar} = locals; %>
 
-
-    <% if(calendarList?.length > 0) { %>
-
-        <table>
-
-            <thead>
-            <tr>
-                <th>Descripción</th>
-                <th>De</th>
-                <th>Fecha</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <% for(calendarItem of calendarList) { %>
-                <% const {from: {name, id}} = calendarItem; %>
-                <tr>
-                    <td><%= calendarItem?.description %></td>
-                    <td><a href="/animals/<%= id %>"><%= name %></a></td>
-                    <td><%= calendarItem?.date?.toText() %></td>
-                </tr>
-            <% } %>
-            </tbody>
-
-        </table>
+    <% if(calendar?.length > 0) { %>
         
-
+        <% for(const day of calendar) { %>
+            <%- include("../_text_label.ejs", {title: day.date }) %>
+            <ul>
+                <% for(const item of day?.items) { %>
+                    <% const {name, id} = item.animal; %>
+                    <li><%= item.description %> de <a href="/animals/<%= id %>"><%= name %></a></li>
+                <% } %>
+            </ul>
+        <% } %>
+        
     <% } else { %>
 
         <p>No hay pendientes por ahora! :)</p>

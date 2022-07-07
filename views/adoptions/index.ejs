@@ -23,7 +23,7 @@
             </thead>
 
             <tbody>
-            <% for(adoption of adoptions) { %>
+            <% for(const adoption of adoptions) { %>
                 <tr>
                     <td><%= adoption?.type %></td>
                     <td style="white-space: nowrap;"><%= adoption?.start_date?.toText() %></td>

@@ -109,40 +109,6 @@ const animalSchema = new mongoose.Schema({
   ],
 });
 
-animalSchema.virtual("calendarList").get(function () {
-  const calendarList = [];
-
-  //Adding Medical Appointments
-  this.appointments?.forEach((appointment) => {
-    calendarList.push({
-      description: "Cita médica",
-      from: this,
-      date: appointment?.date,
-    });
-  });
-
-  //Adding Adoptions
-  this.adoptions?.forEach((adoption) => {
-    const _type = `${adoption?.type?.toLowerCase()}`;
-
-    calendarList.push({
-      description: `Inicia adopción ${_type}`,
-      from: this,
-      date: adoption?.start_date,
-    });
-
-    if (_type === "temporal") {
-      calendarList.push({
-        description: `Termina adopción ${_type}`,
-        from: this,
-        date: adoption?.end_date,
-      });
-    }
-  });
-
-  return calendarList;
-});
-
 animalSchema.virtual("age").get(function () {
   const today = new Date();
   const { birth_date } = this;

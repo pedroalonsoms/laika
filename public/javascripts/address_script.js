@@ -5,14 +5,14 @@ if (zipCodeInput) zipCodeInput.oninput = (e) => e.target.setCustomValidity("");
 const removeOptionsFrom = (dropdown) => {
   // Remove already fetched options if any
   const existingOptions = dropdown.querySelectorAll("option");
-  for (option of existingOptions) {
+  for (const option of existingOptions) {
     const value = option.getAttribute("value");
     if (value) option.remove();
   }
 };
 
 const addOptionsTo = (dropdown, optionNames) => {
-  for (optionName of optionNames) {
+  for (const optionName of optionNames) {
     // Create new option for each neighborhood
     const option = document.createElement("option");
     option.setAttribute("value", optionName);

@@ -3,7 +3,7 @@ document.onclick = function (e) {
     const href = e.target.getAttribute("href");
     const restricted_actions = ["edit", "delete", "new"];
 
-    for (action of restricted_actions) {
+    for (const action of restricted_actions) {
       if (href.includes(action)) {
         e.preventDefault();
 

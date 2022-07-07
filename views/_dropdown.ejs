@@ -16,7 +16,7 @@
 
         <%# Hacky stuff dont touch pls %>
         <% if(options && options[0] !== undefined) { %>
-            <% for(option of options) { %>
+            <% for(const option of options) { %>
                 <option value="<%= option %>" 
                     <% if (value == option) { %>
                         selected

@@ -20,7 +20,7 @@
             </thead>
 
             <tbody>
-            <% for(appointment of appointments) { %>
+            <% for(const appointment of appointments) { %>
                 <tr>
                     <td><%= appointment?.date?.toText() %></td>
                     <td><%= appointment?.description %></td>
