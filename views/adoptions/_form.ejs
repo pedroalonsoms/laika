@@ -1,10 +1,12 @@
 <form action="<%= action %>" method="post">
+
+    <% const {Animal, animal} = locals %>
     
-    <%- include("../_date_field.ejs", {title: "Inicio", name: "start_date"}) %>
+    <%- include("../_date_field.ejs", {title: "Inicio", name: "start_date", asterisk: Animal?.schema.path('adoptions.start_date')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_date_field.ejs", {title: "Regreso", name: "end_date"}) %>
+    <%- include("../_date_field.ejs", {title: "Regreso", name: "end_date", asterisk: Animal?.schema.path('adoptions.end_date')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_text_input.ejs", {title: "Adoptado por", name: "by"}) %>
+    <%- include("../_text_input.ejs", {title: "Adoptado por", name: "by", asterisk: Animal?.schema.path('adoptions.by')?.hasOwnProperty('isRequired')}) %>
 
     <%- include("../_address_field.ejs") %>
 

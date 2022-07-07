@@ -2,6 +2,23 @@ const mongoose = require("mongoose");
 const { addressSchema } = require("./address");
 const { adoptionSchema } = require("./adoption");
 
+const catVaccines = [
+  "Se aplicó Vacuna Triple Viral Felina",
+  "Se aplicó Vacuna Refuerzo TV Felina",
+  "Se aplicó Vacuna Leucemia",
+  "Se aplicó Vacuna Desparasitación",
+  "Se aplicó Vacuna Rabia",
+];
+const dogVaccines = [
+  "Se aplicó Vacuna Puppy",
+  "Se aplicó Vacuna Refuerzo Puppy",
+  "Se aplicó Vacuna Múltiple",
+  "Se aplicó Vacuna Refuerzo Múltiple",
+  "Se aplicó Vacuna Rabia",
+];
+
+const vaccines = new Set([...catVaccines, ...dogVaccines]);
+
 const animalSchema = new mongoose.Schema({
   petco_id: Number,
   name: {
@@ -97,13 +114,7 @@ const animalSchema = new mongoose.Schema({
             "Se realizó Desparasitación",
             "Se realizó Biometría Hemática",
             "Se aplicó Pastilla Simpárica",
-            "Se aplicó Vacuna Puppy",
-            "Se aplicó Vacuna Refuerzo Puppy",
-            "Se aplicó Vacuna Múltiple",
-            "Se aplicó Vacuna Refuerzo Múltiple",
-            "Se aplicó Vacuna Rabia",
-            "Se aplicó Vacuna Triple Viral Felina",
-            "Se aplicó Vacuna Leucemia",
+            ...vaccines,
           ],
         },
       },
@@ -146,4 +157,4 @@ animalSchema.virtual("calendarList").get(function () {
 });
 
 const Animal = mongoose.model("Animal", animalSchema);
-module.exports = { Animal };
+module.exports = { Animal, catVaccines, dogVaccines };

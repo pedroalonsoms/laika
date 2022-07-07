@@ -3,7 +3,7 @@ const { Address } = require("../models/address");
 
 class AdoptionsController {
   render = (req, res, filename, other) => {
-    res.render(`./adoptions/${filename}`, { req, Address, ...other });
+    res.render(`./adoptions/${filename}`, { req, Animal, Address, ...other });
   };
 
   index = async (req, res) => {

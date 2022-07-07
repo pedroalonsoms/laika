@@ -1,8 +1,14 @@
-const { Animal } = require("../models/animal");
+const { Animal, catVaccines, dogVaccines } = require("../models/animal");
 
 class EventsController {
   render = (req, res, filename, other) => {
-    res.render(`./events/${filename}`, { Animal, req, ...other });
+    res.render(`./events/${filename}`, {
+      Animal,
+      catVaccines,
+      dogVaccines,
+      req,
+      ...other,
+    });
   };
 
   index = async (req, res) => {

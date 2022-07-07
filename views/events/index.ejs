@@ -44,14 +44,17 @@
 
     <details>
         <summary>Vacunas que debería tener un gato</summary>
-        <p>Rabia</p>
-        <p>Leucemia</p>
+        <% const {catVaccines} = locals; %>
+        <% for(vaccine of catVaccines) { %>
+            <p><%= vaccine %></p>
+        <% } %>
       </details>
 
       <details>
         <summary>Vacunas que debería tener un perro</summary>
-        <p>Ref multiple</p>
-        <p>Ref puppy</p>
+        <% for(vaccine of dogVaccines) { %>
+            <p><%= vaccine %></p>
+        <% } %>
       </details>
 
 </body>

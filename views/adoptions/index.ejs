@@ -26,10 +26,10 @@
             <% for(adoption of adoptions) { %>
                 <tr>
                     <td><%= adoption?.type %></td>
-                    <td><%= adoption?.start_date?.toText() %></td>
-                    <td><%= adoption?.end_date?.toText() %></td>
+                    <td style="white-space: nowrap;"><%= adoption?.start_date?.toText() %></td>
+                    <td style="white-space: nowrap;"><%= adoption?.end_date?.toText() %></td>
                     <td><%= adoption?.by %></td>
-                    <td><%= adoption?.address?.neighborhood %></td>
+                    <td><%= adoption?.address?.fullAddress %></td>
                     <td>
                         <a href="/animals/<%= animal_id %>/adoptions/<%= adoption?.id %>/delete">Borrar</a>
                     </td>
