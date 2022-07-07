@@ -27,7 +27,7 @@ npm run dev
 ### Sencillo
 
 - [ ] Asterisco para los forms opcionales
-- [ ] Arreglar editar animal
+- [x] Arreglar editar animal
 - [ ] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
 - [ ] Crear animal: añadir color de animal (obligatorio)
 - [ ] Crear animal: meses y años, guardar la fecha de nacimiento estimada (obligatorio)

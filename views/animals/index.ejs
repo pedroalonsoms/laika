@@ -10,13 +10,23 @@
         <%# TODO: Add a css grid for mobile and web visuals %> 
         <% for(animal of animals) {%>
 
-            <h3><%= animal.name %> (<%= animal.alias %>)</h3>
-            
-            <img src=<%= animal.photos[0] %> style="aspect-ratio: 16/9; object-fit:cover; width:100%;" />
-            
-            <%- include("../_text_label.ejs", {title: "Estatus", value: animal.status}) %>
 
-            <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal.particular_signs}) %>
+            <h3><%= animal?.name %> (<%= animal?.alias %>)</h3>
+            
+            <% 
+                let src;
+                if(animal?.photos.length > 0) {
+                    src = animal?.photos[0];
+                } else {
+                    src = "images/default.webp";
+                }
+            %>
+
+            <img src="<%= src %>" style="aspect-ratio: 16/9; object-fit:cover; width:100%;" />
+            
+            <%- include("../_text_label.ejs", {title: "Estatus", value: animal?.status}) %>
+
+            <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal?.particular_signs}) %>
             
             <a href="/animals/<%= animal.id %>"><button>Detalles</button></a>
 
