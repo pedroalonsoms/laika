@@ -9,18 +9,25 @@ const animalSchema = new mongoose.Schema({
   },
   alias: String,
   photos: [String],
-  sex: {
-    type: String,
-    required: true,
-    enum: {
-      values: ["Macho", "Hembra"],
-    },
-  },
   type: {
     type: String,
     required: true,
     enum: {
       values: ["Perro", "Gato", "Otro"],
+    },
+  },
+  color: {
+    type: String,
+    required: true,
+    enum: {
+      values: ["Blanco", "Negro", "Café", "Otro"],
+    },
+  },
+  sex: {
+    type: String,
+    required: true,
+    enum: {
+      values: ["Macho", "Hembra"],
     },
   },
   status: {
