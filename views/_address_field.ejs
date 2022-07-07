@@ -1,9 +1,9 @@
 <% const {Address, address} = locals %>
 
-<%- include("_dropdown.ejs", {title: "Municipio", name: "address[municipality]", options: Address.schema.path('municipality').enumValues, value: address?.municipality}) %>
+<%- include("_dropdown.ejs", {title: "Municipio", name: "address[municipality]", options: Address.schema.path('municipality').enumValues, value: address?.municipality, asterisk: Address?.schema.path('municipality')?.hasOwnProperty('isRequired')}) %>
 
-<%- include("_text_input.ejs", {title: "Código Postal", name: "address[zip_code]", value: address?.zip_code, hasOkButton: true}) %>
+<%- include("_text_input.ejs", {title: "Código Postal", name: "address[zip_code]", value: address?.zip_code, hasOkButton: true, asterisk: Address?.schema.path('zip_code')?.hasOwnProperty('isRequired')}) %>
 
-<%- include("_dropdown.ejs", {title: "Colonia", options: [address?.neighborhood], name: "address[neighborhood]", value: address?.neighborhood}) %>
+<%- include("_dropdown.ejs", {title: "Colonia", options: [address?.neighborhood], name: "address[neighborhood]", value: address?.neighborhood, asterisk: Address?.schema.path('neighborhood')?.hasOwnProperty('isRequired')}) %>
 
-<%- include("_text_input.ejs", {title: "Calle", name: "address[street]", value: address?.street}) %>
+<%- include("_text_input.ejs", {title: "Calle", name: "address[street]", value: address?.street, asterisk: Address?.schema.path('street')?.hasOwnProperty('isRequired')}) %>

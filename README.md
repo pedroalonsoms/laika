@@ -31,8 +31,8 @@ npm run dev
 - [x] Crear animal: (opcionales) Alias, Señas Particulares y Fotos
 - [x] Crear animal: añadir color de animal (obligatorio)
 - [ ] Crear animal: meses y años, guardar la fecha de nacimiento estimada (obligatorio)
-- [ ] Crear campo para PetcoID (opcional) (numero entero)
-- [ ] Crear rescate: (opcionales) Codigo Postal, Colonia y Calle, Rescatista. (quitar) Notas
+- [x] Crear campo para PetcoID (opcional) (numero entero)
+- [x] Crear rescate: (opcionales) Codigo Postal, Colonia y Calle, Rescatista. (quitar) Notas
 - [ ] En la cita agregar campo para descripción (obligatoria)
 - [ ] Adopciones (opcionales) Regreso, Calle
 - [ ] Adopción quitar calle y solo imprimir en la tabla municipio y colonia
@@ -43,7 +43,7 @@ npm run dev
 
 ## (Juan, Rogelio, Ozner y JC)
 
-- [ ] Error handling (try/catch) y mensajes de error
+- [ ] Error handling (try/catch) y mensajes de error (Si ponen " " muchos espacios vacíos, debe marcar error también). Tal vez con mongoose validators (?)
 - [ ] Tablas headers centrados
 - [ ] Calendar View (el de Rey)
 - [ ] Zip Codes JSON data using Js

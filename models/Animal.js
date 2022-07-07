@@ -3,12 +3,12 @@ const { addressSchema } = require("./address");
 const { adoptionSchema } = require("./adoption");
 
 const animalSchema = new mongoose.Schema({
+  petco_id: Number,
   name: {
     type: String,
     required: true,
   },
   alias: String,
-  photos: [String],
   type: {
     type: String,
     required: true,
@@ -38,6 +38,7 @@ const animalSchema = new mongoose.Schema({
     },
   },
   particular_signs: String,
+  photos: [String],
   rescue: {
     type: {
       date: {
@@ -48,10 +49,7 @@ const animalSchema = new mongoose.Schema({
         type: addressSchema,
         required: true,
       },
-      rescuers: {
-        type: String,
-        required: true,
-      },
+      rescuers: String,
       organization: {
         type: String,
         required: true,
@@ -59,7 +57,6 @@ const animalSchema = new mongoose.Schema({
           values: ["Laika", "Otra"],
         },
       },
-      notes: String,
     },
     required: false,
   },

@@ -2,15 +2,13 @@
     
     <% const {Animal, rescue} = locals %>
 
-    <%- include("../_date_field.ejs", {title: "Fecha", name: "date", value: rescue?.date}) %>
+    <%- include("../_date_field.ejs", {title: "Fecha", name: "date", value: rescue?.date, asterisk: Animal?.schema.path('rescue.date')?.hasOwnProperty('isRequired')}) %>
 
     <%- include("../_address_field.ejs", {address: rescue?.address}) %>
     
-    <%- include("../_text_input.ejs", {title: "Rescatistas", name: "rescuers", value: rescue?.rescuers}) %>
+    <%- include("../_text_input.ejs", {title: "Rescatistas", name: "rescuers", value: rescue?.rescuers, asterisk: Animal?.schema.path('rescue.rescuers')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Organización", name: "organization", options: Animal?.schema.path('rescue.organization').enumValues}) %>
-
-    <%- include("../_text_area.ejs", {title: "Notas", name: "notes", value: rescue?.notes}) %>
+    <%- include("../_dropdown.ejs", {title: "Organización", name: "organization", options: Animal?.schema.path('rescue.organization').enumValues, asterisk: Animal?.schema.path('rescue.organization')?.hasOwnProperty('isRequired')}) %>
     
     <input type="submit" value="Enviar">
 

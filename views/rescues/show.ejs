@@ -13,8 +13,6 @@
 
         <%- include("../_text_label.ejs", {title: "Organización", value: rescue?.organization}) %>
         
-        <%- include("../_text_label.ejs", {title: "Notas", value: rescue?.notes}) %>
-
         <div>
             <a href="/animals/<%= req.params.animal_id %>/rescue/edit"><button>Editar</button></a>
             <a href="/animals/<%= req.params.animal_id %>/rescue/delete"><button>Borrar</button></a>

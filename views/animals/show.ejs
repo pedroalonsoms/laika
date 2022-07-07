@@ -11,6 +11,8 @@
         <a href="adoptions/">Adopciones</a>
     </nav>
 
+    <%- include("../_text_label.ejs", {title: "Petco ID", value: animal.petco_id}) %>
+
     <%- include("../_text_label.ejs", {title: "Nombre", value: animal.name}) %>
 
     <%- include("../_text_label.ejs", {title: "Apodo", value: animal.alias}) %>

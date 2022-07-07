@@ -2,19 +2,21 @@
     
     <% const {Animal, animal} = locals %>
 
-    <%- include("../_text_input.ejs", {title: "Nombre", name: "name", value: animal?.name}) %>
+    <%- include("../_text_input.ejs", {title: "Petco ID", name: "petco_id", value: animal?.petco_id, asterisk: Animal?.schema.path('petco_id')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_text_input.ejs", {title: "Alias", name: "alias", value: animal?.alias, asterisk: false}) %>
+    <%- include("../_text_input.ejs", {title: "Nombre", name: "name", value: animal?.name, asterisk: Animal?.schema.path('name')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal?.schema.path('type').enumValues, value: animal?.type}) %>
-    
-    <%- include("../_dropdown.ejs", {title: "Color", name: "color", options: Animal?.schema.path('color').enumValues, value: animal?.color}) %>
-    
-    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal?.schema.path('sex').enumValues, value: animal?.sex}) %>
-    
-    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal?.schema.path('status').enumValues, value: animal?.status}) %>
+    <%- include("../_text_input.ejs", {title: "Alias", name: "alias", value: animal?.alias, asterisk: Animal?.schema.path('alias')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_text_area.ejs", {title: "Señas Particulares", name: "particular_signs", value: animal?.particular_signs, asterisk: false}) %>
+    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal?.schema.path('type').enumValues, value: animal?.type, asterisk: Animal?.schema.path('type')?.hasOwnProperty('isRequired')}) %>
+    
+    <%- include("../_dropdown.ejs", {title: "Color", name: "color", options: Animal?.schema.path('color').enumValues, value: animal?.color, asterisk: Animal?.schema.path('color')?.hasOwnProperty('isRequired')}) %>
+    
+    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal?.schema.path('sex').enumValues, value: animal?.sex, asterisk: Animal?.schema.path('sex')?.hasOwnProperty('isRequired')}) %>
+    
+    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal?.schema.path('status').enumValues, value: animal?.status, asterisk: Animal?.schema.path('status')?.hasOwnProperty('isRequired')}) %>
+
+    <%- include("../_text_area.ejs", {title: "Señas Particulares", name: "particular_signs", value: animal?.particular_signs, asterisk: false, asterisk: Animal?.schema.path('particular_signs')?.hasOwnProperty('isRequired')}) %>
 
     <label for="photos">Añadir Fotos</label>
     <input type="file" name="photos" id="photos" multiple>
