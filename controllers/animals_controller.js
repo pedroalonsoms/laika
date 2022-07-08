@@ -19,7 +19,6 @@ class AnimalsController {
     }
 
     const animals = await Animal.find(query);
-    console.log(animals);
     this.render(req, res, "index", { animals });
   };
 

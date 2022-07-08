@@ -26,7 +26,7 @@ npm run dev
 
 ### Complicado
 
-- [ ] Search Filters
+- [x] Search Filters
 - [ ] Pagination/Infinite Scroll
 - [x] Calendar View (como Reminders)
 - [x] Protected Routes to Edit and Delete (Prompt)

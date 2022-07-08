@@ -2,8 +2,11 @@
 <html lang="en">
     <%- include("../_header.ejs", {title: "Animales"}) %>
 <body>
-    <a href="/animals/new">Nuevo Animal</a>
-    <a href="/animals/search">Buscar Animal</a>
+
+    <nav>
+        <a href="/animals/new">Nuevo</a>
+        <a href="/animals/search">Buscar</a>
+    </nav>
 
     <main>
         <% const {animals=[]} = locals; %>
