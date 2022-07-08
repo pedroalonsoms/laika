@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../_header.ejs", {title: "Buscar Animal"}) %>
+<body>
+    <main>
+    <% const {Animal} = locals %>
+    <form action="/animals" method="get">
+
+    <details>
+    <summary>General</summary>
+    <%- include("../_text_input.ejs", {title: "Nombre o apodo", name: "name_or_alias", asterisk: false}) %>
+
+    <%- include("../_text_input.ejs", {title: "Petco ID", name: "petco_id", asterisk: false}) %>
+    
+    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal?.schema.path('sex').enumValues, include_blank: true, asterisk: false}) %>
+
+    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal?.schema.path('status').enumValues, include_blank: true, asterisk: false}) %>
+
+    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal?.schema.path('type').enumValues, include_blank: true, asterisk: false}) %>
+
+    <%- include("../_dropdown.ejs", {title: "Color", name: "color", options: Animal?.schema.path('color').enumValues, include_blank: true, asterisk: false}) %>
+    </details>
+
+    <details>
+    <summary>Rescate</summary>
+
+    <%- include("../_date_field.ejs", {title: "Desde", name: "rescue.date[$gt]", asterisk: false}) %>
+
+    <%- include("../_date_field.ejs", {title: "Hasta", name: "rescue.date[$lt]", asterisk: false}) %>
+
+    <%- include("../_dropdown.ejs", {title: "Organización", name: "rescue.organization", options: Animal?.schema.path('rescue.organization').enumValues, include_blank: true, asterisk: false}) %>
+
+    <%- include("../_address_field.ejs", {asterisk: false, include_blank: true, prefix: "rescue", separator:"dot"}) %>
+    </details>
+
+    <details>
+    <summary>Eventos</summary>
+
+    <%- include("../_dropdown.ejs", {title: "Descripción", name: "events.description", options: Animal?.schema.path('events.description').enumValues, include_blank: true, asterisk: false}) %>
+    </details>
+
+    <input type="submit" value="Enviar">
+    </form>
+
+    </main>
+    <script src="/javascripts/address_script.js"></script>
+</body>
+</html>
+

@@ -5,6 +5,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 const _AnimalsController = require("./controllers/animals_controller");
 const AnimalsController = new _AnimalsController();
+router.get("/animals/search", AnimalsController.search);
 router.get("/animals", AnimalsController.index);
 router.post("/animals", upload.array("photos"), AnimalsController.create);
 router.get("/animals/new", AnimalsController.new);

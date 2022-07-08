@@ -1,9 +1,15 @@
-<% const {Address, address} = locals %>
+<% const {Address, address, asterisk=true, include_blank=false, prefix="", separator="brackets"} = locals %>
 
-<%- include("_dropdown.ejs", {title: "Municipio", name: "address[municipality]", options: Address.schema.path('municipality').enumValues, value: address?.municipality, asterisk: Address?.schema.path('municipality')?.hasOwnProperty('isRequired')}) %>
+<% function getName (name) {
+    if(separator === "brackets") return`${prefix}[address][${name}]`;
+    if(separator === "dot" && prefix !== "") return`${prefix}.address.${name}`;
+    return`address.${name}`;
+ }; %>
 
-<%- include("_text_input.ejs", {title: "Código Postal", name: "address[zip_code]", value: address?.zip_code, hasOkButton: true, asterisk: Address?.schema.path('zip_code')?.hasOwnProperty('isRequired')}) %>
+<%- include("_dropdown.ejs", {title: "Municipio", name: getName("municipality"), options: Address.schema.path('municipality').enumValues, value: address?.municipality, asterisk: asterisk && Address?.schema.path('municipality')?.hasOwnProperty('isRequired'), include_blank}) %>
 
-<%- include("_dropdown.ejs", {title: "Colonia", options: [address?.neighborhood], name: "address[neighborhood]", value: address?.neighborhood, asterisk: Address?.schema.path('neighborhood')?.hasOwnProperty('isRequired')}) %>
+<%- include("_text_input.ejs", {title: "Código Postal", name: getName("zip_code"), value: address?.zip_code, hasOkButton: true, asterisk: Address?.schema.path('zip_code')?.hasOwnProperty('isRequired'), include_blank}) %>
 
-<%- include("_text_input.ejs", {title: "Calle", name: "address[street]", value: address?.street, asterisk: Address?.schema.path('street')?.hasOwnProperty('isRequired')}) %>
+<%- include("_dropdown.ejs", {title: "Colonia", options: [address?.neighborhood], name: getName("neighborhood"), value: address?.neighborhood, asterisk: Address?.schema.path('neighborhood')?.hasOwnProperty('isRequired'), include_blank}) %>
+
+<%- include("_text_input.ejs", {title: "Calle", name: getName("street"), value: address?.street, asterisk: Address?.schema.path('street')?.hasOwnProperty('isRequired'), include_blank}) %>

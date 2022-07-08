@@ -1,13 +1,26 @@
-const { saveImages } = require("../lib/utils");
+const { saveImages, removeEmpty } = require("../lib/utils");
 const { Animal } = require("../models/animal");
+const { Address } = require("../models/address");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
-    res.render(`./animals/${filename}`, { Animal, req, ...other });
+    res.render(`./animals/${filename}`, { Animal, Address, req, ...other });
   };
 
   index = async (req, res) => {
-    const animals = await Animal.find();
+    const query = removeEmpty(req.query);
+
+    if ("name_or_alias" in query) {
+      query.$or = [
+        { name: { $regex: query["name_or_alias"], $options: "i" } },
+        { alias: { $regex: query["name_or_alias"], $options: "i" } },
+      ];
+      delete query["name_or_alias"];
+    }
+
+    console.log(query);
+
+    const animals = await Animal.find(query);
     this.render(req, res, "index", { animals });
   };
 
@@ -45,6 +58,10 @@ class AnimalsController {
   delete = async (req, res) => {
     await Animal.findByIdAndDelete(req.params.id);
     res.redirect("/animals");
+  };
+
+  search = async (req, res) => {
+    this.render(req, res, "search");
   };
 }
 

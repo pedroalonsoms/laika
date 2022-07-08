@@ -28,7 +28,7 @@ npm run dev
 
 - [ ] Search Filters
 - [ ] Pagination/Infinite Scroll
-- [ ] Calendar View (como Reminders)
+- [x] Calendar View (como Reminders)
 - [x] Protected Routes to Edit and Delete (Prompt)
 
 ### Sencillo

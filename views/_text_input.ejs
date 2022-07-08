@@ -8,7 +8,12 @@
         <% } %>
 
     </label><br>
-    <input type="text" id="<%= name %>" name="<%= name %>" value="<%= value %>" autocomplete="off" />
+    <input type="text" id="<%= name %>" name="<%= name %>" autocomplete="off"
+    
+        <% if(value) { %>
+            value="<%= value %>"
+        <% } %>
+      />
 
     <% if(hasOkButton) { %>
         <button type="button" onclick="fetchNeighborhoods()">Ok</button>
