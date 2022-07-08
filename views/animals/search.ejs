@@ -24,9 +24,9 @@
     <details>
     <summary>Rescate</summary>
 
-    <%- include("../_date_field.ejs", {title: "Desde", name: "rescue.date[$gt]", asterisk: false}) %>
+    <%- include("../_date_field.ejs", {title: "Desde", name: "rescue.date[$gte]", asterisk: false}) %>
 
-    <%- include("../_date_field.ejs", {title: "Hasta", name: "rescue.date[$lt]", asterisk: false}) %>
+    <%- include("../_date_field.ejs", {title: "Hasta", name: "rescue.date[$lte]", asterisk: false}) %>
 
     <%- include("../_dropdown.ejs", {title: "Organización", name: "rescue.organization", options: Animal?.schema.path('rescue.organization').enumValues, include_blank: true, asterisk: false}) %>
 

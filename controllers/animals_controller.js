@@ -18,9 +18,8 @@ class AnimalsController {
       delete query["name_or_alias"];
     }
 
-    console.log(query);
-
     const animals = await Animal.find(query);
+    console.log(animals);
     this.render(req, res, "index", { animals });
   };
 

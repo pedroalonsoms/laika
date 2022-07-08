@@ -1,4 +1,4 @@
-const zipCodeInput = document.getElementById("address[zip_code]");
+const zipCodeInput = document.getElementById("Código Postal");
 
 if (zipCodeInput) zipCodeInput.oninput = (e) => e.target.setCustomValidity("");
 
@@ -37,7 +37,7 @@ const fetchNeighborhoods = async () => {
   }
 
   // Update dropdown
-  const dropdown = document.getElementById("address[neighborhood]");
+  const dropdown = document.getElementById("Colonia");
   removeOptionsFrom(dropdown);
   if (data) addOptionsTo(dropdown, data);
 };

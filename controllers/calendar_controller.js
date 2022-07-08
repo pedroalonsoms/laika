@@ -14,7 +14,8 @@ class CalendarController {
 
     const addItem = (item) => {
       const { date, description, animal } = item;
-      const today = new Date(new Date().toText());
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
       // We don't want to add past items
       if (date < today) return;
