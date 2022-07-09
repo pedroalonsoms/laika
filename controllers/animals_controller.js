@@ -8,8 +8,16 @@ class AnimalsController {
   };
 
   index = async (req, res) => {
-    const query = removeEmpty(req.query);
+    // Pagination logic
+    const PER_PAGE = 10;
+    const page = Math.max(
+      1,
+      Number(req.query.page) ? Number(req.query.page) : -Infinity
+    );
+    if ("page" in req.query) delete req.query["page"];
 
+    // Query logic
+    const query = removeEmpty(req.query);
     if ("name_or_alias" in query) {
       query.$or = [
         { name: { $regex: query["name_or_alias"], $options: "i" } },
@@ -18,8 +26,16 @@ class AnimalsController {
       delete query["name_or_alias"];
     }
 
-    const animals = await Animal.find(query);
-    this.render(req, res, "index", { animals });
+    const total = await Animal.find(query).countDocuments();
+    const animals = await Animal.find(query)
+      .limit(PER_PAGE)
+      .skip(PER_PAGE * (page - 1));
+
+    // Pagination info
+    const from = (page - 1) * PER_PAGE + 1;
+    const to = Math.min(page * PER_PAGE + 1, total);
+
+    this.render(req, res, "index", { animals, page, from, to, total });
   };
 
   show = async (req, res) => {

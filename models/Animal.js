@@ -22,7 +22,10 @@ const dogVaccines = [
 const vaccines = new Set([...catVaccines, ...dogVaccines]);
 
 const animalSchema = new mongoose.Schema({
-  petco_id: Number,
+  petco_id: {
+    type: Number,
+    unique: true,
+  },
   name: {
     type: String,
     required: true,

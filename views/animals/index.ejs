@@ -9,38 +9,59 @@
     </nav>
 
     <main>
-        <% const {animals=[]} = locals; %>
 
-        <%# TODO: Add a css grid for mobile and web visuals %> 
-        <% for(const animal of animals) {%>
+        <% if(animals.length > 0) { %>
+
+            <% const {animals=[]} = locals; %>
+
+            <%# TODO: Add a css grid for mobile and web visuals %> 
+            <% for(const animal of animals) {%>
 
 
-            <h3><%= animal?.name %> 
+                <h3><%= animal?.name %> 
+                    
+                    <% if(animal?.alias) {%>
+                        (<%= animal?.alias %>)
+                    <% } %>
+                    
+                </h3>
                 
-                <% if(animal?.alias) {%>
-                    (<%= animal?.alias %>)
-                <% } %>
+                <% 
+                    let src;
+                    if(animal?.photos.length > 0) {
+                        src = animal?.photos[0];
+                    } else {
+                        src = "images/default.webp";
+                    }
+                %>
+
+                <img src="<%= src %>" loading="lazy" style="aspect-ratio: 16/9; object-fit:cover; width:100%;" />
                 
-            </h3>
-            
-            <% 
-                let src;
-                if(animal?.photos.length > 0) {
-                    src = animal?.photos[0];
-                } else {
-                    src = "images/default.webp";
-                }
-            %>
+                <%- include("../_text_label.ejs", {title: "Estatus", value: animal?.status}) %>
 
-            <img src="<%= src %>" style="aspect-ratio: 16/9; object-fit:cover; width:100%;" />
-            
-            <%- include("../_text_label.ejs", {title: "Estatus", value: animal?.status}) %>
+                <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal?.particular_signs}) %>
+                
+                <a href="/animals/<%= animal.id %>">Detalles</a>
 
-            <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal?.particular_signs}) %>
-            
-            <a href="/animals/<%= animal.id %>">Detalles</a>
+            <% } %>
+
+            <% const { page, from, to, total } = locals; %>
+
+            <blockquote style="float: right">
+                <p>
+                    Del <code><%= from %></code>
+                    al <code><%= to %></code>
+                    de un total de <code><%= total %></code>
+                </p>
+                <a href="?page=<%= page + 1 %>">Siguiente</a>
+            </blockquote>
+
+        <% } else { %>
+
+            <p>No hay animales :(</p>
 
         <% } %>
+
     </main>
 </body>
 </html>
