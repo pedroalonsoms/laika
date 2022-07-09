@@ -31,7 +31,7 @@
 
     <% animal.photos?.map(url => { %>
         <main>
-            <img src="<%= url %>" style="width: 100%">
+            <img src="<%= url %>" loading="lazy" style="width: 100%">
         </main>
     <% }); %>
 
