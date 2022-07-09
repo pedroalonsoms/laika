@@ -3,6 +3,11 @@ const multer = require("multer");
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
+//main page
+router.get("/", (req, res) => {
+  res.redirect("/animals");
+});
+
 const _AnimalsController = require("./controllers/animals_controller");
 const AnimalsController = new _AnimalsController();
 router.get("/animals/search", AnimalsController.search);
