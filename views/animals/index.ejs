@@ -53,8 +53,15 @@
                     al <code><%= to %></code>
                     de un total de <code><%= total %></code>
                 </p>
-                <a href="?page=<%= page + 1 %>">Siguiente</a>
+                <a id="page">Siguiente</a>
             </blockquote>
+            <script>
+                const a = document.getElementById("page");
+                const url = new URL(window.location.href);
+                url.searchParams.set('page', "<%= page + 1 %>");
+
+                a.setAttribute("href",  url.toString());
+            </script>  
 
         <% } else { %>
 
