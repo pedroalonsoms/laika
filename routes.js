@@ -3,10 +3,8 @@ const multer = require("multer");
 const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
-//main page
-router.get("/", (req, res) => {
-  res.redirect("/animals");
-});
+//Hack for async error handling
+require("express-async-errors");
 
 const _AnimalsController = require("./controllers/animals_controller");
 const AnimalsController = new _AnimalsController();
@@ -66,5 +64,17 @@ router.get("/calendar", CalendarController.show);
 const _NeighborhoodsController = require("./controllers/neighborhoods_controller");
 const NeighborhoodsController = new _NeighborhoodsController();
 router.get("/neighborhoods/:zip_code", NeighborhoodsController.details);
+
+// Any unmatch redirects to main page
+router.all("*", (req, res) => {
+  res.redirect("/animals");
+});
+
+// Error handling
+router.use((error, req, res, next) => {
+  res.status(403);
+  res.render("error", { error });
+  next(error);
+});
 
 module.exports = router;
