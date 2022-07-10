@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -q app.js",
+    "extract": "node db/neighborhoods/extract.js",
     "start": "node app.js"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "sharp": "^0.30.7"
   },
   "devDependencies": {
+    "node-xlsx": "^0.21.0",
     "nodemon": "^2.0.18"
   },
   "nodemonConfig": {
