@@ -52,7 +52,7 @@ npm run dev
 - [ ] Error handling (try/catch) y mensajes de error (Si ponen " " muchos espacios vacíos, debe marcar error también). Tal vez con mongoose validators (?) o npm zod (?) o función trim (?)
 - [ ] Tablas headers centrados
 - [ ] Calendar View (el de Rey)
-- [ ] Zip Codes JSON data using Js
+- [x] Zip Codes JSON data using Js
 - [ ] Betatesting
 - [ ] Pasar los datos de la base antigua a la nueva manualmente
 - [ ] Print Paper Animal Details (Ctrl + P)
