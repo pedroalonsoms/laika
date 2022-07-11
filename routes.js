@@ -47,15 +47,12 @@ router.get(
   AppointmentsController.delete
 );
 
-const _AdoptionsController = require("./controllers/adoptions_controller");
-const AdoptionsController = new _AdoptionsController();
-router.get("/animals/:animal_id/adoptions", AdoptionsController.index);
-router.get("/animals/:animal_id/adoptions/new", AdoptionsController.new);
-router.post("/animals/:animal_id/adoptions", AdoptionsController.create);
-router.get(
-  "/animals/:animal_id/adoptions/:id/delete",
-  AdoptionsController.delete
-);
+const _HomesController = require("./controllers/homes_controller");
+const HomesController = new _HomesController();
+router.get("/animals/:animal_id/homes", HomesController.index);
+router.get("/animals/:animal_id/homes/new", HomesController.new);
+router.post("/animals/:animal_id/homes", HomesController.create);
+router.get("/animals/:animal_id/homes/:id/delete", HomesController.delete);
 
 const _CalendarController = require("./controllers/calendar_controller");
 const CalendarController = new _CalendarController();

@@ -10,7 +10,7 @@
 
     <%- include("../_date_field.ejs", {title: "Fecha de Nacimiento (Estimada)", name: "birth_date", value: animal?.birth_date, asterisk: Animal?.schema.path('birth_date')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal?.schema.path('type').enumValues, value: animal?.type, asterisk: Animal?.schema.path('type')?.hasOwnProperty('isRequired')}) %>
+    <%- include("../_dropdown.ejs", {title: "Especie", name: "species", options: Animal?.schema.path('species').enumValues, value: animal?.species, asterisk: Animal?.schema.path('species')?.hasOwnProperty('isRequired')}) %>
     
     <%- include("../_dropdown.ejs", {title: "Color", name: "color", options: Animal?.schema.path('color').enumValues, value: animal?.color, asterisk: Animal?.schema.path('color')?.hasOwnProperty('isRequired')}) %>
     

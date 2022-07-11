@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { milisecondsToAge } = require("../lib/utils");
-const { addressSchema } = require("./address");
-const { adoptionSchema } = require("./adoption");
+const { homeSchema } = require("./home");
 const { rescueSchema } = require("./rescue");
 
 const catVaccines = [
@@ -35,7 +34,7 @@ const animalSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  type: {
+  species: {
     type: String,
     required: true,
     enum: {
@@ -46,14 +45,22 @@ const animalSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: {
-      values: ["Blanco", "Negro", "Café", "Otro"],
+      values: [
+        "Blanco",
+        "Negro",
+        "Café",
+        "Parcino",
+        "Siamés",
+        "Atigrado",
+        "Otro",
+      ],
     },
   },
   sex: {
     type: String,
     required: true,
     enum: {
-      values: ["Macho", "Hembra"],
+      values: ["Macho", "Hembra", "Otro"],
     },
   },
   status: {
@@ -66,7 +73,7 @@ const animalSchema = new mongoose.Schema({
   particular_signs: String,
   photos: [String],
   rescue: rescueSchema,
-  adoptions: [adoptionSchema],
+  homes: [homeSchema],
   appointments: [
     {
       date: {

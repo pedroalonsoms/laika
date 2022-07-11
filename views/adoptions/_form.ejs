@@ -2,11 +2,11 @@
 
     <% const {Animal, animal} = locals %>
     
-    <%- include("../_date_field.ejs", {title: "Inicio", name: "start_date", asterisk: Animal?.schema.path('adoptions.start_date')?.hasOwnProperty('isRequired')}) %>
+    <%- include("../_date_field.ejs", {title: "Inicio", name: "start_date", asterisk: Animal?.schema.path('homes.start_date')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_date_field.ejs", {title: "Regreso", name: "end_date", asterisk: Animal?.schema.path('adoptions.end_date')?.hasOwnProperty('isRequired')}) %>
+    <%- include("../_date_field.ejs", {title: "Regreso", name: "end_date", asterisk: Animal?.schema.path('homes.end_date')?.hasOwnProperty('isRequired')}) %>
 
-    <%- include("../_text_input.ejs", {title: "Adoptado por", name: "by", asterisk: Animal?.schema.path('adoptions.by')?.hasOwnProperty('isRequired')}) %>
+    <%- include("../_text_input.ejs", {title: "Cuidado por", name: "keeper", asterisk: Animal?.schema.path('homes.keeper')?.hasOwnProperty('isRequired')}) %>
 
     <%- include("../_address_field.ejs") %>
 

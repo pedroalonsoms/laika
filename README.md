@@ -31,6 +31,7 @@ npm run dev
 - [x] Calendar View (como Reminders)
 - [x] Protected Routes to Edit and Delete (Prompt)
 - [x] Zip Codes JSON data using JS
+- [ ] Fix null values on the schema
 - [ ] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
 - [ ] Filtro calendario desde una fecha hasta otra fecha
 - [ ] Busqueda para buscar los que NO tengan un evento
@@ -56,9 +57,9 @@ npm run dev
 - [x] Adopción quitar calle y solo imprimir en la tabla municipio y colonia
 - [x] Dropdowns for knowing which vaccines the animal has
 - [x] Add references
-- [ ] Cambiar tipo a especie
-- [ ] Parcino, Siamés, atigrado (agg colores)
-- [ ] Sexo (agg otro)
+- [x] Cambiar tipo a especie
+- [x] Parcino, Siamés, atigrado (agg colores)
+- [x] Sexo (agg otro)
 - [ ] Cambiar Adoptado Por (Cuidado por) y Adopciones por (Hogar)
 - [ ] Laika vs Cuidadano en Otro Rescate
 - [ ] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)

@@ -41,18 +41,18 @@ class CalendarController {
           animal,
         });
       }
-      for (const adoption of animal.adoptions) {
-        const type = adoption.type.toLowerCase();
+      for (const home of animal.homes) {
+        const type = home.type.toLowerCase();
 
         addItem({
-          description: `Inicia adopción ${type}`,
-          date: adoption.start_date,
+          description: `Inicia hogar ${type}`,
+          date: home.start_date,
           animal,
         });
 
         addItem({
-          description: `Termina adopción ${type}`,
-          date: adoption.end_date,
+          description: `Termina hogar ${type}`,
+          date: home.end_date,
           animal,
         });
       }

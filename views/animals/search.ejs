@@ -16,7 +16,7 @@
 
     <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal?.schema.path('status').enumValues, include_blank: true, asterisk: false}) %>
 
-    <%- include("../_dropdown.ejs", {title: "Tipo", name: "type", options: Animal?.schema.path('type').enumValues, include_blank: true, asterisk: false}) %>
+    <%- include("../_dropdown.ejs", {title: "Especie", name: "species", options: Animal?.schema.path('species').enumValues, include_blank: true, asterisk: false}) %>
 
     <%- include("../_dropdown.ejs", {title: "Color", name: "color", options: Animal?.schema.path('color').enumValues, include_blank: true, asterisk: false}) %>
     </details>

@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../_header.ejs", {title: "Adopciones"}) %>
+    <%- include("../_header.ejs", {title: "Hogares"}) %>
 <body>
-    <% const {adoptions} = locals; %>
+    <% const {homes} = locals; %>
     <% const {animal_id} = req?.params; %>
 
-    <a href="/animals/<%= animal_id %>/adoptions/new">Nueva adopción</a>
+    <a href="/animals/<%= animal_id %>/homes/new">Nuevo hogar</a>
 
-    <% if(adoptions?.length > 0) { %>
+    <% if(homes?.length > 0) { %>
 
         <table>
 
             <thead>
             <tr>
-                <th>Tipo</th>
+                <th>Especie</th>
                 <th>Inicio</th>
                 <th>Regreso</th>
-                <th>Adoptado por</th>
+                <th>Cuidado por</th>
                 <th>Domicilio</th>
                 <th>Acción</th>
             </tr>
             </thead>
 
             <tbody>
-            <% for(const adoption of adoptions) { %>
+            <% for(const home of homes) { %>
                 <tr>
-                    <td><%= adoption?.type %></td>
-                    <td style="white-space: nowrap;"><%= adoption?.start_date?.toText() %></td>
-                    <td style="white-space: nowrap;"><%= adoption?.end_date?.toText() %></td>
-                    <td><%= adoption?.by %></td>
-                    <td><%= adoption?.address?.fullAddress %></td>
+                    <td><%= home?.type %></td>
+                    <td style="white-space: nowrap;"><%= home?.start_date?.toText() %></td>
+                    <td style="white-space: nowrap;"><%= home?.end_date?.toText() %></td>
+                    <td><%= home?.keeper %></td>
+                    <td><%= home?.address?.fullAddress %></td>
                     <td>
-                        <a href="/animals/<%= animal_id %>/adoptions/<%= adoption?.id %>/delete">Borrar</a>
+                        <a href="/animals/<%= animal_id %>/homes/<%= home?.id %>/delete">Borrar</a>
                     </td>
                 </tr>
             <% } %>
@@ -42,7 +42,7 @@
 
     <% } else { %>
 
-        <p>No hay adopciones!</p>
+        <p>No hay hogares!</p>
 
     <% } %>
 
