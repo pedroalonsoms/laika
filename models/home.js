@@ -8,8 +8,17 @@ const homeSchema = new mongoose.Schema({
   },
   end_date: Date,
   keeper: {
-    type: String,
-    required: true,
+    name: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    contact: {
+      type: String,
+    },
   },
   address: {
     type: addressSchema,

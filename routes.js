@@ -52,6 +52,9 @@ const HomesController = new _HomesController();
 router.get("/animals/:animal_id/homes", HomesController.index);
 router.get("/animals/:animal_id/homes/new", HomesController.new);
 router.post("/animals/:animal_id/homes", HomesController.create);
+router.get("/animals/:animal_id/homes/:id", HomesController.show);
+router.get("/animals/:animal_id/homes/:id/edit", HomesController.edit);
+router.post("/animals/:animal_id/homes/:id/update", HomesController.update);
 router.get("/animals/:animal_id/homes/:id/delete", HomesController.delete);
 
 const _CalendarController = require("./controllers/calendar_controller");

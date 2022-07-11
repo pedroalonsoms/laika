@@ -16,8 +16,6 @@
                 <th>Tipo</th>
                 <th>Inicio</th>
                 <th>Regreso</th>
-                <th>Cuidado por</th>
-                <th>Domicilio</th>
                 <th>Acción</th>
             </tr>
             </thead>
@@ -28,10 +26,8 @@
                     <td><%= home?.type %></td>
                     <td style="white-space: nowrap;"><%= home?.start_date?.toText() %></td>
                     <td style="white-space: nowrap;"><%= home?.end_date?.toText() %></td>
-                    <td><%= home?.keeper %></td>
-                    <td><%= home?.address?.fullAddress %></td>
                     <td>
-                        <a href="/animals/<%= animal_id %>/homes/<%= home?.id %>/delete">Borrar</a>
+                        <a href="/animals/<%= animal_id %>/homes/<%= home?.id %>">Detalles</a>
                     </td>
                 </tr>
             <% } %>

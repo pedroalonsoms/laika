@@ -60,9 +60,9 @@ npm run dev
 - [x] Cambiar tipo a especie
 - [x] Parcino, Siamés, atigrado (agg colores)
 - [x] Sexo (agg otro)
-- [ ] Cambiar Adoptado Por (Cuidado por) y Adopciones por (Hogar)
-- [ ] Laika vs Cuidadano en Otro Rescate
-- [ ] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)
+- [x] Cambiar Adoptado Por (Cuidado por) y Adopciones por (Hogar)
+- [x] Laika vs Cuidadano en Otro Rescate
+- [x] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)
 - [x] Orden de fotos dejar asi
 - [x] Mandar pdf de las screen de la pagina (con los menús)
 - [ ] Deployment (set server hour to gmt-6)

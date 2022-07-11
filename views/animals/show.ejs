@@ -11,25 +11,25 @@
         <a href="homes/">Hogares</a>
     </nav>
 
-    <%- include("../_text_label.ejs", {title: "Petco ID", value: animal.petco_id}) %>
+    <%- include("../_text_label.ejs", {title: "Petco ID", value: animal?.petco_id}) %>
 
-    <%- include("../_text_label.ejs", {title: "Nombre", value: animal.name}) %>
+    <%- include("../_text_label.ejs", {title: "Nombre", value: animal?.name}) %>
 
-    <%- include("../_text_label.ejs", {title: "Apodo", value: animal.alias}) %>
+    <%- include("../_text_label.ejs", {title: "Apodo", value: animal?.alias}) %>
 
-    <%- include("../_text_label.ejs", {title: "Edad Actual", value: animal.age}) %>
+    <%- include("../_text_label.ejs", {title: "Edad Actual", value: animal?.age}) %>
 
-    <%- include("../_text_label.ejs", {title: "Especie", value: animal.species}) %>
+    <%- include("../_text_label.ejs", {title: "Especie", value: animal?.species}) %>
 
-    <%- include("../_text_label.ejs", {title: "Color", value: animal.color}) %>
+    <%- include("../_text_label.ejs", {title: "Color", value: animal?.color}) %>
 
-    <%- include("../_text_label.ejs", {title: "Sexo", value: animal.sex}) %>
+    <%- include("../_text_label.ejs", {title: "Sexo", value: animal?.sex}) %>
 
-    <%- include("../_text_label.ejs", {title: "Estatus", value: animal.status}) %>
+    <%- include("../_text_label.ejs", {title: "Estatus", value: animal?.status}) %>
 
-    <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal.particular_signs}) %>
+    <%- include("../_text_label.ejs", {title: "Señas Particulares", value: animal?.particular_signs}) %>
 
-    <% animal.photos?.map(url => { %>
+    <% animal?.photos?.map(url => { %>
         <main>
             <img src="<%= url %>" loading="lazy" style="width: 100%">
         </main>

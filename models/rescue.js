@@ -16,7 +16,7 @@ const rescueSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: {
-      values: ["Laika", "Otra"],
+      values: ["Laika", "Ciudadano"],
     },
   },
 });

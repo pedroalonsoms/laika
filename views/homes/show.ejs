@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../_header.ejs", {title: "Hogar"}) %>
+<body>
+<% const {home} = locals %>
+<base href="/animals/<%= req?.params?.animal_id %>/homes/<%= req?.params?.id %>/">
+
+    <%- include("../_text_label.ejs", {title: "Tipo", value: home?.type}) %>
+
+    <%- include("../_text_label.ejs", {title: "Inicio", value: home?.start_date?.toText()}) %> 
+
+    <%- include("../_text_label.ejs", {title: "Regreso", value: home?.end_date?.toText()}) %>    
+
+    <%- include("../_text_label.ejs", {title: "Cuidador", value: home?.keeper?.name}) %>
+
+    <%- include("../_text_label.ejs", {title: "Teléfono", value: home?.keeper?.phone}) %>
+    
+    <%- include("../_text_label.ejs", {title: "Contacto (mail/redes)", value: home?.keeper?.contact}) %>
+
+    <%- include("../_text_label.ejs", {title: "Municipio", value: home?.address?.municipality}) %>
+
+    <%- include("../_text_label.ejs", {title: "Código Postal", value: home?.address?.zip_code}) %>
+
+    <%- include("../_text_label.ejs", {title: "Colonia", value: home?.address?.neighborhood}) %>
+
+    <%- include("../_text_label.ejs", {title: "Calle", value: home?.address?.street}) %>
+
+    <div>
+        <a href="edit/">Editar</a>
+        <a href="delete/">Borrar</a>
+    </div>
+
+</base>
+</body>
+</html>
+
