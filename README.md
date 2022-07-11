@@ -30,6 +30,17 @@ npm run dev
 - [x] Pagination/Infinite Scroll
 - [x] Calendar View (como Reminders)
 - [x] Protected Routes to Edit and Delete (Prompt)
+- [x] Zip Codes JSON data using JS
+- [ ] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
+- [ ] Filtro calendario desde una fecha hasta otra fecha
+- [ ] Busqueda para buscar los que NO tengan un evento
+- [ ] Agregar campo de otro y descripcion en eventos
+- [ ] Agregar nota médica, text_area grande en eventos
+- [ ] Adopcion agregar edad de adopcion
+- [ ] Adopciones apartado para notas grande al final
+- [ ] Adopciones editar
+- [ ] Laika juntar ambas paginas en un dominio
+- [ ] Migrar de Wix a Laika.org
 
 ### Sencillo
 
@@ -45,39 +56,25 @@ npm run dev
 - [x] Adopción quitar calle y solo imprimir en la tabla municipio y colonia
 - [x] Dropdowns for knowing which vaccines the animal has
 - [x] Add references
-- [ ] Deployment (set server hour to gmt-6)
-
-- [ ] Agregar campo de otro y descripcion en eventos
-- [ ] Cambiar toipo a especie
-- [ ] Mandar pdf de las screen de la pagina (con los menús) y logo de laika
+- [ ] Cambiar tipo a especie
 - [ ] Parcino, Siamés, atigrado (agg colores)
 - [ ] Sexo (agg otro)
-- [ ] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)
 - [ ] Cambiar Adoptado Por (Cuidado por) y Adopciones por (Hogar)
-- [ ] Filtro calendario desde una fecha hasta otra fecha
-- [ ] Adopcion agregar edad de adopcion
-- [ ] Crear pdf con datos para imprimir (eventos, rescate, hogares(censurados), ), que sean opcinoales
-- [ ] Busqueda para buscar los que NO tengan un evento
-- [ ] Agregar nota médica, text_area grande en eventos
-- [ ] Adopciones apartado para notas grande al final
-- [ ] Adopciones editar
-- [ ] Orden de fotos dejar asi
 - [ ] Laika vs Cuidadano en Otro Rescate
-- [ ] Logo de Laika al Final
-- [ ] colores para la tipografia, verde aqua y rosa fucsia (colores personalizados), solo un diseño #6ea6a5 verde aqua #8a1b70 Rosa-Morado
-- [ ] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
-- [ ] Laika juntar ambas paginas en un dominio
-- [ ] Migrar de Wix a Laika.org
+- [ ] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)
+- [x] Orden de fotos dejar asi
+- [x] Mandar pdf de las screen de la pagina (con los menús)
+- [ ] Deployment (set server hour to gmt-6)
 
 ## (Juan, Rogelio, Ozner y JC)
 
+- [ ] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
+- [ ] Logo de Laika al Final de cada página
+- [ ] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
 - [ ] Error handling (try/catch) y mensajes de error (Si ponen " " muchos espacios vacíos, debe marcar error también). Tal vez con mongoose validators (?) o npm zod (?) o función trim (?)
-- [ ] Tablas headers centrados
-- [ ] Calendar View (el de Rey)
-- [x] Zip Codes JSON data using Js
-- [ ] Betatesting
+- [ ] Tablas con headers centrados
 - [ ] Pasar los datos de la base antigua a la nueva manualmente
-- [ ] Print Paper Animal Details (Ctrl + P)
+- [ ] Betatesting con Eva
 
 # Authors
 
