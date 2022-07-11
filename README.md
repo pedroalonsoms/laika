@@ -47,6 +47,28 @@ npm run dev
 - [x] Add references
 - [ ] Deployment (set server hour to gmt-6)
 
+- [ ] Agregar campo de otro y descripcion en eventos
+- [ ] Cambiar toipo a especie
+- [ ] Mandar pdf de las screen de la pagina (con los menús) y logo de laika
+- [ ] Parcino, Siamés, atigrado (agg colores)
+- [ ] Sexo (agg otro)
+- [ ] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)
+- [ ] Cambiar Adoptado Por (Cuidado por) y Adopciones por (Hogar)
+- [ ] Filtro calendario desde una fecha hasta otra fecha
+- [ ] Adopcion agregar edad de adopcion
+- [ ] Crear pdf con datos para imprimir (eventos, rescate, hogares(censurados), ), que sean opcinoales
+- [ ] Busqueda para buscar los que NO tengan un evento
+- [ ] Agregar nota médica, text_area grande en eventos
+- [ ] Adopciones apartado para notas grande al final
+- [ ] Adopciones editar
+- [ ] Orden de fotos dejar asi
+- [ ] Laika vs Cuidadano en Otro Rescate
+- [ ] Logo de Laika al Final
+- [ ] colores para la tipografia, verde aqua y rosa fucsia (colores personalizados), solo un diseño #6ea6a5 verde aqua #8a1b70 Rosa-Morado
+- [ ] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
+- [ ] Laika juntar ambas paginas en un dominio
+- [ ] Migrar de Wix a Laika.org
+
 ## (Juan, Rogelio, Ozner y JC)
 
 - [ ] Error handling (try/catch) y mensajes de error (Si ponen " " muchos espacios vacíos, debe marcar error también). Tal vez con mongoose validators (?) o npm zod (?) o función trim (?)
