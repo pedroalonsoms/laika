@@ -31,14 +31,12 @@ npm run dev
 - [x] Calendar View (como Reminders)
 - [x] Protected Routes to Edit and Delete (Prompt)
 - [x] Zip Codes JSON data using JS
-- [ ] Fix null values on the schema
 - [ ] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
 - [x] Filtro calendario desde una fecha hasta otra fecha
-- [ ] Busqueda para buscar los que NO tengan un evento
-- [ ] Agregar campo de otro y descripcion en eventos
-- [ ] Agregar nota médica, text_area grande en eventos
+- [x] Busqueda para buscar los que NO tengan un evento
+- [x] Agregar campo de otro y descripcion en eventos
 - [x] Adopcion agregar edad de adopcion
-- [ ] Adopciones apartado para notas grande al final
+- [x] Adopciones apartado para notas grande al final
 - [x] Adopciones editar
 - [ ] Laika juntar ambas paginas en un dominio
 - [ ] Migrar de Wix a Laika.org
@@ -70,9 +68,10 @@ npm run dev
 ## (Juan, Rogelio, Ozner y JC)
 
 - [ ] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
-- [ ] Logo de Laika al Final de cada página
+- [ ] Logo de Laika al Final de cada página web
 - [ ] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
 - [ ] Error handling (try/catch) y mensajes de error (Si ponen " " muchos espacios vacíos, debe marcar error también). Tal vez con mongoose validators (?) o npm zod (?) o función trim (?)
+- [ ] Checar qué pasa en los casos "null". Si creo dos veces un perro con PetcoID vacío, marcará error.
 - [ ] Tablas con headers centrados
 - [ ] Pasar los datos de la base antigua a la nueva manualmente
 - [ ] Betatesting con Eva

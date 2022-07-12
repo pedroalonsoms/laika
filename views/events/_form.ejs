@@ -6,6 +6,8 @@
     
     <%- include("../_date_field.ejs", {title: "Fecha", name: "date", value: event?.date}) %>
 
+    <%- include("../_text_area.ejs", {title: "Nota", name: "note", value: event?.note, asterisk: Animal?.schema.path('events.note')?.hasOwnProperty('isRequired')}) %>
+
     <input type="submit" value="Enviar">
 
 </form>

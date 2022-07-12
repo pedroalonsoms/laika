@@ -25,6 +25,7 @@ const homeSchema = new mongoose.Schema({
     type: addressSchema,
     required: true,
   },
+  note: String,
 });
 
 homeSchema.virtual("type").get(function () {

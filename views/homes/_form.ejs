@@ -14,6 +14,8 @@
 
     <%- include("../_address_field.ejs", {address: home?.address}) %>
 
+    <%- include("../_text_area.ejs", {title: "Nota", name: "note", asterisk: Animal?.schema.path('homes.note')?.hasOwnProperty('isRequired')}) %>
+
     <input type="submit" value="Enviar">
 
 </form>

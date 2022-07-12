@@ -112,9 +112,11 @@ const animalSchema = new mongoose.Schema({
             "Se realizó Biometría Hemática",
             "Se aplicó Pastilla Simpárica",
             ...vaccines,
+            "Otro",
           ],
         },
       },
+      note: String,
     },
   ],
 });

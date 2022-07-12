@@ -15,6 +15,7 @@
             <tr>
                 <th>Descripción</th>
                 <th>Fecha</th>
+                <th>Nota</th>
                 <th>Acción</th>
             </tr>
             </thead>
@@ -24,6 +25,7 @@
                 <tr>
                     <td><%= event?.description %></td>
                     <td><%= event?.date?.toText() %></td>
+                    <td><%= event?.note %></td>
                     <td>
                         <a href="/animals/<%= animal_id %>/events/<%= event.id %>/delete">Borrar</a>
                     </td>
