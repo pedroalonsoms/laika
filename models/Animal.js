@@ -123,7 +123,6 @@ animalSchema.virtual("age").get(function () {
   const today = new Date();
   const { birth_date } = this;
 
-  if (birth_date === undefined) return "";
   return milisecondsToAge(today - birth_date);
 });
 

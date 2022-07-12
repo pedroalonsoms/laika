@@ -1,3 +1,4 @@
+const e = require("express");
 const { Animal } = require("../models/animal");
 
 class CalendarController {
@@ -12,13 +13,25 @@ class CalendarController {
     // We create an array of objects for the calendar
     const calendar = [];
 
+    // We get the from and to date filter parameters
+    let from = new Date();
+    if (req.query.from) {
+      from = new Date(req.query.from);
+    }
+    from.setUTCHours(0, 0, 0, 0);
+
+    let to = undefined;
+    if (req.query.to) {
+      to = new Date(req.query.to);
+      to.setUTCHours(23, 59, 59);
+    }
+
     const addItem = (item) => {
       const { date, description, animal } = item;
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
 
-      // We don't want to add past items
-      if (date < today) return;
+      // We don't want to add items that aren't inside our range
+      if (!(date >= from)) return;
+      if (to && !(date < to)) return;
 
       // We find the index of the object that contains our dates. Ex: {date: "2022-07-07"}
       const dateKey = date.toText();
@@ -61,7 +74,7 @@ class CalendarController {
     // We sort the calendar
     calendar.sort(({ date: a }, { date: b }) => new Date(a) - new Date(b));
 
-    this.render(req, res, "show", { calendar });
+    this.render(req, res, "show", { calendar, from, to });
   };
 }
 

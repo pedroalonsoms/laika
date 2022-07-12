@@ -2,9 +2,18 @@
 <html lang="en">
     <%- include("../_header.ejs", {title: "Calendario"}) %>
 <body>
-    <% const {calendar} = locals; %>
+    <% const {calendar, from, to} = locals; %>
 
     <% if(calendar?.length > 0) { %>
+
+        <form method="get" >
+            <details>
+                <summary>Filtrar</summary>
+                <%- include("../_date_field.ejs", {title: "Desde", name: "from", asterisk: false, value: from }) %>
+                <%- include("../_date_field.ejs", {title: "Hasta", name: "to", asterisk: false, value: to }) %>
+                <input type="submit" value="Ok">
+            </details>
+        </form>
         
         <% for(const day of calendar) { %>
             <%- include("../_text_label.ejs", {title: day.date }) %>
@@ -18,7 +27,7 @@
         
     <% } else { %>
 
-        <p>No hay pendientes por ahora! :)</p>
+        <p>No se encontraron pendientes :)</p>
 
     <% } %>
 

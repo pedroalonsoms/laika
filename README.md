@@ -33,13 +33,13 @@ npm run dev
 - [x] Zip Codes JSON data using JS
 - [ ] Fix null values on the schema
 - [ ] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
-- [ ] Filtro calendario desde una fecha hasta otra fecha
+- [x] Filtro calendario desde una fecha hasta otra fecha
 - [ ] Busqueda para buscar los que NO tengan un evento
 - [ ] Agregar campo de otro y descripcion en eventos
 - [ ] Agregar nota médica, text_area grande en eventos
-- [ ] Adopcion agregar edad de adopcion
+- [x] Adopcion agregar edad de adopcion
 - [ ] Adopciones apartado para notas grande al final
-- [ ] Adopciones editar
+- [x] Adopciones editar
 - [ ] Laika juntar ambas paginas en un dominio
 - [ ] Migrar de Wix a Laika.org
 

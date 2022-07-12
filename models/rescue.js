@@ -25,7 +25,6 @@ rescueSchema.virtual("age").get(function () {
   const { date: rescue_date } = this;
   const { birth_date } = this.parent();
 
-  if (birth_date === undefined) return "";
   return milisecondsToAge(rescue_date - birth_date);
 });
 

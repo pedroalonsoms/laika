@@ -26,7 +26,7 @@ class HomesController {
   create = async (req, res) => {
     const { animal_id } = req.params;
     const animal = await Animal.findById(animal_id);
-    animal.homes.push(req.body);
+    animal.homes.push({ ...req.body, leaving_age: animal.age });
     await animal.save();
     res.redirect(`/animals/${animal_id}/homes`);
   };
@@ -43,7 +43,7 @@ class HomesController {
     const animal = await Animal.findById(animal_id);
     animal.homes = animal.homes.map((home) => {
       const { _id } = home;
-      if (_id.toString() === id) return { _id, ...req.body };
+      if (_id.toString() === id) return { ...home, ...req.body };
       return home;
     });
     await animal.save();

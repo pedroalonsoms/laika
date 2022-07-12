@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { milisecondsToAge } = require("../lib/utils");
 const { addressSchema } = require("./address");
 
 const homeSchema = new mongoose.Schema({
@@ -29,6 +30,13 @@ const homeSchema = new mongoose.Schema({
 homeSchema.virtual("type").get(function () {
   if (!this.end_date) return "Permanente";
   return "Temporal";
+});
+
+homeSchema.virtual("leaving_age").get(function () {
+  const { start_date } = this;
+  const { birth_date } = this.parent();
+
+  return milisecondsToAge(start_date - birth_date);
 });
 
 const Home = mongoose.model("Home", homeSchema);

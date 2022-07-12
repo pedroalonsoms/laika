@@ -9,7 +9,9 @@
 
     <%- include("../_text_label.ejs", {title: "Inicio", value: home?.start_date?.toText()}) %> 
 
-    <%- include("../_text_label.ejs", {title: "Regreso", value: home?.end_date?.toText()}) %>    
+    <%- include("../_text_label.ejs", {title: "Regreso", value: home?.end_date?.toText()}) %>
+
+    <%- include("../_text_label.ejs", {title: "Edad de Partida", value: home?.leaving_age}) %>    
 
     <%- include("../_text_label.ejs", {title: "Cuidador", value: home?.keeper?.name}) %>
 
