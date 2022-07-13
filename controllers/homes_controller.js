@@ -1,4 +1,4 @@
-const { Animal } = require("../models/animal");
+const { Animal } = require("../models/animal_");
 const { Address } = require("../models/address");
 
 class HomesController {
