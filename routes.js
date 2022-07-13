@@ -22,8 +22,6 @@ router.use(
   })
 );
 
-console.log(process.env.ADMIN);
-
 const admin_only = (req, res, next) => {
   const { passphrase } = req.session;
 
