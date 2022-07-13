@@ -1,3 +1,5 @@
+<% const {navbar=true} = locals; %>
+
 <head>
     <title><%= title %></title>
     <meta charset="UTF-8">
@@ -5,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="/javascripts/protected_routes_script.js"></script>
 
-    <nav>
-        <a href="/animals">Animales</a>
-        <a href="/calendar">Calendario</a>
-    </nav>
+    <% if (navbar) { %>
+        <nav>
+            <a href="/animals">Animales</a>
+            <a href="/calendar">Calendario</a>
+            <a href="/logout" style="float: right;">Salir</a>
+        </nav>
+    <% } %>
 
     <h1><%= title %></h1>
 </head>
