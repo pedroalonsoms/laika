@@ -31,7 +31,7 @@ npm run dev
 - [x] Calendar View (como Reminders)
 - [x] Protected Routes to Edit and Delete (Prompt)
 - [x] Zip Codes JSON data using JS
-- [ ] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
+- [x] Pedir contraseña para editar y para poder acceder a ver los datos (dos veces)
 - [x] Filtro calendario desde una fecha hasta otra fecha
 - [x] Busqueda para buscar los que NO tengan un evento
 - [x] Agregar campo de otro y descripcion en eventos
