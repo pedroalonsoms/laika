@@ -1,7 +1,4 @@
-
 :root {
-    --sans-font:-apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Nimbus Sans L",Roboto,Noto,"Segoe UI",Arial,Helvetica,"Helvetica Neue",sans-serif;
-    --mono-font:Consolas,Menlo,Monaco,"Andale Mono","Ubuntu Mono",monospace;
     --bg:#fff;
     --accent-bg:#f5f7ff;
     --text:#585858;
@@ -12,19 +9,12 @@
     --preformatted:#8a1b70;;
     --marked:red;
     --disabled:#efefef
-   }
+}
 
-   h1 {
+h1 {
     color: #8a1b70;
-    font-size:3rem
-   }
-   h2 {
-    font-size:2.6rem;
-    margin-top:3rem
-   }
-   h3 {
+}
+
+h3 {
     color: #6ea6a5;
-    font-size:2rem;
-    margin-top:3rem
-   }
-   
+}
