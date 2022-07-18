@@ -2,33 +2,24 @@
 <html lang="en">
     <%- include("../_header.ejs", {title: "Hogar"}) %>
 <body>
-<% const {home} = locals %>
-<base href="/animals/<%= req?.params?.animal_id %>/homes/<%= req?.params?.id %>/">
+<base href="/animals/<%= req.params.animal_id %>/homes/<%= req.params.id %>/">
 
-    <%- include("../_text_label.ejs", {title: "Tipo", value: home?.type}) %>
-
-    <%- include("../_text_label.ejs", {title: "Inicio", value: home?.start_date?.toText()}) %> 
-
-    <%- include("../_text_label.ejs", {title: "Regreso", value: home?.end_date?.toText()}) %>
-
-    <%- include("../_text_label.ejs", {title: "Edad de Partida", value: home?.leaving_age}) %>    
-
-    <%- include("../_text_label.ejs", {title: "Cuidador", value: home?.keeper?.name}) %>
-
-    <%- include("../_text_label.ejs", {title: "Teléfono", value: home?.keeper?.phone}) %>
+    <p>
+        <code>Tipo</code>
+        <%= home.type %>
+    </p>
+    <%- include("../_text_label.ejs", {model: home, pathName: "start_date"}) %> 
+    <%- include("../_text_label.ejs", {model: home, pathName: "end_date"}) %> 
+    <p>
+        <code>Edad de Partida</code>
+        <%= home.leaving_age %>
+    </p>
+    <%- include("../_text_label.ejs", {model: home, pathName: "keeper_name"}) %> 
+    <%- include("../_text_label.ejs", {model: home, pathName: "keeper_phone"}) %> 
+    <%- include("../_text_label.ejs", {model: home, pathName: "keeper_contact"}) %> 
+    <%- include("../_show_address.ejs", {model: home.address}) %> 
+    <%- include("../_text_label.ejs", {model: home, pathName: "note"}) %> 
     
-    <%- include("../_text_label.ejs", {title: "Contacto (mail/redes)", value: home?.keeper?.contact}) %>
-
-    <%- include("../_text_label.ejs", {title: "Municipio", value: home?.address?.municipality}) %>
-
-    <%- include("../_text_label.ejs", {title: "Código Postal", value: home?.address?.zip_code}) %>
-
-    <%- include("../_text_label.ejs", {title: "Colonia", value: home?.address?.neighborhood}) %>
-
-    <%- include("../_text_label.ejs", {title: "Calle", value: home?.address?.street}) %>
-
-    <%- include("../_text_label.ejs", {title: "Nota", value: home?.note}) %>
-
     <div>
         <a href="edit/">Editar</a>
         <a href="delete/">Borrar</a>

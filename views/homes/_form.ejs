@@ -1,21 +1,12 @@
 <form action="<%= action %>" method="post">
 
-    <% const {Animal, home} = locals %>
-    
-    <%- include("../_date_field.ejs", {title: "Inicio", name: "start_date", value: home?.start_date, asterisk: Animal?.schema.path('homes.start_date')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_date_field.ejs", {title: "Regreso", name: "end_date", value: home?.end_date, asterisk: Animal?.schema.path('homes.end_date')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_text_input.ejs", {title: "Cuidado por", name: "keeper[name]", value: home?.keeper?.name, asterisk: Animal?.schema.path('homes.keeper.name')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_text_input.ejs", {title: "Teléfono", name: "keeper[phone]", value: home?.keeper?.phone, asterisk: Animal?.schema.path('homes.keeper.phone')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_text_input.ejs", {title: "Contacto (mail/redes)", name: "keeper[contact]", value: home?.keeper?.contact, asterisk: Animal?.schema.path('homes.keeper.contact')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_address_field.ejs", {address: home?.address}) %>
-
-    <%- include("../_text_area.ejs", {title: "Nota", name: "note", asterisk: Animal?.schema.path('homes.note')?.hasOwnProperty('isRequired')}) %>
-
+    <%- include("../_date_field.ejs", {model: home, pathName: "start_date"}) %>
+    <%- include("../_date_field.ejs", {model: home, pathName: "end_date"}) %>
+    <%- include("../_text_input.ejs", {model: home, pathName: "keeper_name"}) %>
+    <%- include("../_text_input.ejs", {model: home, pathName: "keeper_phone"}) %>
+    <%- include("../_text_input.ejs", {model: home, pathName: "keeper_contact"}) %>
+    <%- include("../_address_field.ejs", {model: home.address}) %>
+    <%- include("../_text_area.ejs", {model: home, pathName: "note"}) %>
     <input type="submit" value="Enviar">
 
 </form>

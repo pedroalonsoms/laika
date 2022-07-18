@@ -2,15 +2,13 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Eventos"}) %>
 <body>
-    <% const {events} = locals; %>
-    <% const {animal_id} = req?.params; %>
+<base href="/animals/<%= req.params.animal_id %>/events/">
 
-    <a href="/animals/<%= animal_id %>/events/new">Nuevo evento</a>
+    <a href="new">Nuevo evento</a>
 
-    <% if(events?.length > 0) { %>
+    <% if(events.length > 0) { %>
 
         <table>
-
             <thead>
             <tr>
                 <th>Descripción</th>
@@ -19,20 +17,18 @@
                 <th>Acción</th>
             </tr>
             </thead>
-
             <tbody>
             <% for(const event of events) { %>
                 <tr>
-                    <td><%= event?.description %></td>
-                    <td><%= event?.date?.toText() %></td>
-                    <td><%= event?.note %></td>
+                    <td><%= event.description %></td>
+                    <td><%= event.date %></td>
+                    <td><%= event.note %></td>
                     <td>
-                        <a href="/animals/<%= animal_id %>/events/<%= event.id %>/delete">Borrar</a>
+                        <a href="<%= event.id %>/delete">Borrar</a>
                     </td>
                 </tr>
             <% } %>
             </tbody>
-
         </table>
         
     <% } else { %>
@@ -43,18 +39,18 @@
 
     <details>
         <summary>Vacunas que debería tener un gato</summary>
-        <% const {catVaccines} = locals; %>
         <% for(const vaccine of catVaccines) { %>
             <p><%= vaccine %></p>
-        <% } %>
-      </details>
-
-      <details>
+            <% } %>
+        </details>
+        
+        <details>
         <summary>Vacunas que debería tener un perro</summary>
         <% for(const vaccine of dogVaccines) { %>
             <p><%= vaccine %></p>
         <% } %>
       </details>
 
+</base>
 </body>
 </html>

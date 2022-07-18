@@ -1,31 +1,47 @@
-<% const {title, name, options=[], include_blank=false, value, asterisk=true} = locals %>
+<% 
+
+let { model, pathName, formName, asterisk, include_blank} = locals; 
+
+if(formName === undefined) {
+    formName = pathName;
+}
+
+if(asterisk === undefined) {
+    asterisk = model.schema.path(pathName).options.hasOwnProperty("required");
+}
+
+const title = model.schema.path(pathName).options.title;
+options = new Set([...model.schema.path(pathName).enumValues]);
+
+const value = model[pathName];
+if(value) {
+    options.add(value);
+}
+
+%>
 
 <p>
-    <label for="<%= name %>"><%= title %>
+    <label for="<%= pathName %>"><%= title %>
     
-        <% if(asterisk) { %>
-            *
-        <% } %>
+    <% if(asterisk) { %>
+        *
+    <% } %>
     
     </label><br>
-    <select name="<%= name %>" id="<%= title %>">
+    <select name="<%= formName %>" id="<%= pathName %>">
 
         <% if (include_blank) { %>
             <option value=""></option>
         <% } %>
 
-        <%# Hacky stuff dont touch pls %>
-        <% if(options && options[0] !== undefined) { %>
-            <% for(const option of options) { %>
-                <option value="<%= option %>" 
-                    <% if (value == option) { %>
-                        selected
-                    <% } %> 
-                >
-                    <%= option %>
-                </option>
-            <% } %>
+        <% for(const option of options) { %>
+            <option value="<%= option %>" 
+                <% if (value == option) { %>
+                    selected
+                <% } %> 
+            >
+                <%= option %>
+            </option>
         <% } %>
-        
     </select>
 </p>

@@ -1,28 +1,17 @@
 <form action="<%= action %>" method="post" enctype="multipart/form-data">
     
-    <% const {Animal, animal} = locals %>
-
-    <%- include("../_text_input.ejs", {title: "Petco ID", name: "petco_id", value: animal?.petco_id, asterisk: Animal?.schema.path('petco_id')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_text_input.ejs", {title: "Nombre", name: "name", value: animal?.name, asterisk: Animal?.schema.path('name')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_text_input.ejs", {title: "Alias", name: "alias", value: animal?.alias, asterisk: Animal?.schema.path('alias')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_date_field.ejs", {title: "Fecha de Nacimiento (Estimada)", name: "birth_date", value: animal?.birth_date, asterisk: Animal?.schema.path('birth_date')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_dropdown.ejs", {title: "Especie", name: "species", options: Animal?.schema.path('species').enumValues, value: animal?.species, asterisk: Animal?.schema.path('species')?.hasOwnProperty('isRequired')}) %>
-    
-    <%- include("../_dropdown.ejs", {title: "Color", name: "color", options: Animal?.schema.path('color').enumValues, value: animal?.color, asterisk: Animal?.schema.path('color')?.hasOwnProperty('isRequired')}) %>
-    
-    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal?.schema.path('sex').enumValues, value: animal?.sex, asterisk: Animal?.schema.path('sex')?.hasOwnProperty('isRequired')}) %>
-    
-    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal?.schema.path('status').enumValues, value: animal?.status, asterisk: Animal?.schema.path('status')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_text_area.ejs", {title: "Señas Particulares", name: "particular_signs", value: animal?.particular_signs, asterisk: false, asterisk: Animal?.schema.path('particular_signs')?.hasOwnProperty('isRequired')}) %>
+    <%- include("../_text_input.ejs", {model: animal, pathName: "petco_id"}) %>
+    <%- include("../_text_input.ejs", {model: animal, pathName: "name"}) %>
+    <%- include("../_text_input.ejs", {model: animal, pathName: "alias"}) %>
+    <%- include("../_date_field.ejs", {model: animal, pathName: "birth_date"}) %>
+    <%- include("../_dropdown.ejs", {model: animal, pathName: "species"}) %>
+    <%- include("../_dropdown.ejs", {model: animal, pathName: "color"}) %>
+    <%- include("../_dropdown.ejs", {model: animal, pathName: "sex"}) %>
+    <%- include("../_dropdown.ejs", {model: animal, pathName: "status"}) %>
+    <%- include("../_text_area.ejs", {model: animal, pathName: "particular_signs"}) %>
 
     <label for="photos">Añadir Fotos</label>
     <input type="file" name="photos" multiple>
-
     <input type="submit" value="Enviar">
-
+   
 </form>

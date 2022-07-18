@@ -13,7 +13,9 @@ class RescuesController {
   };
 
   new = async (req, res) => {
-    this.render(req, res, "new");
+    const rescue = new Rescue();
+    rescue.address = new Address();
+    this.render(req, res, "new", { rescue });
   };
 
   create = async (req, res) => {

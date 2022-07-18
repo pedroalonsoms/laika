@@ -1,19 +1,35 @@
-<% const {title, name, value, hasOkButton=false, asterisk=true} = locals %>
+<% 
+
+let { model, pathName, formName, asterisk, hasOkButton} = locals; 
+
+if(formName === undefined) {
+    formName = pathName;
+}
+
+if(asterisk === undefined) {
+    asterisk = model.schema.path(pathName).options.hasOwnProperty("required");
+}
+
+const title = model.schema.path(pathName).options.title;
+const value = model[pathName];
+
+%>
 
 <p>
-    <label for="<%= name %>"><%= title %>
-
-        <% if(asterisk) { %>
-            *
-        <% } %>
-
-    </label><br>
-    <input type="text" id="<%= title %>" name="<%= name %>" autocomplete="off"
+    <label for="<%= pathName %>"><%= title %>
     
-        <% if(value) { %>
-            value="<%= value %>"
-        <% } %>
-      />
+    <% if(asterisk) { %>
+        *
+    <% } %>
+    
+    </label><br>
+    <input type="text" name="<%= formName %>" id="<%= pathName %>" autocomplete="off"
+    
+    <% if(value) { %>
+        value="<%= value %>"
+    <% } %>
+    
+    />
 
     <% if(hasOkButton) { %>
         <button type="button" onclick="fetchNeighborhoods()">Ok</button>

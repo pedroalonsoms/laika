@@ -4,28 +4,29 @@ const { addressSchema } = require("./address");
 
 const homeSchema = new mongoose.Schema({
   start_date: {
+    title: "Fecha de Partida",
     type: Date,
     required: true,
   },
-  end_date: Date,
-  keeper: {
-    name: {
-      type: String,
-      required: true,
-    },
-    phone: {
-      type: String,
-      required: true,
-    },
-    contact: {
-      type: String,
-    },
+  end_date: { title: "Fecha de Regreso", type: Date },
+  keeper_name: {
+    title: "Cuidado por",
+    type: String,
+    required: true,
+  },
+  keeper_phone: {
+    title: "Teléfono",
+    type: String,
+  },
+  keeper_contact: {
+    title: "Contacto",
+    type: String,
   },
   address: {
     type: addressSchema,
     required: true,
   },
-  note: String,
+  note: { title: "Notas", type: String },
 });
 
 homeSchema.virtual("type").get(function () {

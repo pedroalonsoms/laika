@@ -1,13 +1,8 @@
 <form action="<%= action %>" method="post">
     
-    <% const {Animal, event} = locals %>
-
-    <%- include("../_dropdown.ejs", {title: "Descripción", name: "description", options: Animal?.schema.path('events.description').enumValues, value: event?.description}) %>
-    
-    <%- include("../_date_field.ejs", {title: "Fecha", name: "date", value: event?.date}) %>
-
-    <%- include("../_text_area.ejs", {title: "Nota", name: "note", value: event?.note, asterisk: Animal?.schema.path('events.note')?.hasOwnProperty('isRequired')}) %>
-
+    <%- include("../_dropdown.ejs", {model: event, pathName: "description"}) %>
+    <%- include("../_date_field.ejs", {model: event, pathName: "date"}) %>
+    <%- include("../_text_area.ejs", {model: event, pathName: "note"}) %>
     <input type="submit" value="Enviar">
 
 </form>

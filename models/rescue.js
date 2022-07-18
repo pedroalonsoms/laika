@@ -4,6 +4,7 @@ const { addressSchema } = require("./address");
 
 const rescueSchema = new mongoose.Schema({
   date: {
+    title: "Fecha",
     type: Date,
     required: true,
   },
@@ -11,8 +12,9 @@ const rescueSchema = new mongoose.Schema({
     type: addressSchema,
     required: true,
   },
-  rescuers: String,
+  rescuers: { title: "Rescatistas", type: String },
   organization: {
+    title: "Organización",
     type: String,
     required: true,
     enum: {

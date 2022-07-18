@@ -1,14 +1,9 @@
-const { Animal, catVaccines, dogVaccines } = require("../models/animal");
+const { Animal } = require("../models/animal");
+const { Event, catVaccines, dogVaccines } = require("../models/event");
 
 class EventsController {
   render = (req, res, filename, other) => {
-    res.render(`./events/${filename}`, {
-      Animal,
-      catVaccines,
-      dogVaccines,
-      req,
-      ...other,
-    });
+    res.render(`./events/${filename}`, { req, ...other });
   };
 
   index = async (req, res) => {
@@ -16,11 +11,12 @@ class EventsController {
     const { animal_id } = req.params;
     const animal = await Animal.findById(animal_id);
     const events = animal.events.sort(({ date: a }, { date: b }) => a - b);
-    this.render(req, res, "index", { events });
+    this.render(req, res, "index", { events, catVaccines, dogVaccines });
   };
 
   new = async (req, res) => {
-    this.render(req, res, "new");
+    const event = new Event();
+    this.render(req, res, "new", { event });
   };
 
   create = async (req, res) => {

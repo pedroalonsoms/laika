@@ -2,8 +2,7 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Nuevo Hogar"}) %>
 <body>
-    <% const { animal_id } = req?.params; %>
-    <%- include("./_form.ejs", {action: `/animals/${animal_id}/homes`}) %>
+    <%- include("./_form.ejs", {action: `/animals/${req.params.animal_id}/homes`}) %>
     <script src="/javascripts/address_script.js"></script>
 </body>
 </html>

@@ -2,7 +2,6 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Nuevo Evento"}) %>
 <body>
-    <% const { animal_id } = req?.params; %>
-    <%- include("./_form.ejs", {action: `/animals/${animal_id}/events`}) %>
+    <%- include("./_form.ejs", {action: `/animals/${req.params.animal_id}/events`}) %>
 </body>
 </html>

@@ -1,9 +1,6 @@
-<% const {address} = locals; %>
+<% const {model} = locals; %>
 
-<%- include("_text_label.ejs", {title: "Municipio", value: address?.municipality}) %>
-
-<%- include("_text_label.ejs", {title: "Código Postal", value: address?.zip_code}) %>
-
-<%- include("_text_label.ejs", {title: "Colonia", value: address?.neighborhood}) %>
-
-<%- include("_text_label.ejs", {title: "Calle", value: address?.street}) %>
+<%- include("_text_label.ejs", {model: model, pathName: "municipality"}) %>
+<%- include("_text_label.ejs", {model: model, pathName: "zip_code"}) %>
+<%- include("_text_label.ejs", {model: model, pathName: "neighborhood"}) %>
+<%- include("_text_label.ejs", {model: model, pathName: "street"}) %>

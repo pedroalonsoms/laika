@@ -1,12 +1,33 @@
-<% const {title, name, value, asterisk=true} = locals %>
+<% 
+
+let { model, pathName, formName, asterisk} = locals; 
+
+if(formName === undefined) {
+    formName = pathName;
+}
+
+if(asterisk === undefined) {
+    asterisk = model.schema.path(pathName).options.hasOwnProperty("required");
+}
+
+const title = model.schema.path(pathName).options.title;
+const value = model[pathName];
+
+%>
 
 <p>
-    <label for="<%= name %>"><%= title %>
-        
-        <% if(asterisk) { %>
-            *
-        <% } %>
+    <label for="<%= pathName %>"><%= title %>
+    
+    <% if(asterisk) { %>
+        *
+    <% } %>
     
     </label><br>
-    <input type="date" id="<%= title %>" name="<%= name %>" value="<%= value?.toDateInputValue(); %>"/>
+    <input type="date" name="<%= formName %>" id="<%= pathName %>"
+    
+    <% if(value) { %>
+        value="<%= value.toDateInputValue() %>"
+    <% } %>
+    
+    />
 </p>

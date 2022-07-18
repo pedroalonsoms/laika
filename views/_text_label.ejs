@@ -1,4 +1,11 @@
-<% const {title, value} = locals %>
+<% 
+
+let { model, pathName } = locals; 
+
+const title = model.schema.path(pathName).options.title;
+const value = model[pathName];
+
+%>
 
 <p>
     <code><%= title %></code>

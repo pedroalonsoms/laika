@@ -2,15 +2,12 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Hogares"}) %>
 <body>
-    <% const {homes} = locals; %>
-    <% const {animal_id} = req?.params; %>
-
-    <a href="/animals/<%= animal_id %>/homes/new">Nuevo hogar</a>
+<base href="/animals/<%= req.params.animal_id %>/homes/">
+    <a href="new">Nuevo hogar</a>
 
     <% if(homes?.length > 0) { %>
 
         <table>
-
             <thead>
             <tr>
                 <th>Tipo</th>
@@ -19,28 +16,25 @@
                 <th>Acción</th>
             </tr>
             </thead>
-
             <tbody>
             <% for(const home of homes) { %>
                 <tr>
-                    <td><%= home?.type %></td>
-                    <td style="white-space: nowrap;"><%= home?.start_date?.toText() %></td>
-                    <td style="white-space: nowrap;"><%= home?.end_date?.toText() %></td>
+                    <td><%= home.type %></td>
+                    <td style="white-space: nowrap;"><%= home.start_date %></td>
+                    <td style="white-space: nowrap;"><%= home.end_date %></td>
                     <td>
-                        <a href="/animals/<%= animal_id %>/homes/<%= home?.id %>">Detalles</a>
+                        <a href="<%= home?.id %>">Detalles</a>
                     </td>
                 </tr>
             <% } %>
             </tbody>
-
         </table>
-        
 
     <% } else { %>
 
         <p>No hay hogares!</p>
 
     <% } %>
-
+</base>
 </body>
 </html>

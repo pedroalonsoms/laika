@@ -2,7 +2,6 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Editar Animal"}) %>
 <body>
-
     <%- include("./_form.ejs", {action: `/animals/${req.params.id}/update`}) %>
 </body>
 </html>

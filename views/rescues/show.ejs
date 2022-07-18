@@ -2,26 +2,26 @@
 <html lang="es">
     <%- include("../_header.ejs", {title: "Rescate"}) %>
 <body>
-    <% const {rescue} = locals; %>
+<base href="/animals/<%= req.params.animal_id %>/rescue/">
+
     <% if(rescue) { %>
-
-        <%- include("../_text_label.ejs", {title: "Fecha", value: rescue?.date.toText()}) %>
-
-        <%- include("../_text_label.ejs", {title: "Edad de Rescate", value: rescue?.age}) %>
-        
-        <%- include("../_show_address.ejs", {address: rescue?.address}) %>
-        
-        <%- include("../_text_label.ejs", {title: "Rescatistas", value: rescue?.rescuers}) %>
-
-        <%- include("../_text_label.ejs", {title: "Organización", value: rescue?.organization}) %>
+        <%- include("../_text_label.ejs", {model: rescue, pathName: "date"}) %>
+        <p>
+            <code>Edad de Rescate</code>
+            <%= rescue.age %>
+        </p>
+        <%- include("../_text_label.ejs", {model: rescue, pathName: "rescuers"}) %>
+        <%- include("../_text_label.ejs", {model: rescue, pathName: "organization"}) %>
+        <%- include("../_show_address.ejs", {model: rescue.address}) %>
         
         <div>
-            <a href="/animals/<%= req.params.animal_id %>/rescue/edit">Editar</a>
-            <a href="/animals/<%= req.params.animal_id %>/rescue/delete">Borrar</a>
+            <a href="edit">Editar</a>
+            <a href="delete">Borrar</a>
         </div>
     <% } else { %>
-        <a href="/animals/<%= req.params.animal_id %>/rescue/new">Nuevo Rescate</a>
+        <a href="new">Nuevo Rescate</a>
     <% } %>
 
+</base>
 </body>
 </html>

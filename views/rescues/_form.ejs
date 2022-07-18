@@ -1,15 +1,9 @@
 <form action="<%= action %>" method="post">
     
-    <% const {Rescue, rescue} = locals %>
-
-    <%- include("../_date_field.ejs", {title: "Fecha", name: "date", value: rescue?.date, asterisk: Rescue?.schema.path('date')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_address_field.ejs", {address: rescue?.address}) %>
-    
-    <%- include("../_text_input.ejs", {title: "Rescatistas", name: "rescuers", value: rescue?.rescuers, asterisk: Rescue?.schema.path('rescuers')?.hasOwnProperty('isRequired')}) %>
-
-    <%- include("../_dropdown.ejs", {title: "Organización", name: "organization", options: Rescue?.schema.path('organization').enumValues, asterisk: Rescue?.schema.path('organization')?.hasOwnProperty('isRequired')}) %>
-    
+    <%- include("../_date_field.ejs", {model: rescue, pathName: "date"}) %>
+    <%- include("../_text_input.ejs", {model: rescue, pathName: "rescuers"}) %>
+    <%- include("../_dropdown.ejs", {model: rescue, pathName: "organization"}) %>
+    <%- include("../_address_field.ejs", {model: rescue.address}) %>
     <input type="submit" value="Enviar">
 
 </form>

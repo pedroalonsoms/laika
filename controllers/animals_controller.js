@@ -44,7 +44,8 @@ class AnimalsController {
   };
 
   new = async (req, res) => {
-    this.render(req, res, "new");
+    const animal = new Animal();
+    this.render(req, res, "new", { animal });
   };
 
   create = async (req, res) => {

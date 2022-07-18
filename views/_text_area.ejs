@@ -1,12 +1,27 @@
-<% const {title, name, value, asterisk=true} = locals %>
+<% 
+
+let { model, pathName, formName, asterisk} = locals; 
+
+if(formName === undefined) {
+    formName = pathName;
+}
+
+if(asterisk === undefined) {
+    asterisk = model.schema.path(pathName).options.hasOwnProperty("required");
+}
+
+const title = model.schema.path(pathName).options.title;
+const value = model[pathName];
+
+%>
 
 <p>
-    <label for="<%= name %>"><%= title %>
+    <label for="<%= pathName %>"><%= title %>
     
-        <% if(asterisk) { %>
-            *
-        <% } %>
+    <% if(asterisk) { %>
+        *
+    <% } %>
     
     </label><br>
-    <textarea name="<%= name %>" id="<%= title %>" cols="30" rows="4"><%- value %></textarea>
+    <textarea type="text" name="<%= formName %>" id="<%= pathName %>" cols="30" rows="4"><% if(value) { %><%= value %><% } %></textarea>
 </p>

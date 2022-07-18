@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const addressSchema = new mongoose.Schema({
   municipality: {
+    title: "Municipio",
     type: String,
     required: true,
     enum: {
@@ -27,20 +28,9 @@ const addressSchema = new mongoose.Schema({
       ],
     },
   },
-  zip_code: String,
-  neighborhood: String,
-  street: String,
-});
-
-addressSchema.virtual("fullAddress").get(function () {
-  let fullAddress = "";
-
-  if (this.municipality) fullAddress += `${this.municipality} `;
-  if (this.zip_code) fullAddress += `CP: ${this.zip_code} `;
-  if (this.neighborhood) fullAddress += `Col: ${this.neighborhood} `;
-  if (this.street) fullAddress += `${this.street}`;
-
-  return fullAddress;
+  zip_code: { title: "Código Postal", type: String },
+  neighborhood: { title: "Colonia", type: String },
+  street: { title: "Calle", type: String },
 });
 
 const Address = mongoose.model("Address", addressSchema);

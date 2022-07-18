@@ -1,5 +1,6 @@
 const { Animal } = require("../models/animal");
 const { Address } = require("../models/address");
+const { Home } = require("../models/home");
 
 class HomesController {
   render = (req, res, filename, other) => {
@@ -13,7 +14,9 @@ class HomesController {
   };
 
   new = async (req, res) => {
-    this.render(req, res, "new");
+    const home = new Home();
+    home.address = new Address();
+    this.render(req, res, "new", { home });
   };
 
   show = async (req, res) => {
