@@ -5,10 +5,10 @@
     --text-light:#585858;
     --border:#d8dae1;
     --accent:black;
-    --code:#6ea6a5;;
-    --preformatted:#8a1b70;;
+    --code:#6ea6a5;
+    --preformatted:#8a1b70;
     --marked:red;
-    --disabled:#efefef
+    --disabled:#efefef;
 }
 
 h1 {
