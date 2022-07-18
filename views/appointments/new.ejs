@@ -3,5 +3,6 @@
     <%- include("../_header.ejs", {title: "Nueva Cita"}) %>
 <body>
     <%- include("./_form.ejs", {action: `/animals/${req.params.animal_id}/appointments`}) %>
+    <%- include("../_footer.ejs") %>
 </body>
 </html>

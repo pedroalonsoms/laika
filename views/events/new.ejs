@@ -3,5 +3,6 @@
     <%- include("../_header.ejs", {title: "Nuevo Evento"}) %>
 <body>
     <%- include("./_form.ejs", {action: `/animals/${req.params.animal_id}/events`}) %>
+    <%- include("../_footer.ejs") %>
 </body>
 </html>
