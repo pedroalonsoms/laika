@@ -2,25 +2,28 @@
 <html lang="en">
     <%- include("../_header.ejs", {title: "Calendario"}) %>
 <body>
-    <% const {calendar, from, to} = locals; %>
-
-    <% if(calendar?.length > 0) { %>
+    <% if(calendar.length > 0) { %>
 
         <form method="get" >
+
             <details>
                 <summary>Filtrar</summary>
-                <%- include("../_date_field.ejs", {title: "Desde", name: "from", asterisk: false, value: from }) %>
-                <%- include("../_date_field.ejs", {title: "Hasta", name: "to", asterisk: false, value: to }) %>
-                <input type="submit" value="Ok">
+                <%- include("../_date_range.ejs", {formName: "date", from: from, to: to}) %>
+                <input type="submit" value="Enviar">
             </details>
+
         </form>
         
         <% for(const day of calendar) { %>
-            <%- include("../_text_label.ejs", {title: day.date }) %>
+            <p>
+                <code><%= day.date %></code>
+            </p>
+
             <ul>
-                <% for(const item of day?.items) { %>
-                    <% const {name, id} = item.animal; %>
-                    <li><%= item.description %> de <a href="/animals/<%= id %>"><%= name %></a></li>
+                <% for(const {description, animal: {id, name}} of day.items) { %>
+                    
+                    <li><%= description %> de <a href="/animals/<%= id %>"><%= name %></a></li>
+
                 <% } %>
             </ul>
         <% } %>

@@ -1,6 +1,8 @@
 const { saveImages, removeEmpty } = require("../lib/utils");
 const { Animal } = require("../models/animal");
 const { Address } = require("../models/address");
+const { Rescue } = require("../models/rescue");
+const { Event } = require("../models/event");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
@@ -76,7 +78,11 @@ class AnimalsController {
   };
 
   search = async (req, res) => {
-    this.render(req, res, "search");
+    const animal = new Animal();
+    const rescue = new Rescue();
+    rescue.address = new Address();
+    const event = new Event();
+    this.render(req, res, "search", { animal, rescue, event });
   };
 }
 

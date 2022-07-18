@@ -3,49 +3,38 @@
     <%- include("../_header.ejs", {title: "Buscar Animal"}) %>
 <body>
     <main>
-    <% const {Animal} = locals %>
     <form action="/animals" method="get">
 
     <details>
-    <summary>General</summary>
-    <%- include("../_text_input.ejs", {title: "Nombre o apodo", name: "name_or_alias", asterisk: false}) %>
-
-    <%- include("../_text_input.ejs", {title: "Petco ID", name: "petco_id", asterisk: false}) %>
-    
-    <%- include("../_dropdown.ejs", {title: "Sexo", name: "sex", options: Animal?.schema.path('sex').enumValues, include_blank: true, asterisk: false}) %>
-
-    <%- include("../_dropdown.ejs", {title: "Estatus", name: "status", options: Animal?.schema.path('status').enumValues, include_blank: true, asterisk: false}) %>
-
-    <%- include("../_dropdown.ejs", {title: "Especie", name: "species", options: Animal?.schema.path('species').enumValues, include_blank: true, asterisk: false}) %>
-
-    <%- include("../_dropdown.ejs", {title: "Color", name: "color", options: Animal?.schema.path('color').enumValues, include_blank: true, asterisk: false}) %>
+        <summary>General</summary>
+        <p>
+            <label for="name_or_alias">Nombre o Apodo</label><br>
+            <input type="text" name="name_or_alias" id="name_or_alias" />
+        </p>
+        <%- include("../_text_input.ejs", {model: animal, pathName: "petco_id"}) %>
+        <%- include("../_dropdown.ejs", {model: animal, pathName: "sex", asterisk: false}) %>
+        <%- include("../_dropdown.ejs", {model: animal, pathName: "status", asterisk: false}) %>
+        <%- include("../_dropdown.ejs", {model: animal, pathName: "species", asterisk: false}) %>
+        <%- include("../_dropdown.ejs", {model: animal, pathName: "color", asterisk: false}) %>
     </details>
 
     <details>
     <summary>Rescate</summary>
-
-    <%- include("../_date_field.ejs", {title: "Desde", name: "rescue.date[$gte]", asterisk: false}) %>
-
-    <%- include("../_date_field.ejs", {title: "Hasta", name: "rescue.date[$lte]", asterisk: false}) %>
-
-    <%- include("../_dropdown.ejs", {title: "Organización", name: "rescue.organization", options: Animal?.schema.path('rescue.organization').enumValues, include_blank: true, asterisk: false}) %>
-
-    <%- include("../_address_field.ejs", {asterisk: false, include_blank: true, prefix: "rescue", separator:"dot"}) %>
+        <%- include("../_date_range.ejs", {formName: "rescue.date"}) %>
+        <%- include("../_dropdown.ejs", {model: rescue, pathName: "organization", formName: "rescue.organization[$eq]", asterisk: false}) %>
+        <%- include("../_address_field.ejs", {model: rescue.address, separator: "dots", asterisk: false}) %>
     </details>
 
     <details>
     <summary>Eventos</summary>
-
-    <%- include("../_dropdown.ejs", {title: "Tiene", name: "events.description[$eq]", options: Animal?.schema.path('events.description').enumValues, include_blank: true, asterisk: false}) %>
-
-    <%- include("../_dropdown.ejs", {title: "Le falta", name: "events.description[$ne]", options: Animal?.schema.path('events.description').enumValues, include_blank: true, asterisk: false}) %>
+        <%- include("../_dropdown.ejs", {model: event, title: "Tiene", pathName: "description", formName: "events.description[$eq]", asterisk: false}) %>
+        <%- include("../_dropdown.ejs", {model: event, title: "Le falta", pathName: "description", formName: "events.description[$ne]", asterisk: false}) %>
     </details>
 
     <input type="submit" value="Enviar">
+    
     </form>
-
     </main>
     <script src="/javascripts/address_script.js"></script>
 </body>
 </html>
-

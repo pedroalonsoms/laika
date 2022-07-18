@@ -1,6 +1,6 @@
 <% 
 
-let { model, pathName, formName, asterisk, hasOkButton} = locals; 
+let { model, title, pathName, formName, asterisk, hasOkButton} = locals; 
 
 if(formName === undefined) {
     formName = pathName;
@@ -10,7 +10,10 @@ if(asterisk === undefined) {
     asterisk = model.schema.path(pathName).options.hasOwnProperty("required");
 }
 
-const title = model.schema.path(pathName).options.title;
+if(title === undefined) {
+    title = model.schema.path(pathName).options.title;
+}
+
 const value = model[pathName];
 
 %>

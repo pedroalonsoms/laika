@@ -1,6 +1,6 @@
 <% 
 
-const {model, formNameStyle = "brackets"} = locals; 
+const {model, formNameStyle = "brackets", asterisk = true} = locals; 
 
 const getFormName = (name) => {
     if(formNameStyle === "brackets") {
@@ -14,7 +14,7 @@ const getFormName = (name) => {
 
 %>
 
-<%- include("_dropdown.ejs", {model: model, pathName: "municipality", formName: getFormName("municipality")}) %>
+<%- include("_dropdown.ejs", {model: model, pathName: "municipality", formName: getFormName("municipality"), asterisk: asterisk}) %>
 <%- include("_text_input.ejs", {model: model, pathName: "zip_code", formName: getFormName("zip_code"), hasOkButton: true }) %>
 <%- include("_dropdown.ejs", {model: model, pathName: "neighborhood", formName: getFormName("neighborhood")}) %>
 <%- include("_text_input.ejs", {model: model, pathName: "street", formName: getFormName("street")}) %>
