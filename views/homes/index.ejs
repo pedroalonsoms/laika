@@ -21,7 +21,7 @@
                 <tr>
                     <td><%= home.type %></td>
                     <td style="white-space: nowrap;"><%= home.start_date.toText() %></td>
-                    <td style="white-space: nowrap;"><%= home.end_date.toText() %></td>
+                    <td style="white-space: nowrap;"><%= home.end_date?.toText() %></td>
                     <td>
                         <a href="<%= home?.id %>">Detalles</a>
                     </td>

@@ -9,8 +9,6 @@ const animalSchema = new mongoose.Schema({
   petco_id: {
     title: "Petco ID",
     type: Number,
-    unique: true,
-    sparse: true,
   },
   name: {
     title: "Nombre",

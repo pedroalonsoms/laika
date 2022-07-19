@@ -52,17 +52,6 @@ class AnimalsController {
 
   create = async (req, res) => {
     const urls = await saveImages(req.files);
-
-    const { petco_id } = req.body;
-    // Delete if it is not a number, non positive or decimal
-    if (
-      isNaN(Number(petco_id)) ||
-      Number(petco_id) <= 0 ||
-      Number(petco_id) % 1 !== 0
-    ) {
-      delete req.body["petco_id"];
-    }
-
     const animal = new Animal({ ...req.body, photos: urls });
     const { id } = await animal.save();
     res.redirect(`/animals/${id}`);
@@ -76,17 +65,6 @@ class AnimalsController {
   update = async (req, res) => {
     const id = req.params.id;
     const urls = await saveImages(req.files);
-
-    const { petco_id } = req.body;
-    // Delete if it is not a number, non positive or decimal
-    if (
-      isNaN(Number(petco_id)) ||
-      Number(petco_id) <= 0 ||
-      Number(petco_id) % 1 !== 0
-    ) {
-      delete req.body["petco_id"];
-    }
-
     const animal = await Animal.findById(id);
     animal.set({ ...req.body, photos: [...animal?.photos, ...urls] });
     await animal.save();
