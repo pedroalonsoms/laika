@@ -69,8 +69,8 @@ npm run dev
 
 - [ ] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
 - [ ] Pasar los datos de la base antigua a la nueva manualmente
-- [ ] Mensajes de error custom (?)
 - [ ] Betatesting con Eva
+- [ ] Mensajes de error custom (?)
 - [x] Logo de Laika al Final de cada página web
 - [x] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
 - [x] Tablas con headers centrados
