@@ -1,14 +1,14 @@
 <% 
 
-const {model, formNameStyle = "brackets", asterisk = true} = locals; 
+const {model, formNameStyle = "brackets", prefix="", asterisk = true} = locals; 
 
 const getFormName = (name) => {
     if(formNameStyle === "brackets") {
-        return `address[${name}]`
+        return `address[${name}]`;
     }
 
     if(formNameStyle === "dots") {
-        return `address.${name}[$eq]`
+        return `${prefix}.address.${name}[$eq]`;
     }
 }
 

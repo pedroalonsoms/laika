@@ -22,7 +22,7 @@
     <summary>Rescate</summary>
         <%- include("../_date_range.ejs", {formName: "rescue.date"}) %>
         <%- include("../_dropdown.ejs", {model: rescue, pathName: "organization", formName: "rescue.organization[$eq]", asterisk: false}) %>
-        <%- include("../_address_field.ejs", {model: rescue.address, separator: "dots", asterisk: false}) %>
+        <%- include("../_address_field.ejs", {model: rescue.address, formNameStyle: "dots", asterisk: false, prefix: "rescue"}) %>
     </details>
 
     <details>
