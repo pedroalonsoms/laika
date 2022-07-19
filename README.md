@@ -68,13 +68,12 @@ npm run dev
 ## (Juan, Rogelio, Ozner y JC)
 
 - [ ] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
-- [ ] Logo de Laika al Final de cada página web
-- [ ] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
-- [ ] Error handling (try/catch) y mensajes de error (Si ponen " " muchos espacios vacíos, debe marcar error también). Tal vez con mongoose validators (?) o npm zod (?) o función trim (?)
-- [ ] Checar qué pasa en los casos "null". Si creo dos veces un perro con PetcoID vacío, marcará error.
-- [ ] Tablas con headers centrados
 - [ ] Pasar los datos de la base antigua a la nueva manualmente
+- [ ] Mensajes de error custom (?)
 - [ ] Betatesting con Eva
+- [x] Logo de Laika al Final de cada página web
+- [x] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
+- [x] Tablas con headers centrados
 
 # Authors
 
