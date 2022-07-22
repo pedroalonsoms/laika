@@ -1,26 +1,8 @@
 const express = require("express");
 const multer = require("multer");
 const router = express.Router();
-const session = require("express-session");
-const { MemoryStore } = require("express-session");
 const upload = multer({ storage: multer.memoryStorage() });
 require("express-async-errors"); //Hack for async error handling
-
-//Sessions
-router.use(
-  session({
-    store: new MemoryStore(),
-    name: "qid",
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-    },
-  })
-);
 
 const admin_only = (req, res, next) => {
   const { passphrase } = req.session;

@@ -38,8 +38,8 @@ npm run dev
 - [x] Adopcion agregar edad de adopcion
 - [x] Adopciones apartado para notas grande al final
 - [x] Adopciones editar
-- [ ] Laika juntar ambas paginas en un dominio
-- [ ] Migrar de Wix a Laika.org
+- [x] Laika juntar ambas paginas en un dominio
+- [x] Migrar de Wix a Laika.org
 
 ### Sencillo
 
