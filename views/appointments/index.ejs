@@ -3,7 +3,8 @@
     <%- include("../_header.ejs", {title: "Citas"}) %>
 <body>
 <base href="/animals/<%= req.params.animal_id %>/appointments/">
-    <a href="new">Nueva cita</a>
+
+    <button><a href="new">Nueva cita</a></button>
 
     <% if(appointments.length > 0) { %>
 
