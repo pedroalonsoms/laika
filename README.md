@@ -63,7 +63,9 @@ npm run dev
 - [x] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)
 - [x] Orden de fotos dejar asi
 - [x] Mandar pdf de las screen de la pagina (con los menús)
-- [ ] Deployment (set server hour to gmt-6)
+- [x] Deployment (set server hour to gmt-6)
+- [ ] Cancelar el pago de Goddaddy de la base de datos antigua
+- [ ] Backups ?
 
 ## (Juan, Rogelio, Ozner y JC)
 
