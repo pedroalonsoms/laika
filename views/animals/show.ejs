@@ -5,10 +5,13 @@
 <base href="/animals/<%= req.params.id %>/">
     
     <nav>
-        <a href="rescue/">Rescate</a>
-        <a href="events/">Eventos</a>
-        <a href="appointments/">Citas</a>
-        <a href="homes/">Hogares</a>
+        <button><a href="rescue/">Rescate</a></button>
+
+        <button><a href="events/">Eventos</a></button>
+
+        <button><a href="appointments/">Citas</a></button>
+
+        <button><a href="homes/">Hogares</a></button>
     </nav>
 
     <%- include("../_text_label.ejs", {model: animal, pathName: "petco_id"}) %>
@@ -31,8 +34,9 @@
     <% }); %>
 
     <div>
-        <a href="edit/">Editar</a>
-        <a href="delete/">Borrar</a>
+        <button><a href="edit/">Editar</a></button>
+        <button><a href="delete/">Borrar</a></button>
+        <button><a href="print/">Imprimir</a></button>
     </div>
 
 </base>

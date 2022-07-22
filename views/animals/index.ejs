@@ -4,8 +4,8 @@
 <body>
 
     <nav>
-        <a href="/animals/new">Nuevo</a>
-        <a href="/animals/search">Buscar</a>
+        <button><a href="/animals/new">Nuevo</a></button>
+        <button><a href="/animals/search">Buscar</a></button>
     </nav>
 
     <main>
@@ -34,7 +34,7 @@
                 <%- include("../_text_label.ejs", {model: animal, pathName: "status"}) %>
                 <%- include("../_text_label.ejs", {model: animal, pathName: "particular_signs"}) %>
                 
-                <a href="/animals/<%= animal.id %>">Detalles</a>
+                <button><a href="/animals/<%= animal.id %>">Detalles</a></button>
 
             <% } %>
 
@@ -44,8 +44,11 @@
                     al <code><%= to %></code>
                     de un total de <code><%= total %></code>
                 </p>
-                <a id="page">Siguiente</a>
+
+                <button><a id="page">Siguiente</a></button>
+
             </blockquote>
+            
             <script>
                 const a = document.getElementById("page");
                 const url = new URL(window.location.href);

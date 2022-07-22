@@ -3,7 +3,8 @@
     <%- include("../_header.ejs", {title: "Hogares"}) %>
 <body>
 <base href="/animals/<%= req.params.animal_id %>/homes/">
-    <a href="new">Nuevo hogar</a>
+    
+    <button><a href="new">Nuevo hogar</a></button>
 
     <% if(homes?.length > 0) { %>
 
@@ -32,7 +33,7 @@
 
     <% } else { %>
 
-        <p>No hay hogares!</p>
+        <p>¡No hay hogares!</p>
 
     <% } %>
 </base>
