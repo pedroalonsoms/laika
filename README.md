@@ -66,6 +66,7 @@ npm run dev
 - [x] Deployment (set server hour to gmt-6)
 - [x] Backups ?
 - [x] Ordenar animales de más reciente a más antiguo
+- [x] Borrar fotos asociadas con animal
 - [ ] Cancelar el pago de Goddaddy de la base de datos antigua
 
 ## (Juan, Rogelio, Ozner y JC)

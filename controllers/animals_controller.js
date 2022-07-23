@@ -3,6 +3,7 @@ const { Animal } = require("../models/animal");
 const { Address } = require("../models/address");
 const { Rescue } = require("../models/rescue");
 const { Event } = require("../models/event");
+const fs = require("fs/promises");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
@@ -73,7 +74,10 @@ class AnimalsController {
   };
 
   delete = async (req, res) => {
-    await Animal.findByIdAndDelete(req.params.id);
+    const animal = await Animal.findByIdAndDelete(req.params.id);
+    for (const path of animal.photos) {
+      await fs.unlink(`./public${path}`);
+    }
     res.redirect("/animals");
   };
 
