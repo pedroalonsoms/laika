@@ -64,8 +64,9 @@ npm run dev
 - [x] Orden de fotos dejar asi
 - [x] Mandar pdf de las screen de la pagina (con los menús)
 - [x] Deployment (set server hour to gmt-6)
+- [x] Backups ?
+- [x] Ordenar animales de más reciente a más antiguo
 - [ ] Cancelar el pago de Goddaddy de la base de datos antigua
-- [ ] Backups ?
 
 ## (Juan, Rogelio, Ozner y JC)
 

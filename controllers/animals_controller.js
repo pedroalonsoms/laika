@@ -30,6 +30,7 @@ class AnimalsController {
 
     const total = await Animal.find(query).countDocuments();
     const animals = await Animal.find(query)
+      .sort({ $natural: -1 })
       .limit(PER_PAGE)
       .skip(PER_PAGE * (page - 1));
 
