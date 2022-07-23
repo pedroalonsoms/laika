@@ -29,7 +29,7 @@
                     }
                 %>
 
-                <img src="<%= src %>" alt="<%= animal.name %>" loading="lazy" style="aspect-ratio: 16/9; object-fit:cover; width:100%;" />
+                <img src="<%= src %>" alt="<%= animal.name %>" loading="lazy" style="width:100%;" />
                 
                 <%- include("../_text_label.ejs", {model: animal, pathName: "status"}) %>
                 <%- include("../_text_label.ejs", {model: animal, pathName: "particular_signs"}) %>
