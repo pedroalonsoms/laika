@@ -4,6 +4,9 @@ const { Address } = require("../models/address");
 const { Rescue } = require("../models/rescue");
 const { Event } = require("../models/event");
 const fs = require("fs/promises");
+const puppeteer = require('puppeteer');
+const PDFMerger = require('pdf-merger-js');
+const path = require('path');
 
 class AnimalsController {
   render = (req, res, filename, other) => {
