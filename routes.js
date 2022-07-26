@@ -55,6 +55,7 @@ router.post(
   AnimalsController.update
 );
 router.get("/animals/:id/delete", admin_only, AnimalsController.delete);
+router.get("/animals/:id/print", both, AnimalsController.print);
 
 const _RescuesController = require("./controllers/rescues_controller");
 const RescuesController = new _RescuesController();

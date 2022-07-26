@@ -88,6 +88,60 @@ class AnimalsController {
     const event = new Event();
     this.render(req, res, "search", { animal, rescue, event });
   };
+
+  print = async(req, res) => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    // Obtain URL origin
+    const referrer = req.get('referrer');
+    const link = new URL(referrer);
+    const origin = link.origin;
+
+    await page.goto(`${origin}/login`, {
+    waitUntil: 'networkidle2',
+  });
+    await page.focus('#passphrase');
+    await page.keyboard.type(process.env.ADMIN);
+    await page.keyboard.press('Enter');
+    await page.waitForNavigation({waitUntil: 'networkidle2'})
+    const url = `${origin}/animals/${req.params.id}`;
+    const array = ["/","/rescue", "/appointments","/events","/homes"];
+
+    const merger = new PDFMerger();
+    for (let i = 0; i < array.length; i++) {
+      await page.goto(url + array[i], {
+        waitUntil: 'networkidle2',
+      });
+      await page.pdf({path: `tmp/${i}.pdf`, format: 'letter'});
+      merger.add(`tmp/${i}.pdf`);
+    }
+    await merger.save('tmp/merged.pdf');
+    
+    res.download('tmp/merged.pdf', "Información.pdf");
+
+    // Código robado
+    const directory = 'tmp';
+
+    fs.readdir(directory, (err, files) => {
+      if (err) throw err;
+
+      for (const file of files) {
+        fs.unlink(path.join(directory, file), err => {
+          if (err) throw err;
+        });
+      }
+    });
+
+    await page.goto(`${origin}/logout`, {
+      waitUntil: 'networkidle2',
+    });
+
+    
+
+    await browser.close();
+
+    console.log("Impreso exitosamente");
+  }
 }
 
 module.exports = AnimalsController;
