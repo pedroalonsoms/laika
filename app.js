@@ -1,13 +1,34 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const router = require("./routes");
 const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo");
+const session = require("express-session");
+const router = require("./routes");
 
-const PORT = process.env.PORT || 3000;
+const PORT = 8080;
 
 const main = async () => {
-  await mongoose.connect(process.env.MONGO_URI);
+  // Mongo connection
+  const client = (
+    await mongoose.connect(process.env.MONGO_URI)
+  ).connection.getClient();
+
+  // Sessions
+  app.use(
+    session({
+      store: MongoStore.create({ client }),
+      name: "qid",
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+      },
+    })
+  );
 
   app.set("view engine", "ejs");
 

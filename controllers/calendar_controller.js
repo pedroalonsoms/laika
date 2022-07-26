@@ -1,4 +1,5 @@
 const e = require("express");
+const { transformToUTCDate } = require("../lib/utils");
 const { Animal } = require("../models/animal");
 
 class CalendarController {
@@ -14,16 +15,14 @@ class CalendarController {
     const calendar = [];
 
     // We get the from and to date filter parameters
-    let from = new Date();
-    if (req.query.from) {
-      from = new Date(req.query.from);
+    let from = transformToUTCDate(new Date());
+    if (req.query.date?.$gte) {
+      from = transformToUTCDate(new Date(req.query.date.$gte));
     }
-    from.setUTCHours(0, 0, 0, 0);
 
-    let to = undefined;
-    if (req.query.to) {
-      to = new Date(req.query.to);
-      to.setUTCHours(23, 59, 59);
+    let to = null;
+    if (req.query.date?.$lte) {
+      to = transformToUTCDate(new Date(req.query.date.$lte), "midnight");
     }
 
     const addItem = (item) => {
@@ -31,7 +30,7 @@ class CalendarController {
 
       // We don't want to add items that aren't inside our range
       if (!(date >= from)) return;
-      if (to && !(date < to)) return;
+      if (to && !(date <= to)) return;
 
       // We find the index of the object that contains our dates. Ex: {date: "2022-07-07"}
       const dateKey = date.toText();

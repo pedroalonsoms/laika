@@ -18,7 +18,7 @@
             <tbody>
             <% for(const appointment of appointments) { %>
                 <tr>
-                    <td><%= appointment.date %></td>
+                    <td><%= appointment.date.toText() %></td>
                     <td><%= appointment.description %></td>
                     <td>
                         <a href="<%= appointment.id %>/delete">Borrar</a>

@@ -21,7 +21,7 @@
             <% for(const event of events) { %>
                 <tr>
                     <td><%= event.description %></td>
-                    <td><%= event.date %></td>
+                    <td><%= event.date.toText() %></td>
                     <td><%= event.note %></td>
                     <td>
                         <a href="<%= event.id %>/delete">Borrar</a>

@@ -5,9 +5,17 @@ let { model, pathName } = locals;
 const title = model.schema.path(pathName).options.title;
 const value = model[pathName];
 
+let display;
+
+if(value instanceof Date) {
+    display = value.toText();
+} else {
+    display = value;
+}
+
 %>
 
 <p>
     <code><%= title %></code>
-    <%= value %>
+    <%= display %>
 </p>

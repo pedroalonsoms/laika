@@ -38,8 +38,8 @@ npm run dev
 - [x] Adopcion agregar edad de adopcion
 - [x] Adopciones apartado para notas grande al final
 - [x] Adopciones editar
-- [ ] Laika juntar ambas paginas en un dominio
-- [ ] Migrar de Wix a Laika.org
+- [x] Laika juntar ambas paginas en un dominio
+- [x] Migrar de Wix a Laika.org
 
 ### Sencillo
 
@@ -63,18 +63,23 @@ npm run dev
 - [x] Telefono en adopciones agregar (obligatorio), perfil de redes o correo (opcional)
 - [x] Orden de fotos dejar asi
 - [x] Mandar pdf de las screen de la pagina (con los menús)
-- [ ] Deployment (set server hour to gmt-6)
+- [x] Deployment (set server hour to gmt-6)
+- [x] Backups ?
+- [x] Ordenar animales de más reciente a más antiguo
+- [x] Borrar fotos asociadas con animal
+- [ ] Full height on animals index
+- [ ] Promise.All for optimizing for...await
+- [ ] Cancelar el pago de Goddaddy de la base de datos antigua
 
 ## (Juan, Rogelio, Ozner y JC)
 
 - [ ] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
-- [ ] Logo de Laika al Final de cada página web
-- [ ] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
-- [ ] Error handling (try/catch) y mensajes de error (Si ponen " " muchos espacios vacíos, debe marcar error también). Tal vez con mongoose validators (?) o npm zod (?) o función trim (?)
-- [ ] Checar qué pasa en los casos "null". Si creo dos veces un perro con PetcoID vacío, marcará error.
-- [ ] Tablas con headers centrados
 - [ ] Pasar los datos de la base antigua a la nueva manualmente
 - [ ] Betatesting con Eva
+- [ ] Mensajes de error custom (?)
+- [x] Logo de Laika al Final de cada página web
+- [x] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
+- [x] Tablas con headers centrados
 
 # Authors
 

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { milisecondsToAge } = require("../lib/utils");
+const { milisecondsToAge, transformToUTCDate } = require("../lib/utils");
 const { appointmentSchema } = require("./appointment");
 const { eventSchema } = require("./event");
 const { homeSchema } = require("./home");
@@ -8,8 +8,7 @@ const { rescueSchema } = require("./rescue");
 const animalSchema = new mongoose.Schema({
   petco_id: {
     title: "Petco ID",
-    type: String,
-    unique: true,
+    type: Number,
   },
   name: {
     title: "Nombre",
@@ -71,7 +70,7 @@ const animalSchema = new mongoose.Schema({
 });
 
 animalSchema.virtual("age").get(function () {
-  const today = new Date();
+  const today = transformToUTCDate(new Date());
   const { birth_date } = this;
 
   return milisecondsToAge(today - birth_date);

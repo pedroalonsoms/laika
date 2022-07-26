@@ -36,7 +36,7 @@ const eventSchema = new mongoose.Schema({
         "Se detectó Viral",
         "Se detectó Embarazo",
         "Se detectó Cachorros",
-        "Se detectó Homeoparásitos",
+        "Se detectó Hemoparásitos",
         "Se detectó Sarna",
         "Se detectó Viral",
         "Se detectó Anemia",

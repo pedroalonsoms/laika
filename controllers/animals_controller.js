@@ -3,6 +3,7 @@ const { Animal } = require("../models/animal");
 const { Address } = require("../models/address");
 const { Rescue } = require("../models/rescue");
 const { Event } = require("../models/event");
+const fs = require("fs/promises");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
@@ -30,6 +31,7 @@ class AnimalsController {
 
     const total = await Animal.find(query).countDocuments();
     const animals = await Animal.find(query)
+      .sort({ $natural: -1 })
       .limit(PER_PAGE)
       .skip(PER_PAGE * (page - 1));
 
@@ -65,7 +67,6 @@ class AnimalsController {
   update = async (req, res) => {
     const id = req.params.id;
     const urls = await saveImages(req.files);
-
     const animal = await Animal.findById(id);
     animal.set({ ...req.body, photos: [...animal?.photos, ...urls] });
     await animal.save();
@@ -73,7 +74,10 @@ class AnimalsController {
   };
 
   delete = async (req, res) => {
-    await Animal.findByIdAndDelete(req.params.id);
+    const animal = await Animal.findByIdAndDelete(req.params.id);
+    for (const path of animal.photos) {
+      await fs.unlink(`./public${path}`);
+    }
     res.redirect("/animals");
   };
 
