@@ -102,8 +102,8 @@ class AnimalsController {
     const animal = await Animal.findById(req.params.id);
 
     const write = (model, pathName) => {
-      doc.fontSize(18);
-      doc.lineGap(10);
+      doc.fontSize(15);
+      doc.lineGap(8);
 
       const title = model.schema.path(pathName).options.title;
       doc.fillColor("#6ea6a5");
@@ -183,9 +183,8 @@ class AnimalsController {
     });
     const urls = await Promise.all(promises);
 
-    const SPACE = 20;
     const START_X = 70;
-    const START_Y = 390;
+    const START_Y = 380;
     for (let i = 0; i < Math.min(urls.length, 6); i++) {
       doc.image(
         urls[i],
@@ -200,19 +199,22 @@ class AnimalsController {
     doc.addPage();
     title("Rescate");
     const { rescue } = animal;
-    write(rescue, "date");
-    doc.fillColor("#6ea6a5");
-    doc.text(`Edad de rescate: `, { continued: true, baseline: "middle" });
-    doc.fillColor("black");
-    doc.text(rescue.age, { baseline: "middle" });
-    write(rescue, "rescuers");
-    write(rescue, "organization");
-    const { address } = rescue;
-    write(address, "municipality");
-    write(address, "zip_code");
-    write(address, "neighborhood");
-    write(address, "street");
-    footer();
+    if (rescue) {
+      write(rescue, "date");
+      doc.fillColor("#6ea6a5");
+      doc.text(`Edad de rescate: `, { continued: true, baseline: "middle" });
+      doc.fillColor("black");
+      doc.text(rescue.age, { baseline: "middle" });
+      write(rescue, "rescuers");
+      write(rescue, "organization");
+
+      const { address } = rescue;
+      write(address, "municipality");
+      write(address, "zip_code");
+      write(address, "neighborhood");
+      write(address, "street");
+      footer();
+    }
 
     // Appointments page
     doc.addPage();

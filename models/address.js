@@ -25,6 +25,7 @@ const addressSchema = new mongoose.Schema({
         "San Ignacio",
         "Sinaloa",
         "Navolato",
+        "Otro",
       ],
     },
   },
