@@ -145,11 +145,11 @@ class AnimalsController {
         {
           prepareHeader: () => {
             doc.fillColor("white");
-            doc.fontSize(18);
+            doc.fontSize(15);
           },
           prepareRow: () => {
             doc.fillColor("black");
-            doc.fontSize(18);
+            doc.fontSize(15);
           },
         }
       );
