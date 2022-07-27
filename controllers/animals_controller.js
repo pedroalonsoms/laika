@@ -4,9 +4,9 @@ const { Address } = require("../models/address");
 const { Rescue } = require("../models/rescue");
 const { Event } = require("../models/event");
 const fs = require("fs/promises");
-const puppeteer = require('puppeteer');
-const PDFMerger = require('pdf-merger-js');
-const path = require('path');
+const puppeteer = require("puppeteer");
+const PDFMerger = require("pdf-merger-js");
+const util = require("util");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
@@ -92,59 +92,69 @@ class AnimalsController {
     this.render(req, res, "search", { animal, rescue, event });
   };
 
-  print = async(req, res) => {
+  print = async (req, res) => {
+    // Init browser
     const browser = await puppeteer.launch();
-    const page = await browser.newPage();
+
     // Obtain URL origin
-    const referrer = req.get('referrer');
+    const referrer = req.get("referrer");
     const link = new URL(referrer);
-    const origin = link.origin;
+    const { origin } = link;
 
-    await page.goto(`${origin}/login`, {
-    waitUntil: 'networkidle2',
-  });
-    await page.focus('#passphrase');
-    await page.keyboard.type(process.env.ADMIN);
-    await page.keyboard.press('Enter');
-    await page.waitForNavigation({waitUntil: 'networkidle2'})
-    const url = `${origin}/animals/${req.params.id}`;
-    const array = ["/","/rescue", "/appointments","/events","/homes"];
+    // Constants
+    const animal_base_url = `${origin}/animals/${req.params.id}`;
+    const routes = ["/", "/rescue", "/appointments", "/events", "/homes"];
+    const buffers = new Array(routes.length);
+    const pagesPromises = new Array(routes.length + 1)
+      .fill()
+      .map((_) => browser.newPage());
 
-    const merger = new PDFMerger();
-    for (let i = 0; i < array.length; i++) {
-      await page.goto(url + array[i], {
-        waitUntil: 'networkidle2',
+    // Initialize browser pages in parallel, and reserve the last one for auth
+    const pages = await Promise.all(pagesPromises);
+    const lastPage = pages[pagesPromises.length - 1];
+
+    // Do login
+    await lastPage.goto(`${origin}/login`, {
+      waitUntil: "domcontentloaded",
+    });
+    await lastPage.focus("#passphrase");
+    await lastPage.keyboard.type(process.env.ADMIN);
+    await lastPage.keyboard.press("Enter");
+    await lastPage.waitForNavigation();
+
+    // Create pdf
+    const promises = routes.map(async (route, i) => {
+      await pages[i].goto(animal_base_url + route, {
+        waitUntil: "load",
       });
-      await page.pdf({path: `tmp/${i}.pdf`, format: 'letter'});
-      merger.add(`tmp/${i}.pdf`);
-    }
-    await merger.save('tmp/merged.pdf');
-    
-    res.download('tmp/merged.pdf', "Información.pdf");
+      buffers[i] = await pages[i].pdf({ format: "letter" });
+      await pages[i].close();
+    });
 
-    // Código robado
-    const directory = 'tmp';
+    // Batch promises
+    await Promise.all(promises);
 
-    fs.readdir(directory, (err, files) => {
-      if (err) throw err;
+    // Merge buffers
+    const merger = new PDFMerger();
+    buffers.forEach((buffer) => merger.add(buffer));
+    await merger.save("tmp/merged.pdf");
 
-      for (const file of files) {
-        fs.unlink(path.join(directory, file), err => {
-          if (err) throw err;
+    res.download("tmp/merged.pdf", "Información.pdf", async () => {
+      try {
+        // Delete files
+        await fs.unlink("tmp/merged.pdf");
+
+        // Logout
+        await lastPage.goto(`${origin}/logout`, {
+          waitUntil: "networkidle2",
         });
+        await lastPage.close();
+        await browser.close();
+      } catch (e) {
+        console.log(e);
       }
     });
-
-    await page.goto(`${origin}/logout`, {
-      waitUntil: 'networkidle2',
-    });
-
-    
-
-    await browser.close();
-
-    console.log("Impreso exitosamente");
-  }
+  };
 }
 
 module.exports = AnimalsController;
