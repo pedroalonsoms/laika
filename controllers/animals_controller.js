@@ -7,6 +7,7 @@ const sharp = require("sharp");
 const PDFDocument = require("pdfkit-table");
 const fs = require("fs/promises");
 const _fs = require("fs");
+const path = require("path");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
@@ -255,7 +256,14 @@ class AnimalsController {
       res.download("./tmp/output.pdf", async (error) => {
         if (error) console.log(error);
         try {
-          await fs.unlink("./tmp/output.pdf");
+          // Robado xd
+          const directory = "tmp";
+          const files = await fs.readdir(directory);
+          for (const file of files) {
+            if (file !== "_") {
+              await fs.unlink(path.join(directory, file));
+            }
+          }
         } catch (error) {
           console.log(error);
         }
