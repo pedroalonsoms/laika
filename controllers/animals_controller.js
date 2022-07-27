@@ -246,7 +246,11 @@ class AnimalsController {
     headers = ["Fecha", "Inicio", "Regreso"];
     rows = homes.map((home) => {
       const { start_date, end_date } = home;
-      return [home.type, start_date.toText(), end_date.toText()];
+      return [
+        home.type,
+        start_date.toText(),
+        end_date ? end_date.toText() : " ",
+      ];
     });
     await _table(headers, rows);
     footer();
