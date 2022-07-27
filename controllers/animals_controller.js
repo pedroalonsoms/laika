@@ -3,10 +3,10 @@ const { Animal } = require("../models/animal");
 const { Address } = require("../models/address");
 const { Rescue } = require("../models/rescue");
 const { Event } = require("../models/event");
+const sharp = require("sharp");
+const PDFDocument = require("pdfkit-table");
 const fs = require("fs/promises");
-const puppeteer = require("puppeteer");
-const PDFMerger = require("pdf-merger-js");
-const util = require("util");
+const _fs = require("fs");
 
 class AnimalsController {
   render = (req, res, filename, other) => {
@@ -93,66 +93,173 @@ class AnimalsController {
   };
 
   print = async (req, res) => {
-    // Init browser
-    const browser = await puppeteer.launch();
+    const doc = new PDFDocument({ size: "letter" });
 
-    // Obtain URL origin
-    const referrer = req.get("referrer");
-    const link = new URL(referrer);
-    const { origin } = link;
+    const writeStream = _fs.createWriteStream("./tmp/output.pdf");
+    doc.pipe(writeStream);
 
-    // Constants
-    const animal_base_url = `${origin}/animals/${req.params.id}`;
-    const routes = ["/", "/rescue", "/appointments", "/events", "/homes"];
-    const buffers = new Array(routes.length);
-    const pagesPromises = new Array(routes.length + 1)
-      .fill()
-      .map((_) => browser.newPage());
+    const animal = await Animal.findById(req.params.id);
 
-    // Initialize browser pages in parallel, and reserve the last one for auth
-    const pages = await Promise.all(pagesPromises);
-    const lastPage = pages[pagesPromises.length - 1];
+    const write = (model, pathName) => {
+      doc.fontSize(18);
+      doc.lineGap(10);
 
-    // Do login
-    await lastPage.goto(`${origin}/login`, {
-      waitUntil: "domcontentloaded",
-    });
-    await lastPage.focus("#passphrase");
-    await lastPage.keyboard.type(process.env.ADMIN);
-    await lastPage.keyboard.press("Enter");
-    await lastPage.waitForNavigation();
+      const title = model.schema.path(pathName).options.title;
+      doc.fillColor("#6ea6a5");
+      doc.text(`${title}: `, { continued: true, baseline: "middle" });
 
-    // Create pdf
-    const promises = routes.map(async (route, i) => {
-      await pages[i].goto(animal_base_url + route, {
-        waitUntil: "load",
-      });
-      buffers[i] = await pages[i].pdf({ format: "letter" });
-      await pages[i].close();
-    });
+      const value = model[pathName];
+      let display;
 
-    // Batch promises
-    await Promise.all(promises);
-
-    // Merge buffers
-    const merger = new PDFMerger();
-    buffers.forEach((buffer) => merger.add(buffer));
-    await merger.save("tmp/merged.pdf");
-
-    res.download("tmp/merged.pdf", "Información.pdf", async () => {
-      try {
-        // Delete files
-        await fs.unlink("tmp/merged.pdf");
-
-        // Logout
-        await lastPage.goto(`${origin}/logout`, {
-          waitUntil: "networkidle2",
-        });
-        await lastPage.close();
-        await browser.close();
-      } catch (e) {
-        console.log(e);
+      if (!value) {
+        display = " ";
+      } else if (value instanceof Date) {
+        display = value.toText();
+      } else {
+        display = value;
       }
+
+      doc.fillColor("black");
+      doc.text(display, { baseline: "middle" });
+    };
+
+    const title = (text) => {
+      doc.fontSize(35);
+      doc.fillColor("#8a1b70");
+      doc.text(text, { align: "center" });
+    };
+
+    const _table = async (_headers, _rows) => {
+      doc.lineGap(5);
+
+      const headers = _headers.map((header) => ({
+        label: header,
+        align: "center",
+        headerColor: "#6ea6a5",
+        headerOpacity: 1,
+      }));
+
+      await doc.table(
+        { headers, rows: _rows, options: { padding: 5 } },
+        {
+          prepareHeader: () => {
+            doc.fillColor("white");
+            doc.fontSize(18);
+          },
+          prepareRow: () => {
+            doc.fillColor("black");
+            doc.fontSize(18);
+          },
+        }
+      );
+    };
+
+    const footer = () => {
+      doc.image("./public/images/footer.png", 220, 700, { width: 150 });
+    };
+
+    // Animal page
+    title("Animal");
+    write(animal, "petco_id");
+    write(animal, "name");
+    write(animal, "alias");
+    write(animal, "birth_date");
+    write(animal, "species");
+    write(animal, "color");
+    write(animal, "sex");
+    write(animal, "status");
+    write(animal, "particular_signs");
+    const DIMENSION = 150;
+    const promises = animal.photos.map(async (photo, idx) => {
+      const url = `./tmp/${idx}.jpeg`;
+      await sharp("./public" + photo)
+        .jpeg()
+        .resize(DIMENSION * 3, DIMENSION * 3, {
+          fit: "cover",
+        })
+        .toFile(url);
+      return url;
+    });
+    const urls = await Promise.all(promises);
+
+    const SPACE = 20;
+    const START_X = 70;
+    const START_Y = 390;
+    for (let i = 0; i < Math.min(urls.length, 6); i++) {
+      doc.image(
+        urls[i],
+        START_X + DIMENSION * (i % 3),
+        START_Y + DIMENSION * Math.floor(i / 3),
+        { fit: [DIMENSION, DIMENSION] }
+      );
+    }
+    footer();
+
+    // Rescue page
+    doc.addPage();
+    title("Rescate");
+    const { rescue } = animal;
+    write(rescue, "date");
+    doc.fillColor("#6ea6a5");
+    doc.text(`Edad de rescate: `, { continued: true, baseline: "middle" });
+    doc.fillColor("black");
+    doc.text(rescue.age, { baseline: "middle" });
+    write(rescue, "rescuers");
+    write(rescue, "organization");
+    const { address } = rescue;
+    write(address, "municipality");
+    write(address, "zip_code");
+    write(address, "neighborhood");
+    write(address, "street");
+    footer();
+
+    // Appointments page
+    doc.addPage();
+    title("Citas");
+    const { appointments } = animal;
+    let headers = ["Fecha", "Descripción"];
+    let rows = appointments.map(({ date, description }) => [
+      date.toText(),
+      description,
+    ]);
+    await _table(headers, rows);
+    footer();
+
+    // Events page
+    doc.addPage();
+    title("Eventos");
+    const { events } = animal;
+    headers = ["Fecha", "Descripción", "Nota"];
+    rows = events.map(({ date, description, note }) => [
+      date.toText(),
+      description,
+      note,
+    ]);
+    await _table(headers, rows);
+    footer();
+
+    // Homes page
+    doc.addPage();
+    title("Hogares");
+    const { homes } = animal;
+    headers = ["Fecha", "Inicio", "Regreso"];
+    rows = homes.map((home) => {
+      const { start_date, end_date } = home;
+      return [home.type, start_date.toText(), end_date.toText()];
+    });
+    await _table(headers, rows);
+    footer();
+    doc.end();
+
+    writeStream.on("finish", () => {
+      res.download("./tmp/output.pdf", async (error) => {
+        if (error) console.log(error);
+        try {
+          await fs.unlink("./tmp/output.pdf");
+        } catch (error) {
+          console.log(error);
+        }
+      });
     });
   };
 }
