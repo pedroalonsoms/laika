@@ -4,6 +4,9 @@ Administration system for homeless animal adoptions.
 
 Created for the Laika Organization in Culiacán Sinaloa as a social service project.
 
+# Note
+Due to memory leaks, the server has to be restarted manually once in a while.
+
 # Stack
 
 - JavaScript
