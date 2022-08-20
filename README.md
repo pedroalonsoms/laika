@@ -5,6 +5,7 @@ Administration system for homeless animal adoptions.
 Created for the Laika Organization in Culiacán Sinaloa as a social service project.
 
 # Note
+
 Due to memory leaks, the server has to be restarted manually once in a while.
 
 # Stack
@@ -70,16 +71,26 @@ npm run dev
 - [x] Backups ?
 - [x] Ordenar animales de más reciente a más antiguo
 - [x] Borrar fotos asociadas con animal
-- [ ] Full height on animals index
-- [ ] Promise.All for optimizing for...await
-- [ ] Cancelar el pago de Goddaddy de la base de datos antigua
+- [ ] Cambiar de Parcino a Barcino
+- [ ] Cambiar titulo de "eventos" a "rehabilitacion"
+- [ ] Agregar "consulta médica" a eventos
+- [ ] Poner link a "animal" en todas las páginas
+- [ ] Alerta si el archivo excede 1mb
 
 ## (Juan, Rogelio, Ozner y JC)
 
-- [ ] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
-- [ ] Pasar los datos de la base antigua a la nueva manualmente
-- [ ] Betatesting con Eva
-- [ ] Mensajes de error custom (?)
+- [ ] Cambiar fondo a color aqua y eliminar el background antiguo (y los assets relacionados)
+- [ ] Arreglar bug en safari que llena toda la pantalla de lila
+- [ ] Arreglar bug en safari que pone el fondo transparente en lugar de blanco en la ruta (hogares->detalles)
+- [ ] Quitar "acción" del encabezado de las tablas
+- [ ] En vez de "borrar" poner una "X" de color rojo
+- [ ] Cambiar título de "Nuevo Rescate" a "Rescate"
+- [ ] Quitar "citas" del pdf
+- [ ] En el pdf que diga el nombre del animal en lugar de "animal"
+- [ ] Cambiar tipografía de pdf a "Comic"
+- [x] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
+- [x] Pasar los datos de la base antigua a la nueva manualmente
+- [x] Betatesting con Eva
 - [x] Logo de Laika al Final de cada página web
 - [x] Rediseñar los colores de la página. Solo un diseño #6ea6a5 verde aqua y #8a1b70 Rosa-Morado
 - [x] Tablas con headers centrados
