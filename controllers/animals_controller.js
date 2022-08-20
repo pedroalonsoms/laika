@@ -216,24 +216,12 @@ class AnimalsController {
       footer();
     }
 
-    // Appointments page
-    doc.addPage();
-    title("Citas");
-    const { appointments } = animal;
-    let headers = ["Fecha", "Descripción"];
-    let rows = appointments.map(({ date, description }) => [
-      date.toText(),
-      description,
-    ]);
-    await _table(headers, rows);
-    footer();
-
     // Events page
     doc.addPage();
-    title("Eventos");
+    title("Rehabilitación");
     const { events } = animal;
-    headers = ["Fecha", "Descripción", "Nota"];
-    rows = events.map(({ date, description, note }) => [
+    let headers = ["Fecha", "Descripción", "Nota"];
+    let rows = events.map(({ date, description, note }) => [
       date.toText(),
       description,
       note,

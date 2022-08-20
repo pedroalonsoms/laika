@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <%- include("../_header.ejs", {title: "Hogares"}) %>
+    <%- include("../_back_to_animal.ejs") %>
 <body>
 <base href="/animals/<%= req.params.animal_id %>/homes/">
     <button><a href="new">Nuevo hogar</a></button>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <%- include("../_header.ejs", {title: "Citas"}) %>
+    <%- include("../_back_to_animal.ejs") %>
 <body>
 <base href="/animals/<%= req.params.animal_id %>/appointments/">
     <button><a href="new">Nueva cita</a></button>

@@ -69,6 +69,16 @@ button span:hover{
 button:hover::before {
     width: 100%;
 }
+
+.back a {
+    color: var(--preformatted);
+    text-decoration: underline;
+}
+
+.back a:hover {
+    color: var(--accent);
+}
+
 /*                                   Text inside the buttons                                  */
 
 button a {

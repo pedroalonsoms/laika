@@ -38,7 +38,7 @@ const animalSchema = new mongoose.Schema({
         "Blanco",
         "Negro",
         "Café",
-        "Parcino",
+        "Barcino",
         "Siamés",
         "Atigrado",
         "Otro",

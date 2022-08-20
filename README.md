@@ -71,11 +71,10 @@ npm run dev
 - [x] Backups ?
 - [x] Ordenar animales de más reciente a más antiguo
 - [x] Borrar fotos asociadas con animal
-- [ ] Cambiar de Parcino a Barcino
-- [ ] Cambiar titulo de "eventos" a "rehabilitacion"
-- [ ] Agregar "consulta médica/consulta de seguimiento" a eventos
-- [ ] Poner link a "animal" en todas las páginas
-- [ ] Alerta si el archivo excede 1mb
+- [x] Cambiar de Parcino a Barcino
+- [x] Cambiar titulo de "eventos" a "rehabilitacion"
+- [x] Agregar "consulta médica/consulta de seguimiento" a eventos
+- [x] Poner link a "animal" en todas las páginas
 
 ## (Juan, Rogelio, Ozner y JC)
 
@@ -85,7 +84,7 @@ npm run dev
 - [ ] Quitar "acción" del encabezado de las tablas
 - [ ] En vez de "borrar" poner una "X" de color rojo
 - [ ] Cambiar título de "Nuevo Rescate" a "Rescate"
-- [ ] Quitar "citas" del pdf
+- [x] Quitar "citas" del pdf
 - [ ] En el pdf que diga el nombre del animal en lugar de "animal"
 - [ ] Cambiar tipografía de pdf a "Comic"
 - [ ] Corregir en rescate "edad al rescate"

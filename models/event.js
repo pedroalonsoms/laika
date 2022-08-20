@@ -45,6 +45,7 @@ const eventSchema = new mongoose.Schema({
         "Se realizó Biometría Hemática",
         "Se aplicó Pastilla Simpárica",
         ...vaccines,
+        "Consulta de Seguimiento",
         "Otro",
       ],
     },
