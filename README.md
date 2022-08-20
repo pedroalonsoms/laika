@@ -73,7 +73,7 @@ npm run dev
 - [x] Borrar fotos asociadas con animal
 - [ ] Cambiar de Parcino a Barcino
 - [ ] Cambiar titulo de "eventos" a "rehabilitacion"
-- [ ] Agregar "consulta médica" a eventos
+- [ ] Agregar "consulta médica/consulta de seguimiento" a eventos
 - [ ] Poner link a "animal" en todas las páginas
 - [ ] Alerta si el archivo excede 1mb
 
@@ -88,6 +88,7 @@ npm run dev
 - [ ] Quitar "citas" del pdf
 - [ ] En el pdf que diga el nombre del animal en lugar de "animal"
 - [ ] Cambiar tipografía de pdf a "Comic"
+- [ ] Corregir en rescate "edad al rescate"
 - [x] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
 - [x] Pasar los datos de la base antigua a la nueva manualmente
 - [x] Betatesting con Eva
