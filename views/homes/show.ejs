@@ -4,28 +4,30 @@
     <%- include("../_back_to_animal.ejs") %>
 <body>
 <base href="/animals/<%= req.params.animal_id %>/homes/<%= req.params.id %>/">
-
-    <p>
-        <code>Tipo</code>
-        <%= home.type %>
-    </p>
-    <%- include("../_text_label.ejs", {model: home, pathName: "start_date"}) %> 
-    <%- include("../_text_label.ejs", {model: home, pathName: "end_date"}) %> 
-    <p>
-        <code>Edad de Partida</code>
-        <%= home.leaving_age %>
-    </p>
-    <%- include("../_text_label.ejs", {model: home, pathName: "keeper_name"}) %> 
-    <%- include("../_text_label.ejs", {model: home, pathName: "keeper_phone"}) %> 
-    <%- include("../_text_label.ejs", {model: home, pathName: "keeper_contact"}) %> 
-    <%- include("../_show_address.ejs", {model: home.address}) %> 
-    <%- include("../_text_label.ejs", {model: home, pathName: "note"}) %> 
-    
-    <div>
-        <button><a href="edit/">Editar</a></button>
-        <button><a href="delete/">Borrar</a></button>
+    <div class="card">
+        <div class="card__Container">
+            <p>
+                <code>Tipo</code>
+                <%= home.type %>
+            </p>
+            <%- include("../_text_label.ejs", {model: home, pathName: "start_date"}) %> 
+            <%- include("../_text_label.ejs", {model: home, pathName: "end_date"}) %> 
+            <p>
+                <code>Edad de Partida</code>
+                <%= home.leaving_age %>
+            </p>
+            <%- include("../_text_label.ejs", {model: home, pathName: "keeper_name"}) %> 
+            <%- include("../_text_label.ejs", {model: home, pathName: "keeper_phone"}) %> 
+            <%- include("../_text_label.ejs", {model: home, pathName: "keeper_contact"}) %> 
+            <%- include("../_show_address.ejs", {model: home.address}) %> 
+            <%- include("../_text_label.ejs", {model: home, pathName: "note"}) %> 
+            
+            <div>
+                <button><a href="edit/">Editar</a></button>
+                <button><a href="delete/">Borrar</a></button>
+            </div>
+        </div>
     </div>
-
 </base>
     <%- include("../_footer.ejs") %>
 </body>

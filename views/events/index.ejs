@@ -16,7 +16,7 @@
                 <th>Descripción</th>
                 <th>Fecha</th>
                 <th>Nota</th>
-                <th class="delete">Acción</th>
+                <th class="delete"></th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                     <td><%= event.date.toText() %></td>
                     <td><%= event.note %></td>
                     <td class="delete">
-                        <a href="<%= event.id %>/delete">Borrar</a>
+                        <a href="<%= event.id %>/delete" id="cross">X</a>
                     </td>
                 </tr>
             <% } %>
