@@ -12,7 +12,7 @@
 }
 
 h1 {
-    font-family:'DynaPuff', sans-serif  !important;
+    font-family:'Courier New', Courier, monospace;
     font-size: 70px;
     color: #8a1b70;
     text-shadow: 2px 2px 4px #fff;
@@ -32,7 +32,7 @@ footer{
     text-align: center;
 }
 
-#cross{
+.cross{
     color:red;
 }
 
@@ -221,8 +221,6 @@ td:last-child{
 
     #animalsTitle{
         font-size: 20px;
-        font-family:'DynaPuff', 'sans-serif' !important;
-
     }
 
 }
