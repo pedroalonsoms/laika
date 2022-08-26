@@ -98,12 +98,13 @@ class AnimalsController {
 
     const writeStream = _fs.createWriteStream("./tmp/output.pdf");
     doc.pipe(writeStream);
+    doc.font("fonts/cartoon.ttf");
 
     const animal = await Animal.findById(req.params.id);
 
     const write = (model, pathName) => {
-      doc.fontSize(15);
-      doc.lineGap(8);
+      doc.fontSize(20);
+      doc.lineGap(5);
 
       const title = model.schema.path(pathName).options.title;
       doc.fillColor("#6ea6a5");
@@ -125,7 +126,7 @@ class AnimalsController {
     };
 
     const title = (text) => {
-      doc.fontSize(35);
+      doc.fontSize(40);
       doc.fillColor("#8a1b70");
       doc.text(text, { align: "center" });
     };
@@ -145,11 +146,11 @@ class AnimalsController {
         {
           prepareHeader: () => {
             doc.fillColor("white");
-            doc.fontSize(15);
+            doc.fontSize(20);
           },
           prepareRow: () => {
             doc.fillColor("black");
-            doc.fontSize(15);
+            doc.fontSize(20);
           },
         }
       );
@@ -160,7 +161,7 @@ class AnimalsController {
     };
 
     // Animal page
-    title("Animal");
+    title(animal.name);
     write(animal, "petco_id");
     write(animal, "name");
     write(animal, "alias");

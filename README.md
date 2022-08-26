@@ -85,8 +85,8 @@ npm run dev
 - [x] En vez de "borrar" poner una "X" de color rojo
 - [x] Cambiar título de "Nuevo Rescate" a "Rescate"
 - [x] Quitar "citas" del pdf
-- [ ] En el pdf que diga el nombre del animal en lugar de "animal"
-- [ ] Cambiar tipografía de pdf a "Comic"
+- [x] En el pdf que diga el nombre del animal en lugar de "animal"
+- [x] Cambiar tipografía de pdf a "Comic"
 - [x] Corregir en rescate "edad al rescate"
 - [x] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
 - [x] Pasar los datos de la base antigua a la nueva manualmente
