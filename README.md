@@ -78,16 +78,16 @@ npm run dev
 
 ## (Juan, Rogelio, Ozner y JC)
 
-- [ ] Cambiar fondo a color aqua y eliminar el background antiguo (y los assets relacionados)
-- [ ] Arreglar bug en safari que llena toda la pantalla de lila
-- [ ] Arreglar bug en safari que pone el fondo transparente en lugar de blanco en la ruta (hogares->detalles)
-- [ ] Quitar "acción" del encabezado de las tablas
-- [ ] En vez de "borrar" poner una "X" de color rojo
-- [ ] Cambiar título de "Nuevo Rescate" a "Rescate"
+- [x] Cambiar fondo a color aqua y eliminar el background antiguo (y los assets relacionados)
+- [x] Arreglar bug en safari que llena toda la pantalla de lila
+- [x] Arreglar bug en safari que pone el fondo transparente en lugar de blanco en la ruta (hogares->detalles)
+- [x] Quitar "acción" del encabezado de las tablas
+- [x] En vez de "borrar" poner una "X" de color rojo
+- [x] Cambiar título de "Nuevo Rescate" a "Rescate"
 - [x] Quitar "citas" del pdf
 - [ ] En el pdf que diga el nombre del animal en lugar de "animal"
 - [ ] Cambiar tipografía de pdf a "Comic"
-- [ ] Corregir en rescate "edad al rescate"
+- [x] Corregir en rescate "edad al rescate"
 - [x] Crear pdf con datos para imprimir (animal, eventos, rescate, hogares(censurados), citas), que sean opcionales
 - [x] Pasar los datos de la base antigua a la nueva manualmente
 - [x] Betatesting con Eva

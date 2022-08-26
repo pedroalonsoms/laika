@@ -9,7 +9,7 @@
             <% if(rescue) { %>
                 <%- include("../_text_label.ejs", {model: rescue, pathName: "date"}) %>
                 <p>
-                    <code>Edad de Rescate:</code>
+                    <code>Edad al Rescate:</code>
                     <%= rescue.age %>
                 </p>
                 <%- include("../_text_label.ejs", {model: rescue, pathName: "rescuers"}) %>
@@ -21,7 +21,7 @@
                     <button><a href="delete">Borrar</a></button>
                 </div>
             <% } else { %>
-                <button><a href="new">Nuevo Rescate</a></button>
+                <button><a href="new">Rescate</a></button>
             <% } %>
         </div>
     </div>

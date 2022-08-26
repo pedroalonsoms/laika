@@ -32,6 +32,10 @@ footer{
     text-align: center;
 }
 
+.cross{
+    color:red;
+}
+
 /*                                   Buttons                                  */
 button {
     height: 30px;
@@ -45,34 +49,12 @@ button {
     transition: all 250ms;
 }
 
-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #8a1b70;
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms
-}
-
-button a:hover{
-    color: #e8e8e8 !important; 
-}
-
-button span:hover{
-    color: #e8e8e8 !important; 
-}
-
 button:hover::before {
     width: 100%;
 }
 
 .back a {
     color: var(--preformatted);
-    text-decoration: underline;
 }
 
 .back a:hover {
