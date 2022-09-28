@@ -60,8 +60,6 @@ class AnimalsController {
     const urls = await saveImages(req.files);
     const animal = new Animal({ ...req.body, photos: urls });
     const { id } = await animal.save();
-    delete req.files;
-    delete req.body;
     res.redirect(`/animals/${id}`);
   };
 
