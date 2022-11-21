@@ -8,28 +8,34 @@
     <form class="vertical-spaced" action="/animals" method="get">
         <details>
             <summary>General</summary>
-            <div>
-                <label for="name_or_alias">Nombre o Apodo</label>
-                <input type="text" name="name_or_alias" id="name_or_alias" />
+            <div class="vertical-spaced">
+                <div class="input-container">
+                    <label for="name_or_alias">Nombre o Apodo</label>
+                    <input type="text" name="name_or_alias" id="name_or_alias" />
+                </div>
+                <%- include("../_text_input.ejs", {model: animal, pathName: "petco_id"}) %>
+                <%- include("../_dropdown.ejs", {model: animal, pathName: "sex", asterisk: false}) %>
+                <%- include("../_dropdown.ejs", {model: animal, pathName: "status", asterisk: false}) %>
+                <%- include("../_dropdown.ejs", {model: animal, pathName: "species", asterisk: false}) %>
+                <%- include("../_dropdown.ejs", {model: animal, pathName: "color", asterisk: false}) %>
             </div>
-            <%- include("../_text_input.ejs", {model: animal, pathName: "petco_id"}) %>
-            <%- include("../_dropdown.ejs", {model: animal, pathName: "sex", asterisk: false}) %>
-            <%- include("../_dropdown.ejs", {model: animal, pathName: "status", asterisk: false}) %>
-            <%- include("../_dropdown.ejs", {model: animal, pathName: "species", asterisk: false}) %>
-            <%- include("../_dropdown.ejs", {model: animal, pathName: "color", asterisk: false}) %>
         </details>
 
         <details>
             <summary>Rescate</summary>
-            <%- include("../_date_range.ejs", {formName: "rescue.date"}) %>
-            <%- include("../_dropdown.ejs", {model: rescue, pathName: "organization", formName: "rescue.organization[$eq]", asterisk: false}) %>
-            <%- include("../_address_field.ejs", {model: rescue.address, formNameStyle: "dots", asterisk: false, prefix: "rescue"}) %>
+            <div class="vertical-spaced">
+                <%- include("../_date_range.ejs", {formName: "rescue.date"}) %>
+                <%- include("../_dropdown.ejs", {model: rescue, pathName: "organization", formName: "rescue.organization[$eq]", asterisk: false}) %>
+                <%- include("../_address_field.ejs", {model: rescue.address, formNameStyle: "dots", asterisk: false, prefix: "rescue"}) %>
+            </div>
         </details>
 
         <details>
             <summary>Rehabilitación</summary>
-            <%- include("../_dropdown.ejs", {model: event, title: "Tiene", pathName: "description", formName: "events.description[$eq]", asterisk: false}) %>
-            <%- include("../_dropdown.ejs", {model: event, title: "Le falta", pathName: "description", formName: "events.description[$ne]", asterisk: false}) %>
+            <div class="vertical-spaced">
+                <%- include("../_dropdown.ejs", {model: event, title: "Tiene", pathName: "description", formName: "events.description[$eq]", asterisk: false}) %>
+                <%- include("../_dropdown.ejs", {model: event, title: "Le falta", pathName: "description", formName: "events.description[$ne]", asterisk: false}) %>
+            </div>
         </details>
 
         <input class="button" type="submit" value="Enviar">

@@ -1,11 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+:root {
+  --primary: #6ba6a4;
+  --secondary: #871c71;
+  --background: white;
+  --backgorund-contrast: #191713;
+  --danger: #b91c1c;
+  --onPrimary: white;
+  --onSecondary: white;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   line-height: 1.5;
+  color: var(--backgorund-contrast);
+}
+
+body {
+  background-color: var(--background);
 }
 
 input,
@@ -13,14 +28,14 @@ button,
 textarea,
 select {
   font: inherit;
+  background-color: var(--background);
+  border: 0.5px solid var(--backgorund-contrast);
+  padding: 0rem 0.2rem;
+  border-radius: 0.1rem;
 }
 
-:root {
-  --primary: #6ba6a4;
-  --secondary: #871c71;
-  --background: white;
-  --backgorund-contrast: black;
-  --danger: #b91c1c;
+input[type="file"] {
+  border: none;
 }
 
 .main-navbar {
@@ -37,6 +52,20 @@ select {
   gap: 1.5rem;
 }
 
+.main-navbar > a {
+  color: var(--onPrimary);
+}
+
+@media only screen and (max-width: 600px) {
+  .main-navbar > a {
+    display: none;
+  }
+
+  .main-navbar > .ml-auto {
+    display: block;
+  }
+}
+
 .main-navbar > img {
   width: auto;
   height: 100%;
@@ -46,16 +75,19 @@ select {
   display: flex;
   gap: 1rem;
   border-bottom: 1px solid var(--secondary);
+
+  flex-wrap: wrap;
 }
 
 .content {
-  padding: 1rem 10rem 5rem 10rem;
+  padding: 1rem 15% 5rem 15%;
 }
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 260px);
-  gap: 0.5rem;
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, 310px);
+  gap: 2rem;
 }
 
 .image-grid img {
@@ -98,10 +130,6 @@ select {
   color: var(--primary);
 }
 
-.main-navbar > a {
-  color: var(--background);
-}
-
 .ml-auto {
   margin-left: auto;
 }
@@ -109,7 +137,7 @@ select {
 .button {
   text-decoration: none;
   background-color: var(--primary);
-  color: var(--background);
+  color: var(--onPrimary);
 
   padding: 0.2rem 0.7rem;
   border-radius: 0.6rem;
@@ -117,7 +145,7 @@ select {
 
 .button-secondary {
   background-color: var(--secondary);
-  color: var(--background);
+  color: var(--onSecondary);
 }
 
 .button:hover {
@@ -129,11 +157,13 @@ h1 {
   color: var(--secondary);
 }
 
-input[type="submit"] {
+input[type="submit"],
+.input-container > .button {
   border: none;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+.input-container > .button:hover {
   cursor: pointer;
 }
 
@@ -150,8 +180,31 @@ table {
 th,
 td {
   padding: 0.4rem 1rem;
+  text-align: center;
 }
 
 .date-table-cell {
   white-space: nowrap;
+}
+
+details:hover {
+  cursor: pointer;
+}
+
+summary {
+  font-weight: bold;
+}
+
+.date-title {
+  color: var(--secondary);
+}
+
+.image-grid-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.float-r {
+  float: right;
 }

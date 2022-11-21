@@ -27,19 +27,23 @@
                     
                     <img src="<%= src %>" alt="<%= animal.name %>" loading="lazy" />
 
-                    <%- include("../_text_label.ejs", {model: animal, pathName: "status"}) %>
-                    <a class="button" href="/animals/<%= animal.id %>">Detalles</a>
+                    <div class="image-grid-details">
+                        <p><%= animal.status %></p>
+                        <a class="button" href="/animals/<%= animal.id %>">Detalles</a>
+                    </div>
                 </div>
             <% } %>
         </div>
 
-        <div>
+        <div class="spacer"></div>
+
+        <div class="float-r">
             <p>
                 Del <b><%= from %></b>
                 al <b><%= to %></b>
                 de un total de <b><%= total %></b>
             </p>
-            <a id="page">Siguiente</a>
+            <a id="page" class="button float-r">Siguiente</a>
         </div>
         
         <script>
