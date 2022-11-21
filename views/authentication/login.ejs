@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../_header.ejs", {title: "Iniciar Sesión", navbar: false}) %>
+    <%- include("../_header.ejs", {navbar: false}) %>
 <body>
-    <main>
+<div class="content">
+    <h1>Iniciar Sesión</h1>
 
-        <form method="post">
-            <div class="card">
-                <div class="card__Container">
-                    <label for="password">Frase Secreta</label><br>
-                    <input type="password" name="passphrase" id="passphrase" required><br>
-                </div>
-            </div>
-            <button type="submit">
-                <span>Entrar</span>
-            </button>
-        </form>
- 
-
-    </main>
+    <form class="vertical-spaced" method="post">
+        <div>
+            <label for="password">Frase Secreta</label>
+            <input type="password" name="passphrase" id="passphrase" required>
+        </div>
+        <input class="button" type="submit" value="Entrar">
+    </form>
+</div>
 </body>
-    <%- include("../_footer.ejs") %>
 </html>

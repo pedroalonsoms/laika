@@ -1,0 +1,19 @@
+<% 
+let animal_id = req.params.animal_id;
+
+if(!animal_id) {
+    animal_id = req.params.id;
+}
+
+const prefix = `/animals/${animal_id}`
+%>
+
+<nav class="navbar">
+    <a class="link" href="<%= prefix %>/">Perfil</a>
+    <a class="link" href="<%= prefix %>/rescue">Rescate</a>
+    <a class="link" href="<%= prefix %>/events">Rehabilitación</a>
+    <a class="link" href="<%= prefix %>/appointments">Citas</a>
+    <a class="link" href="<%= prefix %>/homes">Hogares</a>
+</nav>
+
+<div class="spacer"></div>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../_header.ejs", {title: "Editar Animal"}) %>
-    <%- include("../_back_to_animal.ejs") %>
+    <%- include("../_header.ejs") %>
 <body>
-    <div class="card">
-        <div class="card__Container">
-            <%- include("./_form.ejs", {action: `/animals/${req.params.id}/update`}) %>
-        </div>
-    </div>    
+<div class="content">
+    <h1>Editar Perfil</h1>
+    <%- include("../_animal_navbar.ejs") %>
+    <%- include("./_form.ejs", {action: `/animals/${req.params.id}/update`}) %>
+</div>
 </body>
 </html>

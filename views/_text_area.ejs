@@ -18,13 +18,12 @@ const value = model[pathName];
 
 %>
 
-<p>
-    <label for="<%= pathName %>"><%= title %>
-    
-    <% if(asterisk) { %>
-        *
-    <% } %>
-    
-    </label><br>
-    <textarea type="text" name="<%= formName %>" id="<%= pathName %>" cols="30" rows="4"><% if(value) { %><%= value %><% } %></textarea>
-</p>
+<div class="input-container">
+    <label for="<%= pathName %>">
+        <%= title %> <% if(asterisk) { %> * <% } %>
+    </label>
+
+    <textarea type="text" name="<%= formName %>" id="<%= pathName %>"><% 
+        if(value) { %><%= value %><% } 
+    %></textarea>
+</div>

@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("../_header.ejs", {title: "Hogar"}) %>
-    <%- include("../_back_to_animal.ejs") %>
+    <%- include("../_header.ejs") %>
 <body>
-<base href="/animals/<%= req.params.animal_id %>/homes/<%= req.params.id %>/">
-    <div class="card">
-        <div class="card__Container">
+<div class="content">
+    <h1>Hogar</h1>
+    
+    <%- include("../_animal_navbar.ejs") %>
+    <base href="/animals/<%= req.params.animal_id %>/homes/<%= req.params.id %>/">
+        <div class="vertical-spaced">
+            <nav class="button-container">
+                <a class="button" href="edit/">Editar</a>
+                <a class="button button-secondary" href="delete/">Borrar</a>
+            </nav>
+
             <p>
-                <code>Tipo</code>
-                <%= home.type %>
+                <b>Tipo</b>
+                <span><%= home.type %></span>
             </p>
             <%- include("../_text_label.ejs", {model: home, pathName: "start_date"}) %> 
             <%- include("../_text_label.ejs", {model: home, pathName: "end_date"}) %> 
             <p>
-                <code>Edad de Partida</code>
-                <%= home.leaving_age %>
+                <b>Edad de Partida</b>
+                <span><%= home.leaving_age %></span>
             </p>
             <%- include("../_text_label.ejs", {model: home, pathName: "keeper_name"}) %> 
             <%- include("../_text_label.ejs", {model: home, pathName: "keeper_phone"}) %> 
             <%- include("../_text_label.ejs", {model: home, pathName: "keeper_contact"}) %> 
             <%- include("../_show_address.ejs", {model: home.address}) %> 
             <%- include("../_text_label.ejs", {model: home, pathName: "note"}) %> 
-            
-            <div>
-                <button><a href="edit/">Editar</a></button>
-                <button><a href="delete/">Borrar</a></button>
-            </div>
         </div>
-    </div>
-</base>
-    <%- include("../_footer.ejs") %>
+    </base>
+</div>
 </body>
 </html>
 

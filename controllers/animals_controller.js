@@ -157,7 +157,7 @@ class AnimalsController {
     };
 
     const footer = () => {
-      doc.image("./public/images/footer.png", 220, 700, { width: 150 });
+      doc.image("./public/images/logo.png", 220, 700, { width: 150 });
     };
 
     // Animal page

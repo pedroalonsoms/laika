@@ -18,24 +18,15 @@ const value = model[pathName];
 
 %>
 
-<p>
-    <label for="<%= pathName %>"><%= title %>
-    
-    <% if(asterisk) { %>
-        *
-    <% } %>
-    
-    </label><br>
-    <input type="text" name="<%= formName %>" id="<%= pathName %>" autocomplete="off"
-    
-    <% if(value) { %>
-        value="<%= value %>"
-    <% } %>
-    
-    />
+<div class="input-container">
+    <label for="<%= pathName %>">
+        <%= title %> <% if(asterisk) { %> * <% } %>
+    </label>
+
+    <input type="text" name="<%= formName %>" id="<%= pathName %>" 
+        autocomplete="off" <% if(value) { %> value="<%= value %>" <% } %> />
 
     <% if(hasOkButton) { %>
-        <button type="button" onclick="fetchNeighborhoods()">
-            <span id="ok">Ok</span></button>
+        <button type="button" onclick="fetchNeighborhoods()">Ok</button>
     <% } %>
-</p>
+</div>

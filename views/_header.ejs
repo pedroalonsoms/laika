@@ -1,28 +1,21 @@
-<% const {navbar=true} = locals; %>
+<% const {navbar=true, title} = locals; %>
 
 <head>
-  <title><%= title %></title>
+  <title>Laika</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="icon" href="/images/icon.webp" />
-
-  <% if (navbar) { %>
-  <nav>
-    <button>
-      <a class="fancy" href="/animals">Animales</a>
-    </button>
-
-    <button>
-      <a href="/calendar">Calendario</a>
-    </button>
-
-    <button>
-      <a href="/logout">Salir</a>
-    </button>
-  </nav>
-  <% } %>
-
-  <div id="title"><h1><%= title %></h1></div>
 </head>
+
+<% if (navbar) { %>
+  <nav class="main-navbar">
+    <img src="/images/logo.png" alt="Fundación Laika">
+    <a class="link" href="/animals">Animales</a>
+    <a class="link" href="/animals/new">Nuevo</a>
+    <a class="link" href="/animals/search">Buscar</a>
+    <a class="link" href="/calendar">Calendario</a>
+    <a class="link ml-auto" href="/logout">Salir</a>
+  </nav>
+<% } %>

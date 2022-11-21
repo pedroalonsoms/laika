@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../_header.ejs", {title: "Rescate"}) %>
-    <%- include("../_back_to_animal.ejs") %>
+    <%- include("../_header.ejs") %>
 <body>
-<base href="/animals/<%= req.params.animal_id %>/rescue/">
-    <div class="card">
-        <div class="card__Container">
-            <% if(rescue) { %>
+<div class="content">
+    <h1>Rescate</h1>
+
+    <%- include("../_animal_navbar.ejs") %>
+    <base href="/animals/<%= req.params.animal_id %>/rescue/">
+        <% if(rescue) { %>
+            <div class="vertical-spaced">
+                <nav class="button-container">
+                    <a class="button" href="edit">Editar</a>
+                    <a class="button button-secondary" href="delete">Borrar</a>
+                </nav>
+
                 <%- include("../_text_label.ejs", {model: rescue, pathName: "date"}) %>
                 <p>
-                    <code>Edad al Rescate:</code>
-                    <%= rescue.age %>
+                    <b>Edad al Rescate:</b><br>
+                    <span><%= rescue.age %></span>
                 </p>
                 <%- include("../_text_label.ejs", {model: rescue, pathName: "rescuers"}) %>
                 <%- include("../_text_label.ejs", {model: rescue, pathName: "organization"}) %>
                 <%- include("../_show_address.ejs", {model: rescue.address}) %>
-                
-                <div>
-                    <button><a href="edit">Editar</a></button>
-                    <button><a href="delete">Borrar</a></button>
-                </div>
+            </div>
             <% } else { %>
-                <button><a href="new">Rescate</a></button>
+                <a class="button" href="new">Nuevo Rescate</a>
+                <div class="spacer"></div>
+                <p>¡No hay rescate!</p>
             <% } %>
-        </div>
-    </div>
-</base>
-    <%- include("../_footer.ejs") %>
+    </base>
+</div>
 </body>
 </html>

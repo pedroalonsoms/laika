@@ -18,19 +18,11 @@ const value = model[pathName];
 
 %>
 
-<p>
-    <label for="<%= pathName %>"><%= title %>
-    
-    <% if(asterisk) { %>
-        *
-    <% } %>
-    
-    </label><br>
-    <input type="date" name="<%= formName %>" id="<%= pathName %>"
-    
-    <% if(value) { %>
-        value="<%= value.toDateInputValue() %>"
-    <% } %>
-    
-    />
-</p>
+<div class="input-container">
+    <label for="<%= pathName %>">
+        <%= title %> <% if(asterisk) { %> * <% } %>
+    </label>
+
+    <input type="date" name="<%= formName %>" id="<%= pathName %>" 
+        <% if(value) { %> value="<%= value.toDateInputValue() %>" <% } %> />
+</div>

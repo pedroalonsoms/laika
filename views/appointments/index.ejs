@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../_header.ejs", {title: "Citas"}) %>
-    <%- include("../_back_to_animal.ejs") %>
+    <%- include("../_header.ejs") %>
 <body>
-<base href="/animals/<%= req.params.animal_id %>/appointments/">
-    <button><a href="new">Nueva cita</a></button>
+<div class="content">
+    <h1>Citas</h1>
+    <%- include("../_animal_navbar.ejs") %>
+    
+    <base href="/animals/<%= req.params.animal_id %>/appointments/">
+        
+        <a class="button" href="new">Nueva cita</a>
+        <div class="spacer"></div>
 
-    <% if(appointments.length > 0) { %>
-
-        <table>
-            <thead>
-            <tr>
-                <th>Fecha</th>
-                <th>Descripción</th>
-                <th class="delete">Acción</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% for(const appointment of appointments) { %>
+        <% if(appointments.length > 0) { %>
+            <table>
+                <thead>
                 <tr>
-                    <td><%= appointment.date.toText() %></td>
-                    <td><%= appointment.description %></td>
-                    <td class="delete">
-                        <a href="<%= appointment.id %>/delete">Borrar</a>
-                    </td>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th></th>
                 </tr>
-            <% } %>
-            </tbody>
-        </table>
-
-    <% } else { %>
-
-        <p>¡No hay citas!</p>
-
-    <% } %>
-</base>
-    <%- include("../_footer.ejs") %>
+                </thead>
+                <tbody>
+                <% for (const appointment of appointments) { %>
+                    <tr>
+                        <td class="date-table-cell"><%= appointment.date.toText() %></td>
+                        <td><%= appointment.description %></td>
+                        <td>
+                            <a class="button button-secondary" href="<%= appointment.id %>/delete">Eliminar</a>
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>¡No hay citas!</p>
+        <% } %>
+    </base>
+</div>
 </body>
 </html>

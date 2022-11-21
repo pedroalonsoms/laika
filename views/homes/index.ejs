@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../_header.ejs", {title: "Hogares"}) %>
-    <%- include("../_back_to_animal.ejs") %>
+    <%- include("../_header.ejs") %>
 <body>
-<base href="/animals/<%= req.params.animal_id %>/homes/">
-    <button><a href="new">Nuevo hogar</a></button>
+<div class="content">
+    <h1>Hogares</h1>
 
-    <% if(homes?.length > 0) { %>
+    <%- include("../_animal_navbar.ejs") %>
+    <base href="/animals/<%= req.params.animal_id %>/homes/">
+        
+        <a class="button" href="new">Nuevo hogar</a></button>
+        <div class="spacer"></div>
 
-        <table>
-            <thead>
-            <tr>
-                <th>Tipo</th>
-                <th>Inicio</th>
-                <th>Regreso</th>
-                <th class="delete">Acción</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% for(const home of homes) { %>
+        <% if(homes?.length > 0) { %>
+            <table>
+                <thead>
                 <tr>
-                    <td><%= home.type %></td>
-                    <td style="white-space: nowrap;"><%= home.start_date.toText() %></td>
-                    <td style="white-space: nowrap;"><%= home.end_date?.toText() %></td>
-                    <td class="delete">
-                        <a href="<%= home?.id %>">Detalles</a>
-                    </td>
+                    <th>Tipo</th>
+                    <th>Inicio</th>
+                    <th>Regreso</th>
+                    <th></th>
                 </tr>
-            <% } %>
-            </tbody>
-        </table>
-
-    <% } else { %>
-
-        <p>!No hay hogares!</p>
-
-    <% } %>
-</base>
-    <%- include("../_footer.ejs") %>
+                </thead>
+                <tbody>
+                <% for(const home of homes) { %>
+                    <tr>
+                        <td><%= home.type %></td>
+                        <td><%= home.start_date.toText() %></td>
+                        <td><%= home.end_date?.toText() %></td>
+                        <td>
+                            <a class="button" href="<%= home?.id %>">Detalles</a>
+                        </td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>¡No hay hogares!</p>
+        <% } %>
+    </base>
+</div>
 </body>
 </html>

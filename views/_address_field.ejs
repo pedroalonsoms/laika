@@ -1,5 +1,4 @@
 <% 
-
 const {model, formNameStyle = "brackets", prefix="", asterisk = true} = locals; 
 
 const getFormName = (name) => {
@@ -11,7 +10,6 @@ const getFormName = (name) => {
         return `${prefix}.address.${name}[$eq]`;
     }
 }
-
 %>
 
 <%- include("_dropdown.ejs", {model: model, pathName: "municipality", formName: getFormName("municipality"), asterisk: asterisk}) %>

@@ -23,16 +23,12 @@ if(value) {
 
 %>
 
-<p>
-    <label for="<%= pathName %>"><%= title %>
-    
-    <% if(asterisk) { %>
-        *
-    <% } %>
-    
-    </label><br>
-    <select name="<%= formName %>" id="<%= pathName %>">
+<div class="input-container">
+    <label for="<%= pathName %>">
+        <%= title %> <% if(asterisk) { %> * <% } %>
+    </label>
 
+    <select name="<%= formName %>" id="<%= pathName %>">
         <% if (!asterisk) { %>
             <option value=""></option>
         <% } %>
@@ -47,4 +43,4 @@ if(value) {
             </option>
         <% } %>
     </select>
-</p>
+</div>

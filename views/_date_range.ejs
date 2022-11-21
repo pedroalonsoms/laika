@@ -1,22 +1,12 @@
-<% 
+<% const {formName, from, to} = locals; %>
 
-const {formName, from, to} = locals; 
-
-%>
-
-<p>
-    <label for="from">Desde</label><br>
+<div class="input-container">
+    <label for="from">Desde</label>
     <input type="date" name="<%= formName %>[$gte]" id="from" 
-    <% if(from) { %>
-        value="<%= from.toDateInputValue() %>"
-    <% } %>
-    />
-</p>
-<p>
-    <label for="to">Hasta</label><br>
+        <% if(from) { %> value="<%= from.toDateInputValue() %>" <% } %> />
+</div>
+<div class="input-container">
+    <label for="to">Hasta</label>
     <input type="date" name="<%= formName %>[$lte]" id="to"
-    <% if(to) { %>
-        value="<%= to.toDateInputValue() %>"
-    <% } %>
-    />
-</p>
+        <% if(to) { %> value="<%= to.toDateInputValue() %>" <% } %> />
+</div>
