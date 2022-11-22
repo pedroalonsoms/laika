@@ -16,7 +16,7 @@ class AnimalsController {
 
   index = async (req, res) => {
     // Pagination logic
-    const PER_PAGE = 20;
+    const PER_PAGE = 18;
     const page = Math.max(
       1,
       Number(req.query.page) ? Number(req.query.page) : -Infinity
