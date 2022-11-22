@@ -7,13 +7,13 @@
 
     <%- include("../_animal_navbar.ejs") %>
     <base href="/animals/<%= req.params.animal_id %>/rescue/">
+        <nav class="button-container">
+            <a class="button" href="edit">Editar</a>
+            <a class="button button-secondary" href="delete">Borrar</a>
+        </nav>
+
         <% if(rescue) { %>
             <div class="vertical-spaced">
-                <nav class="button-container">
-                    <a class="button" href="edit">Editar</a>
-                    <a class="button button-secondary" href="delete">Borrar</a>
-                </nav>
-
                 <%- include("../_text_label.ejs", {model: rescue, pathName: "date"}) %>
                 <p>
                     <b>Edad al Rescate:</b><br>
@@ -23,11 +23,11 @@
                 <%- include("../_text_label.ejs", {model: rescue, pathName: "organization"}) %>
                 <%- include("../_show_address.ejs", {model: rescue.address}) %>
             </div>
-            <% } else { %>
-                <a class="button" href="new">Nuevo Rescate</a>
-                <div class="spacer"></div>
-                <p>¡No hay rescate!</p>
-            <% } %>
+        <% } else { %>
+            <a class="button" href="new">Nuevo Rescate</a>
+            <div class="spacer"></div>
+            <p>¡No hay rescate!</p>
+        <% } %>
     </base>
 </div>
 </body>

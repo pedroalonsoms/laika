@@ -24,11 +24,11 @@
                 <b class="date-title"><%= day.date %></b>
             </p>
 
-            <ul>
+            <p>
                 <% for (const {description, animal: {id, name}} of day.items) { %>
-                    <li><%= description %> de <a class="link" href="/animals/<%= id %>"><%= name %></a></li>
+                    <span>- <%= description %> de <a class="link" href="/animals/<%= id %>"><%= name %></a></li>
                 <% } %>
-            </ul>
+            </p>
         <% } %>
     <% } else { %>
         <p>No se encontraron pendientes :)</p>

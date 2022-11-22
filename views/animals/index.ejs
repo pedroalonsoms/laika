@@ -4,6 +4,14 @@
 <body>
 <div class="content">
     <h1>Animales</h1>
+
+    <div class="sm-spacer"></div>
+
+    <nav class="navbar">
+        <a class="link" href="/animals/new">Nuevo</a>
+        <a class="link" href="/animals/search">Buscar</a>
+    </nav>
+    
     <div class="spacer"></div>
 
     <% if(animals.length > 0) { %>
@@ -16,6 +24,8 @@
                         <% } %>
                     </h2>
                     
+                    <div class="sm-spacer"></div>
+                    
                     <% 
                         let src;
                         if(animal.photos.length > 0) {
@@ -26,6 +36,8 @@
                     %>
                     
                     <img src="<%= src %>" alt="<%= animal.name %>" loading="lazy" />
+                    
+                    <div class="sm-spacer"></div>
 
                     <div class="image-grid-details">
                         <p><%= animal.status %></p>
@@ -37,13 +49,13 @@
 
         <div class="spacer"></div>
 
-        <div class="float-r">
+        <div class="next-page-container">
             <p>
                 Del <b><%= from %></b>
                 al <b><%= to %></b>
                 de un total de <b><%= total %></b>
             </p>
-            <a id="page" class="button float-r">Siguiente</a>
+            <a id="page" class="button">Siguiente</a>
         </div>
         
         <script>

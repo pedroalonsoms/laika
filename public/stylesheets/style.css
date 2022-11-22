@@ -15,12 +15,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
-  line-height: 1.5;
-  color: var(--backgorund-contrast);
-}
-
-body {
-  background-color: var(--background);
 }
 
 input,
@@ -28,14 +22,6 @@ button,
 textarea,
 select {
   font: inherit;
-  background-color: var(--background);
-  border: 0.5px solid var(--backgorund-contrast);
-  padding: 0rem 0.2rem;
-  border-radius: 0.1rem;
-}
-
-input[type="file"] {
-  border: none;
 }
 
 .main-navbar {
@@ -44,26 +30,16 @@ input[type="file"] {
   z-index: 1;
 
   top: 0;
-  height: 4.5rem;
+  height: 3.5rem;
   position: sticky;
 
   background-color: var(--primary);
-  padding: 0.5rem 2rem;
-  gap: 1.5rem;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
 }
 
 .main-navbar > a {
   color: var(--onPrimary);
-}
-
-@media only screen and (max-width: 600px) {
-  .main-navbar > a {
-    display: none;
-  }
-
-  .main-navbar > .ml-auto {
-    display: block;
-  }
 }
 
 .main-navbar > img {
@@ -80,18 +56,24 @@ input[type="file"] {
 }
 
 .content {
-  padding: 1rem 15% 5rem 15%;
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .image-grid {
   display: grid;
-  justify-content: space-around;
-  grid-template-columns: repeat(auto-fill, 310px);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1rem;
 }
 
 .image-grid img {
   width: 100%;
+  height: auto;
+}
+
+.sm-spacer {
+  padding: 0.4rem;
 }
 
 .input-container > label {
@@ -100,21 +82,17 @@ input[type="file"] {
 }
 
 .vertical-spaced {
-  position: relative;
-
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   align-items: flex-start;
+  gap: 1rem;
 }
 
 .button-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
+  width: fit-content;
+  margin-left: auto;
 }
 
 .spacer {
@@ -139,7 +117,7 @@ input[type="file"] {
   background-color: var(--primary);
   color: var(--onPrimary);
 
-  padding: 0.2rem 0.7rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 0.6rem;
 }
 
@@ -179,7 +157,7 @@ table {
 
 th,
 td {
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   text-align: center;
 }
 
@@ -205,6 +183,8 @@ summary {
   align-items: center;
 }
 
-.float-r {
-  float: right;
+.next-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
