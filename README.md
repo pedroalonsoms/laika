@@ -42,6 +42,7 @@ Tried to implement an administration system for homeless animal adoptions for a 
 - Try a different approach for the backend, maybe a CMS instead of using AWS
 - Make the CSS code cleaner
 - Migrate database to SQL/CMS
+- Lazy load images
 
 # Tech Stack
 
