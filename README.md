@@ -24,6 +24,8 @@ Tried to implement an administration system for homeless animal adoptions for a 
 
 # To Improve
 
+- Implement accesibility
+- Implement semantic HTML
 - Store cookies on Redis instead of Mongo
 - Sharp library requires a using a obscure custom memory-allocator [libjemalloc](https://github.com/jemalloc/jemalloc) to prevent memory leaks, which is painful to install
 - Pdf generation is done server-side with an obscure library. It could be better if we use a `@media print` query directly from client side
