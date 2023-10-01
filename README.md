@@ -1,6 +1,6 @@
 # Laika
 
-Tried to implement an administration system for homeless animal adoptions for a non-profit organization as a social service project within a team of 5. Based on an existing app. Page is currently down, it has a lot of bugs.
+An administration system for homeless animal adoptions for a non-profit organization as a social service project within a team of 5. Based on an existing app. Page is currently down, it has a lot of bugs.
 
 # Features
 
